@@ -16,19 +16,13 @@ using System.Windows.Shapes;
 namespace duapp.tctianchi.Civ6Trainer.Frontend.Trainer
 {
     /// <summary>
-    /// MainWindow.xaml 的交互逻辑
+    /// ResourcePage.xaml 的交互逻辑
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class ArmyPage : UserControl
     {
-        public MainWindow()
+        public ArmyPage()
         {
             InitializeComponent();
-        }
-
-        private void btnNav_Click(object sender, RoutedEventArgs e)
-        {
-            Button btn = sender as Button;
-            this.contentFrame.Navigate(new Uri("Frontend/Trainer/" + btn.Tag.ToString() + ".xaml", UriKind.Relative));
         }
     }
 }

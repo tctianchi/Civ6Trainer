@@ -13,22 +13,16 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace duapp.tctianchi.Civ6Trainer.Frontend.Trainer
+namespace duapp.tctianchi.Civ6Trainer.Frontend.Control
 {
     /// <summary>
-    /// MainWindow.xaml 的交互逻辑
+    /// MenuPanel.xaml 的交互逻辑
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class MenuPanel : UserControl
     {
-        public MainWindow()
+        public MenuPanel()
         {
             InitializeComponent();
-        }
-
-        private void btnNav_Click(object sender, RoutedEventArgs e)
-        {
-            Button btn = sender as Button;
-            this.contentFrame.Navigate(new Uri("Frontend/Trainer/" + btn.Tag.ToString() + ".xaml", UriKind.Relative));
         }
     }
 }

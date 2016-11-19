@@ -6,7 +6,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
 
-namespace duapp.tctianchi.Civ6Trainer
+namespace tctianchi.Civ6Trainer
 {
     /// <summary>
     /// App.xaml 的交互逻辑

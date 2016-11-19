@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace duapp.tctianchi.Civ6Trainer.Frontend.Control
+namespace tctianchi.Civ6Trainer.Frontend.Control
 {
     /// <summary>
     /// MenuPanel.xaml 的交互逻辑

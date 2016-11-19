@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace duapp.tctianchi.Civ6Trainer.Properties {
+namespace tctianchi.Civ6Trainer.Properties {
     using System;
     
     
@@ -39,7 +39,7 @@ namespace duapp.tctianchi.Civ6Trainer.Properties {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("duapp.tctianchi.Civ6Trainer.Properties.Resources", typeof(Resources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("tctianchi.Civ6Trainer.Properties.Resources", typeof(Resources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;

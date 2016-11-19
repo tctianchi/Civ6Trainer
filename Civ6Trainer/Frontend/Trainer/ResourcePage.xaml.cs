@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace duapp.tctianchi.Civ6Trainer.Frontend.Trainer
+namespace tctianchi.Civ6Trainer.Frontend.Trainer
 {
     /// <summary>
     /// ResourcePage.xaml 的交互逻辑

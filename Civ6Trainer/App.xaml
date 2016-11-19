@@ -1,12 +1,12 @@
-﻿<Application x:Class="duapp.tctianchi.Civ6Trainer.App"
+﻿<Application x:Class="tctianchi.Civ6Trainer.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:local="clr-namespace:duapp.tctianchi.Civ6Trainer"
+             xmlns:local="clr-namespace:tctianchi.Civ6Trainer"
              StartupUri="Frontend/Trainer/MainWindow.xaml">
     <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="Frontend/Style/DictionaryContainingScrollbarStyle.xaml" />
+                <ResourceDictionary Source="Frontend/Control/ScrollBarStyle.xaml" />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>

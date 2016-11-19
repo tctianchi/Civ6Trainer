@@ -7,12 +7,11 @@
              mc:Ignorable="d" d:DesignWidth="182" Height="27">
     <Grid Margin="0,0,0,0">
         <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
-            <TextBlock x:Name="iconBox" HorizontalAlignment="Center" Margin="18,0,7,0"
+            <TextBlock x:Name="iconBox" Margin="18,1.8,7,0"
                        FontSize="12" Text="&#xF021;" Foreground="#596476"
-                       FontFamily="/Asset/Font/#FontAwesome"
-                       VerticalAlignment="Center">
+                       FontFamily="/Asset/Font/#FontAwesome">
             </TextBlock>
-            <TextBlock x:Name="contentBox" HorizontalAlignment="Center"
+            <TextBlock x:Name="contentBox"
                        FontSize="10.5" Text="标题" Foreground="#596476"
                        FontFamily="Microsoft YaHei">
             </TextBlock>

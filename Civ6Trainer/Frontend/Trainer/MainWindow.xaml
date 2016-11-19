@@ -28,6 +28,9 @@
                         </StackPanel>
 
                     </UserControl>
+
+                    <trinerControl:TrainerMenuButton IconText="&#xF021;" ContentText="刷新" IconFontSize="17.85" Height="44"/>
+                    <Border Height="2" Background="#323d4f" />
                     <trinerControl:TrainerMenuLabel IconText="&#xF157;" ContentText="游戏全局" IconFontSize="12"/>
                     <trinerControl:TrainerMenuLabel IconText="&#xF19C;" ContentText="城市" IconFontSize="9.5"/>
                     <trinerControl:TrainerMenuLabel IconText="&#xF072;" ContentText="部队" IconFontSize="12"/>
@@ -54,36 +57,6 @@
                     </UserControl>
                     <UserControl>
                         <Grid>
-                            <TextBlock Name="lblStyled" Text="Hello, styled world!" FontSize="18" HorizontalAlignment="Center" VerticalAlignment="Center">
-                                <TextBlock.Style>
-                                    <Style TargetType="TextBlock">
-                                        <Style.Triggers>
-                                            <EventTrigger RoutedEvent="MouseEnter">
-                                                <EventTrigger.Actions>
-                                                    <BeginStoryboard>
-                                                        <Storyboard>
-                                                            <DoubleAnimation Duration="0:0:0.300" Storyboard.TargetProperty="FontSize" To="28" />
-                                                        </Storyboard>
-                                                    </BeginStoryboard>
-                                                </EventTrigger.Actions>
-                                            </EventTrigger>
-                                            <EventTrigger RoutedEvent="MouseLeave">
-                                                <EventTrigger.Actions>
-                                                    <BeginStoryboard>
-                                                        <Storyboard>
-                                                            <DoubleAnimation Duration="0:0:0.800" Storyboard.TargetProperty="FontSize" To="18" />
-                                                        </Storyboard>
-                                                    </BeginStoryboard>
-                                                </EventTrigger.Actions>
-                                            </EventTrigger>
-                                        </Style.Triggers>
-                                    </Style>
-                                </TextBlock.Style>
-                            </TextBlock>
-                        </Grid>
-                    </UserControl>
-                    <UserControl>
-                        <Grid>
                             <Button Content="One" Width="75" HorizontalAlignment="Left"/>
                             <Button Content="Two" Width="75" HorizontalAlignment="Right"/>
 
@@ -95,7 +68,7 @@
 
                         <!--<Button Tag="ResourcePage" Name="btnA" Height="30" Margin="5" Click="btnNav_Click" Width="74" HorizontalContentAlignment="Left">页面A</Button>
 
-                    <Border Height="2" Background="#323d4f" />
+                    
 
 
 

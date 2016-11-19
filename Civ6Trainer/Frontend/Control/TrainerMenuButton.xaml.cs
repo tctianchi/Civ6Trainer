@@ -24,5 +24,53 @@ namespace tctianchi.Civ6Trainer.Frontend.Control
         {
             InitializeComponent();
         }
+
+        public double IconFontSize
+        {
+            get
+            {
+                return iconBox.FontSize;
+            }
+            set
+            {
+                iconBox.FontSize = value;
+            }
+        }
+
+        public string IconText
+        {
+            get
+            {
+                return iconBox.Text;
+            }
+            set
+            {
+                iconBox.Text = value;
+            }
+        }
+
+        public string ContentText
+        {
+            get
+            {
+                return contentBox.Text;
+            }
+            set
+            {
+                contentBox.Text = value;
+            }
+        }
+
+        private void wholePanel_MouseEvent(object sender, MouseEventArgs e)
+        {
+            if (wholePanel.IsMouseOver)
+            {
+                VisualStateManager.GoToElementState(wholePanel, "MouseEnter", true);
+            }
+            else
+            {
+                VisualStateManager.GoToElementState(wholePanel, "MouseLeave", true);
+            }
+        }
     }
 }

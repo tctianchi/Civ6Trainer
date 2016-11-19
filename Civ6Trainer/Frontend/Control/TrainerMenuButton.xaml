@@ -5,36 +5,43 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:tctianchi.Civ6Trainer.Frontend.Control"
              mc:Ignorable="d" d:DesignWidth="182" Height="27">
-    <Grid Margin="0,0,0,0">
-        <StackPanel Orientation="Horizontal">
-            <TextBlock HorizontalAlignment="Center" Margin="0,0,8,0" FontSize="{Binding Path=IconFontSize}" Text="&#xF021;" FontFamily="Asset/Font/#fontawesome-webfont.ttf">
-                <TextBlock.Style>
-                    <Style TargetType="TextBlock">
-                        <Setter Property="Text" Value="&#xF021;{Binding Path=IconText}" />
-                        <Setter Property="Foreground" Value="Red" />
-                        <Style.Triggers>
-                            <DataTrigger Binding="{Binding ElementName=cbSample, Path=IsChecked}" Value="True">
-                                <Setter Property="Text" Value="Yes!" />
-                                <Setter Property="Foreground" Value="Green" />
-                            </DataTrigger>
-                        </Style.Triggers>
-                    </Style>
-                </TextBlock.Style>
+    <Grid x:Name="wholePanel" Margin="0,0,0,0" MouseEnter="wholePanel_MouseEvent" MouseLeave="wholePanel_MouseEvent">
+        <Grid.Background>
+            <SolidColorBrush x:Name="wholePanelBackgroundBrush" Color="#354052"/>
+        </Grid.Background>
+        <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+            <TextBlock x:Name="iconBox" Margin="18,0,7,0"
+                       FontSize="17.85" Text="&#xF021;"
+                       FontFamily="/Asset/Font/#FontAwesome">
+                <TextBlock.Foreground>
+                    <SolidColorBrush x:Name="iconForegroundBrush" Color="#919cae"/>
+                 </TextBlock.Foreground>
             </TextBlock>
-            <TextBlock HorizontalAlignment="Center" Margin="0,0,8,0" FontSize="{Binding Path=ContentFontSize}" Text="{Binding Path=ContentText}">
-                <TextBlock.Style>
-                    <Style TargetType="TextBlock">
-                        <Setter Property="Text" Value="&#xF021;{Binding Path=IconText}" />
-                        <Setter Property="Foreground" Value="Red" />
-                        <Style.Triggers>
-                            <DataTrigger Binding="{Binding ElementName=cbSample, Path=IsChecked}" Value="True">
-                                <Setter Property="Text" Value="Yes!" />
-                                <Setter Property="Foreground" Value="Green" />
-                            </DataTrigger>
-                        </Style.Triggers>
-                    </Style>
-                </TextBlock.Style>
+            <TextBlock x:Name="contentBox" VerticalAlignment="Center"
+                       FontSize="12" Text="标题"
+                       FontFamily="Microsoft YaHei">
+                <TextBlock.Foreground>
+                    <SolidColorBrush x:Name="contentForegroundBrush" Color="#919cae"/>
+                </TextBlock.Foreground>
             </TextBlock>
         </StackPanel>
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup Name="MouseStates">
+                <VisualState Name="MouseEnter">
+                    <Storyboard>
+                        <ColorAnimation To="#d1dae4" Duration="0:0:0.200" Storyboard.TargetName="iconForegroundBrush" Storyboard.TargetProperty="Color"/>
+                        <ColorAnimation To="#d1dae4" Duration="0:0:0.200" Storyboard.TargetName="contentForegroundBrush" Storyboard.TargetProperty="Color"/>
+                        <ColorAnimation To="#2f384a" Duration="0:0:0.200" Storyboard.TargetName="wholePanelBackgroundBrush" Storyboard.TargetProperty="Color"/>
+                    </Storyboard>
+                </VisualState>
+                <VisualState Name="MouseLeave">
+                    <Storyboard>
+                        <ColorAnimation To="#919cae" Duration="0:0:0.200" Storyboard.TargetName="iconForegroundBrush" Storyboard.TargetProperty="Color"/>
+                        <ColorAnimation To="#919cae" Duration="0:0:0.200" Storyboard.TargetName="contentForegroundBrush" Storyboard.TargetProperty="Color"/>
+                        <ColorAnimation To="#354052" Duration="0:0:0.200" Storyboard.TargetName="wholePanelBackgroundBrush" Storyboard.TargetProperty="Color"/>
+                    </Storyboard>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
     </Grid>
 </UserControl>

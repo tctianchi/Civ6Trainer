@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:tctianchi.Civ6Trainer"
+        xmlns:trinerControl="clr-namespace:tctianchi.Civ6Trainer.Frontend.Control"
         mc:Ignorable="d"
         Title="MainWindow" Height="530" Width="660">
 
@@ -27,6 +28,11 @@
                         </StackPanel>
 
                     </UserControl>
+                    <trinerControl:TrainerMenuLabel IconText="&#xF157;" ContentText="游戏全局" IconFontSize="12"/>
+                    <trinerControl:TrainerMenuLabel IconText="&#xF19C;" ContentText="城市" IconFontSize="9.5"/>
+                    <trinerControl:TrainerMenuLabel IconText="&#xF072;" ContentText="部队" IconFontSize="12"/>
+                    <trinerControl:TrainerMenuLabel IconText="&#xF0C3;" ContentText="研究" IconFontSize="10.3"/>
+                    <trinerControl:TrainerMenuLabel IconText="&#xF188;" ContentText="Debug" IconFontSize="11"/>
                     <UserControl>
                         <Grid>
                             <Grid.ColumnDefinitions>
@@ -34,9 +40,9 @@
                                 <ColumnDefinition Width="50"/>
                             </Grid.ColumnDefinitions>
 
-                            <Button Template="{StaticResource Front/Control/IconMenuItem}" HorizontalAlignment="Left" Margin="13,0,0,0">
+                            <!--<Button Template="{StaticResource Front/Control/IconMenuItem}" HorizontalAlignment="Left" Margin="13,0,0,0">
                                 12
-                            </Button>
+                            </Button>-->
                             
                             <!--<Button HorizontalAlignment="Left" Grid.Column="0" Grid.Row="0">
                                 <TextBlock >11</TextBlock>
@@ -48,9 +54,32 @@
                     </UserControl>
                     <UserControl>
                         <Grid>
-                            <Button Content="One" Width="75" HorizontalAlignment="Left"/>
-                            <Button Content="Two" Width="75" HorizontalAlignment="Right"/>
-
+                            <TextBlock Name="lblStyled" Text="Hello, styled world!" FontSize="18" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                <TextBlock.Style>
+                                    <Style TargetType="TextBlock">
+                                        <Style.Triggers>
+                                            <EventTrigger RoutedEvent="MouseEnter">
+                                                <EventTrigger.Actions>
+                                                    <BeginStoryboard>
+                                                        <Storyboard>
+                                                            <DoubleAnimation Duration="0:0:0.300" Storyboard.TargetProperty="FontSize" To="28" />
+                                                        </Storyboard>
+                                                    </BeginStoryboard>
+                                                </EventTrigger.Actions>
+                                            </EventTrigger>
+                                            <EventTrigger RoutedEvent="MouseLeave">
+                                                <EventTrigger.Actions>
+                                                    <BeginStoryboard>
+                                                        <Storyboard>
+                                                            <DoubleAnimation Duration="0:0:0.800" Storyboard.TargetProperty="FontSize" To="18" />
+                                                        </Storyboard>
+                                                    </BeginStoryboard>
+                                                </EventTrigger.Actions>
+                                            </EventTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </TextBlock.Style>
+                            </TextBlock>
                         </Grid>
                     </UserControl>
                     <UserControl>

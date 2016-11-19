@@ -7,7 +7,7 @@
     <ProjectGuid>{088E1D50-E0F5-46FC-AB3C-CF2C5D2FFE1F}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>duapp.tctianchi.Civ6Trainer</RootNamespace>
+    <RootNamespace>tctianchi.Civ6Trainer</RootNamespace>
     <AssemblyName>Civ6Trainer</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
@@ -58,7 +58,15 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="Frontend\Control\MenuPanel.xaml">
+    <Page Include="Frontend\Control\TrainerMenuLabel.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Frontend\Control\TrainerMenuButton.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Frontend\Control\TrainerMenuPanel.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -82,8 +90,14 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Frontend\Control\MenuPanel.xaml.cs">
-      <DependentUpon>MenuPanel.xaml</DependentUpon>
+    <Compile Include="Frontend\Control\TrainerMenuLabel.xaml.cs">
+      <DependentUpon>TrainerMenuLabel.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Frontend\Control\TrainerMenuButton.xaml.cs">
+      <DependentUpon>TrainerMenuButton.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Frontend\Control\TrainerMenuPanel.xaml.cs">
+      <DependentUpon>TrainerMenuPanel.xaml</DependentUpon>
     </Compile>
     <Compile Include="Frontend\Trainer\DebugPage.xaml.cs">
       <DependentUpon>DebugPage.xaml</DependentUpon>

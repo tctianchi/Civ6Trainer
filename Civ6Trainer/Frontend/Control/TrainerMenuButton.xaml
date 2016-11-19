@@ -1,0 +1,40 @@
+﻿<UserControl x:Class="tctianchi.Civ6Trainer.Frontend.Control.TrainerMenuButton"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:tctianchi.Civ6Trainer.Frontend.Control"
+             mc:Ignorable="d" d:DesignWidth="182" Height="27">
+    <Grid Margin="0,0,0,0">
+        <StackPanel Orientation="Horizontal">
+            <TextBlock HorizontalAlignment="Center" Margin="0,0,8,0" FontSize="{Binding Path=IconFontSize}" Text="&#xF021;" FontFamily="Asset/Font/#fontawesome-webfont.ttf">
+                <TextBlock.Style>
+                    <Style TargetType="TextBlock">
+                        <Setter Property="Text" Value="&#xF021;{Binding Path=IconText}" />
+                        <Setter Property="Foreground" Value="Red" />
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding ElementName=cbSample, Path=IsChecked}" Value="True">
+                                <Setter Property="Text" Value="Yes!" />
+                                <Setter Property="Foreground" Value="Green" />
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </TextBlock.Style>
+            </TextBlock>
+            <TextBlock HorizontalAlignment="Center" Margin="0,0,8,0" FontSize="{Binding Path=ContentFontSize}" Text="{Binding Path=ContentText}">
+                <TextBlock.Style>
+                    <Style TargetType="TextBlock">
+                        <Setter Property="Text" Value="&#xF021;{Binding Path=IconText}" />
+                        <Setter Property="Foreground" Value="Red" />
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding ElementName=cbSample, Path=IsChecked}" Value="True">
+                                <Setter Property="Text" Value="Yes!" />
+                                <Setter Property="Foreground" Value="Green" />
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </TextBlock.Style>
+            </TextBlock>
+        </StackPanel>
+    </Grid>
+</UserControl>

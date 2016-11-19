@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace tctianchi.Civ6Trainer.Frontend.Control
 {
     /// <summary>
-    /// MenuPanel.xaml 的交互逻辑
+    /// MenuItem.xaml 的交互逻辑
     /// </summary>
-    public partial class MenuPanel : UserControl
+    public partial class TrainerMenuButton : UserControl
     {
-        public MenuPanel()
+        public TrainerMenuButton()
         {
             InitializeComponent();
         }

@@ -30,5 +30,10 @@ namespace tctianchi.Civ6Trainer.Frontend.Trainer
             Button btn = sender as Button;
             this.contentFrame.Navigate(new Uri("Frontend/Trainer/" + btn.Tag.ToString() + ".xaml", UriKind.Relative));
         }
+
+        private void TrainerMenuButton_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            MessageBox.Show("Refresh");
+        }
     }
 }

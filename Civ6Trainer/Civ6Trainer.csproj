@@ -58,6 +58,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="Frontend\Control\TrainerMenuPageSelector.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Frontend\Control\TrainerMenuLabel.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -89,6 +93,9 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Frontend\Control\TrainerMenuPageSelector.xaml.cs">
+      <DependentUpon>TrainerMenuPageSelector.xaml</DependentUpon>
     </Compile>
     <Compile Include="Frontend\Control\TrainerMenuLabel.xaml.cs">
       <DependentUpon>TrainerMenuLabel.xaml</DependentUpon>

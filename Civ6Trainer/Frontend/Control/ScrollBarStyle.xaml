@@ -55,11 +55,14 @@
                             <RowDefinition Height="0.00001*" />
                         </Grid.RowDefinitions>
                         <Track x:Name="PART_Track"
+                            ViewportSize="NaN"
                             Grid.Row="0"
                             IsDirectionReversed="true"
                             Focusable="false">
                             <Track.Thumb>
                                 <Thumb x:Name="Thumb"
+                                    Height="66"
+                                    Opacity="0.4"
                                     Background="{TemplateBinding Foreground}"
                                     Style="{DynamicResource ScrollBarTrackThumb}" />
                             </Track.Thumb>
@@ -78,6 +81,33 @@
                         </Track>
                     </Grid>
                     <ControlTemplate.Triggers>
+                        <!--滑块透明度-->
+                        <Trigger SourceName="PART_Track"
+                                Property="IsMouseOver"
+                                Value="true">
+                            <Trigger.EnterActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation Duration="0:0:0.200"
+                                            Storyboard.TargetName="Thumb"
+                                            Storyboard.TargetProperty="Opacity"
+                                            To="1.0" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </Trigger.EnterActions>
+                            <Trigger.ExitActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation Duration="0:0:0.200"
+                                            Storyboard.TargetName="Thumb"
+                                            Storyboard.TargetProperty="Opacity"
+                                            To="0.4" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </Trigger.ExitActions>
+                        </Trigger>
+                        
+                        <!--滑块颜色-->
                         <Trigger SourceName="Thumb"
                                 Property="IsMouseOver"
                                 Value="true">
@@ -92,13 +122,16 @@
                                 TargetName="Thumb"
                                 Property="Background" />
                         </Trigger>
-
+                        
+                        <!--滑块可视-->
                         <Trigger Property="IsEnabled"
                                 Value="false">
                             <Setter TargetName="Thumb"
                                 Property="Visibility"
                                 Value="Collapsed" />
                         </Trigger>
+                        
+                        <!--滑块翻转-->
                         <Trigger Property="Orientation"
                                 Value="Horizontal">
                             <Setter TargetName="GridRoot"

@@ -48,11 +48,11 @@ namespace tctianchi.Civ6Trainer.Frontend.Control
                 bubbleText.Text = value;
                 if (value == "")
                 {
-                    bubbleBox.Width = new GridLength(0);
+                    bubbleBox.Visibility = Visibility.Collapsed;
                 }
                 else
                 {
-                    bubbleBox.Width = new GridLength(50);
+                    bubbleBox.Visibility = Visibility.Visible;
                 }
             }
         }

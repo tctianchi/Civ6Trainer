@@ -13,54 +13,12 @@
             <ColumnDefinition Width="185"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-        <UserControl Grid.Column="0" Grid.Row="0">
-            <ScrollViewer VerticalScrollBarVisibility="Auto" Background="#354052" Padding="0,5,0,5">
-                <StackPanel>
-                    <UserControl>
-                        <StackPanel>
-                            <Button Tag="ResourcePage" Name="btnA" Height="30" Margin="5" Click="btnNav_Click" Width="74" HorizontalContentAlignment="Left">页面A</Button>
-
-                            <Border Height="2" Background="#323d4f" />
-
-
-
-                            <Button Tag="CityPage" Name="btnB" Height="30" Width="92" Click="btnNav_Click">页面B</Button>
-                        </StackPanel>
-
-                    </UserControl>
-                    <trinerControl:TrainerMenuButton IconText="&#xF021;" ContentText="刷新" IconFontSize="17.85" Height="44" MouseLeftButtonUp="TrainerMenuButton_MouseLeftButtonUp"/>
-                    <Border Height="2" Background="#323d4f" />
-                    <trinerControl:TrainerMenuLabel IconText="&#xF157;" ContentText="游戏全局" IconFontSize="12"/>
-                    <trinerControl:TrainerMenuPageSelector ContentText="玩家0" BubbleText="" IsMarked="True"/>
-                    <Border Height="2" Background="#323d4f" />
-                    <trinerControl:TrainerMenuLabel IconText="&#xF19C;" ContentText="城市" IconFontSize="9.5"/>
-                    <Border Height="2" Background="#323d4f" />
-                    <trinerControl:TrainerMenuLabel IconText="&#xF072;" ContentText="部队" IconFontSize="12"/>
-                    <trinerControl:TrainerMenuPageSelector ContentText="Worker长长长长长长长长长长长长长长长长" BubbleText="1" IsMarked="False"/>
-                    <trinerControl:TrainerMenuPageSelector ContentText="Worker" BubbleText="12" IsMarked="False"/>
-                    <trinerControl:TrainerMenuPageSelector ContentText="Worker" BubbleText="123" IsMarked="False"/>
-                    <trinerControl:TrainerMenuPageSelector ContentText="Worker长长长长长长长长长长长长长长长长" BubbleText="" IsMarked="False"/>
-                    <trinerControl:TrainerMenuPageSelector ContentText="Worker" BubbleText="" IsMarked="False"/>
-                    <trinerControl:TrainerMenuPageSelector ContentText="Worker" BubbleText="" IsMarked="False"/>
-                    <trinerControl:TrainerMenuPageSelector ContentText="Worker" BubbleText="" IsMarked="False"/>
-                    <trinerControl:TrainerMenuPageSelector ContentText="Worker" BubbleText="" IsMarked="False"/>
-                    <trinerControl:TrainerMenuPageSelector ContentText="Worker" BubbleText="" IsMarked="False"/>
-                    <trinerControl:TrainerMenuPageSelector ContentText="Worker" BubbleText="" IsMarked="False"/>
-                    <trinerControl:TrainerMenuPageSelector ContentText="Worker" BubbleText="" IsMarked="False"/>
-                    <trinerControl:TrainerMenuPageSelector ContentText="Worker" BubbleText="" IsMarked="False"/>
-                    <trinerControl:TrainerMenuPageSelector ContentText="Worker" BubbleText="" IsMarked="False"/>
-                    <trinerControl:TrainerMenuPageSelector ContentText="Worker" BubbleText="" IsMarked="False"/>
-                    <trinerControl:TrainerMenuPageSelector ContentText="Worker" BubbleText="" IsMarked="False"/>
-                    <trinerControl:TrainerMenuPageSelector ContentText="Worker" BubbleText="" IsMarked="False"/>
-                    <trinerControl:TrainerMenuPageSelector ContentText="Worker" BubbleText="" IsMarked="False"/>
-                    <Border Height="2" Background="#323d4f" />
-                    <trinerControl:TrainerMenuLabel IconText="&#xF0C3;" ContentText="研究" IconFontSize="10.3"/>
-                    <Border Height="2" Background="#323d4f" />
-                    <trinerControl:TrainerMenuLabel IconText="&#xF188;" ContentText="Debug" IconFontSize="11"/>
-                    
-                </StackPanel>
-            </ScrollViewer>
-        </UserControl>
+        
+        <ScrollViewer Grid.Column="0" Grid.Row="0"
+                        VerticalScrollBarVisibility="Auto" Background="#354052" Padding="0,5,0,5">
+            <trinerControl:TrainerMenuPanel></trinerControl:TrainerMenuPanel>
+        </ScrollViewer>
+        
         <GridSplitter x:Name="gridSplitter" Height="auto" Width="5" Grid.Column="0" Grid.Row="0" Background="#f7f9fa" />
         <UserControl Grid.Column="1" Grid.Row="0">
 

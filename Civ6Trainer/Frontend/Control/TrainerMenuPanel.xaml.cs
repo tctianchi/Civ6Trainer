@@ -24,5 +24,10 @@ namespace tctianchi.Civ6Trainer.Frontend.Control
         {
             InitializeComponent();
         }
+
+        private void TrainerMenuPanel_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            MessageBox.Show("Refresh");
+        }
     }
 }

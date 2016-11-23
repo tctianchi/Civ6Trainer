@@ -12,32 +12,18 @@
                                          MouseLeftButtonUp="TrainerMenuPanel_MouseLeftButtonUp"/>
         <Border Height="2" Background="#323d4f" />
         <trinerControl:TrainerMenuLabel IconText="&#xF157;" ContentText="游戏全局" IconFontSize="12"/>
-        <trinerControl:TrainerMenuPageSelector ContentText="玩家0" BubbleText="" IsMarked="True"/>
+        <StackPanel x:Name="playerList"/>
         <Border Height="2" Background="#323d4f" />
         <trinerControl:TrainerMenuLabel IconText="&#xF19C;" ContentText="城市" IconFontSize="9.5"/>
+        <StackPanel x:Name="cityList"/>
         <Border Height="2" Background="#323d4f" />
         <trinerControl:TrainerMenuLabel IconText="&#xF072;" ContentText="部队" IconFontSize="12"/>
-        <trinerControl:TrainerMenuPageSelector ContentText="Worker长长长长长长长长长长长长长长长长" BubbleText="1" IsMarked="False"/>
-        <trinerControl:TrainerMenuPageSelector ContentText="Worker" BubbleText="12" IsMarked="False"/>
-        <trinerControl:TrainerMenuPageSelector ContentText="Worker" BubbleText="123" IsMarked="False"/>
-        <trinerControl:TrainerMenuPageSelector ContentText="Worker长长长长长长长长长长长长长长长长" BubbleText="" IsMarked="False"/>
-        <trinerControl:TrainerMenuPageSelector ContentText="Worker" BubbleText="" IsMarked="False"/>
-        <trinerControl:TrainerMenuPageSelector ContentText="Worker" BubbleText="" IsMarked="False"/>
-        <trinerControl:TrainerMenuPageSelector ContentText="Worker" BubbleText="" IsMarked="False"/>
-        <trinerControl:TrainerMenuPageSelector ContentText="Worker" BubbleText="" IsMarked="False"/>
-        <trinerControl:TrainerMenuPageSelector ContentText="Worker" BubbleText="" IsMarked="False"/>
-        <trinerControl:TrainerMenuPageSelector ContentText="Worker" BubbleText="" IsMarked="False"/>
-        <trinerControl:TrainerMenuPageSelector ContentText="Worker" BubbleText="" IsMarked="False"/>
-        <trinerControl:TrainerMenuPageSelector ContentText="Worker" BubbleText="" IsMarked="False"/>
-        <trinerControl:TrainerMenuPageSelector ContentText="Worker" BubbleText="" IsMarked="False"/>
-        <trinerControl:TrainerMenuPageSelector ContentText="Worker" BubbleText="" IsMarked="False"/>
-        <trinerControl:TrainerMenuPageSelector ContentText="Worker" BubbleText="" IsMarked="False"/>
-        <trinerControl:TrainerMenuPageSelector ContentText="Worker" BubbleText="" IsMarked="False"/>
-        <trinerControl:TrainerMenuPageSelector ContentText="Worker" BubbleText="" IsMarked="False"/>
+        <StackPanel x:Name="armyList"/>
         <Border Height="2" Background="#323d4f" />
         <trinerControl:TrainerMenuLabel IconText="&#xF0C3;" ContentText="研究" IconFontSize="10.3"/>
+        <StackPanel x:Name="scienceList"/>
         <Border Height="2" Background="#323d4f" />
         <trinerControl:TrainerMenuLabel IconText="&#xF188;" ContentText="Debug" IconFontSize="11"/>
-
+        <StackPanel x:Name="debugList"/>
     </StackPanel>
 </UserControl>

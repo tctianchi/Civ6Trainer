@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:tctianchi.Civ6Trainer.Frontend.Control"
              mc:Ignorable="d" d:DesignWidth="182" Height="27">
-    <Grid Margin="0,0,0,0">
+    <Grid Margin="0,0,0,0" Background="#354052">
         <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
             <TextBlock x:Name="iconBox" Margin="18,1.8,7,0"
                        FontSize="12" Text="&#xF021;" Foreground="#596476"

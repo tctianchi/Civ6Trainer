@@ -13,12 +13,14 @@
             <ColumnDefinition Width="185"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-        
+        <!--左-->
         <ScrollViewer Grid.Column="0" Grid.Row="0"
-                        VerticalScrollBarVisibility="Auto" Background="#354052" Padding="0,5,0,5">
-            <trinerControl:TrainerMenuPanel></trinerControl:TrainerMenuPanel>
+                      VerticalScrollBarVisibility="Auto" Background="#354052" Padding="0,5,0,5">
+            <trinerControl:TrainerMenuPanel x:Name="menuPanel"
+                                            RefreshClicked="menuPanel_RefreshClicked"
+                                            PageSelected="menuPanel_PageSelected"/>
         </ScrollViewer>
-        
+        <!--右-->
         <GridSplitter x:Name="gridSplitter" Height="auto" Width="5" Grid.Column="0" Grid.Row="0" Background="#f7f9fa" />
         <UserControl Grid.Column="1" Grid.Row="0">
 

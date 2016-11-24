@@ -131,7 +131,7 @@
                                 Value="Collapsed" />
                         </Trigger>
                         
-                        <!--滑块翻转-->
+                        <!--滑块方向-->
                         <Trigger Property="Orientation"
                                 Value="Horizontal">
                             <Setter TargetName="GridRoot"

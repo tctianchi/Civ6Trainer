@@ -66,7 +66,7 @@ namespace tctianchi.Civ6Trainer.Frontend.Trainer
                 TrainerMenuPanel.MenuCategory.City,
                 new PageTag { Tag = "city 3 tag" },
                 "城市长长长长长长长长长长长长长长长长");
-            for (int i = 0; i < 20; i++)
+            for (int i = 0; i < 2; i++)
             {
                 menuPanel.AddItem(
                     TrainerMenuPanel.MenuCategory.Army,

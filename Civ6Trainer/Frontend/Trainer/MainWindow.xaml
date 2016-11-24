@@ -14,12 +14,10 @@
         </Grid.ColumnDefinitions>
         <!--左-->
         <ScrollViewer Grid.Column="0" Grid.Row="0"
-                      VerticalScrollBarVisibility="Auto" Background="#354052" Padding="0,5,0,5">
+                      VerticalScrollBarVisibility="Visible" Background="#354052" Padding="0,5,-17,5">
             <trinerControl:TrainerMenuPanel x:Name="menuPanel"
                                             RefreshClicked="menuPanel_RefreshClicked"
-                                            PageSelected="menuPanel_PageSelected">
-                
-            </trinerControl:TrainerMenuPanel>
+                                            PageSelected="menuPanel_PageSelected"/>
             <ScrollViewer.Effect>
                 <DropShadowEffect Opacity="0.6" BlurRadius="2" ShadowDepth="1"/>
             </ScrollViewer.Effect>

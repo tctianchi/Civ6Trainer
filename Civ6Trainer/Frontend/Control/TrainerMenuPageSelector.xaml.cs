@@ -66,18 +66,24 @@ namespace tctianchi.Civ6Trainer.Frontend.Control
             set
             {
                 marker.Visibility = value ? Visibility.Visible : Visibility.Hidden;
+                recheckBackboardColor();
             }
         }
 
         private void wholePanel_MouseEvent(object sender, MouseEventArgs e)
         {
-            if (wholePanel.IsMouseOver)
+            recheckBackboardColor();
+        }
+
+        private void recheckBackboardColor()
+        {
+            if (wholePanel.IsMouseOver || IsMarked)
             {
-                VisualStateManager.GoToElementState(wholePanel, "MouseEnter", true);
+                VisualStateManager.GoToElementState(wholePanel, "HighLight", true);
             }
             else
             {
-                VisualStateManager.GoToElementState(wholePanel, "MouseLeave", true);
+                VisualStateManager.GoToElementState(wholePanel, "NormalLight", true);
             }
         }
     }

@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:tctianchi.Civ6Trainer.Frontend.Control"
              mc:Ignorable="d" d:DesignWidth="182" Height="27">
-    <Grid x:Name="wholePanel" Margin="0,0,0,0" MouseEnter="wholePanel_MouseEvent" MouseLeave="wholePanel_MouseEvent">
+    <Grid x:Name="wholePanel" MouseEnter="wholePanel_MouseEvent" MouseLeave="wholePanel_MouseEvent">
         <Grid.Background>
             <SolidColorBrush x:Name="wholePanelBackgroundBrush" Color="#354052"/>
         </Grid.Background>
@@ -13,6 +13,7 @@
             <ColumnDefinition Width="4"/>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="17"/>
         </Grid.ColumnDefinitions>
         <Rectangle Grid.Column="0" Grid.Row="0" Fill="#1f8dd6" x:Name="marker" />
         <TextBlock Grid.Column="1" Grid.Row="0"
@@ -34,14 +35,14 @@
         </Border>
 
         <VisualStateManager.VisualStateGroups>
-            <VisualStateGroup Name="MouseStates">
-                <VisualState Name="MouseEnter">
+            <VisualStateGroup>
+                <VisualState Name="HighLight">
                     <Storyboard>
                         <ColorAnimation To="#d1dae4" Duration="0:0:0.200" Storyboard.TargetName="contentForegroundBrush" Storyboard.TargetProperty="Color"/>
                         <ColorAnimation To="#2f384a" Duration="0:0:0.200" Storyboard.TargetName="wholePanelBackgroundBrush" Storyboard.TargetProperty="Color"/>
                     </Storyboard>
                 </VisualState>
-                <VisualState Name="MouseLeave">
+                <VisualState Name="NormalLight">
                     <Storyboard>
                         <ColorAnimation To="#919cae" Duration="0:0:0.200" Storyboard.TargetName="contentForegroundBrush" Storyboard.TargetProperty="Color"/>
                         <ColorAnimation To="#354052" Duration="0:0:0.200" Storyboard.TargetName="wholePanelBackgroundBrush" Storyboard.TargetProperty="Color"/>

@@ -78,6 +78,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Frontend\Trainer\HelloPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Frontend\Trainer\DebugPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -105,6 +109,9 @@
     </Compile>
     <Compile Include="Frontend\Control\TrainerMenuPanel.xaml.cs">
       <DependentUpon>TrainerMenuPanel.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Frontend\Trainer\HelloPage.xaml.cs">
+      <DependentUpon>HelloPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Frontend\Trainer\DebugPage.xaml.cs">
       <DependentUpon>DebugPage.xaml</DependentUpon>

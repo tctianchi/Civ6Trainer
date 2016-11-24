@@ -6,8 +6,7 @@
         xmlns:local="clr-namespace:tctianchi.Civ6Trainer"
         xmlns:trinerControl="clr-namespace:tctianchi.Civ6Trainer.Frontend.Control"
         mc:Ignorable="d"
-        Title="UI测试稿" Height="530" Width="660">
-
+        Title="文明6内存修改器" Height="530" Width="660">
     <Grid Name="grid1" Width="auto" Height="auto" Background="#f7f9fa">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="185"/>
@@ -18,18 +17,18 @@
                       VerticalScrollBarVisibility="Auto" Background="#354052" Padding="0,5,0,5">
             <trinerControl:TrainerMenuPanel x:Name="menuPanel"
                                             RefreshClicked="menuPanel_RefreshClicked"
-                                            PageSelected="menuPanel_PageSelected"/>
+                                            PageSelected="menuPanel_PageSelected">
+                
+            </trinerControl:TrainerMenuPanel>
+            <ScrollViewer.Effect>
+                <DropShadowEffect Opacity="0.6" BlurRadius="2" ShadowDepth="1"/>
+            </ScrollViewer.Effect>
         </ScrollViewer>
+        <GridSplitter x:Name="gridSplitter" Height="auto" Width="5" Grid.Column="0" Grid.Row="0" Background="#01354052" />
         <!--右-->
-        <GridSplitter x:Name="gridSplitter" Height="auto" Width="5" Grid.Column="0" Grid.Row="0" Background="#f7f9fa" />
-        <UserControl Grid.Column="1" Grid.Row="0">
-
-            <Frame Name="contentFrame" NavigationUIVisibility="Hidden"/>
-
-
-
-        </UserControl>
+        <Frame Grid.Column="1" Grid.Row="0"
+               Name="contentFrame"
+               Padding="14"
+               NavigationUIVisibility="Hidden" Source="HelloPage.xaml" />
     </Grid>
-
-
 </Window>

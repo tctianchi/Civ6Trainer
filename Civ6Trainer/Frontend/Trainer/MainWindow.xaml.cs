@@ -27,15 +27,18 @@ namespace tctianchi.Civ6Trainer.Frontend.Trainer
             public object Tag { get; set; }
         }
 
+        private FrameworkElement helloPage;
+        private FrameworkElement resourcePage;
+        private FrameworkElement cityPage;
+        private FrameworkElement armyPage;
+        private FrameworkElement researchPage;
+        private FrameworkElement debug1Page;
+
         public MainWindow()
         {
             InitializeComponent();
-        }
+            //helloPage = Activator.CreateInstance(Type.GetType("Frontend/Trainer/HelloPage.xaml")) as FrameworkElement;
 
-        private void btnNav_Click(object sender, RoutedEventArgs e)
-        {
-            Button btn = sender as Button;
-            this.contentFrame.Navigate(new Uri("Frontend/Trainer/" + btn.Tag.ToString() + ".xaml", UriKind.Relative));
         }
 
         private void menuPanel_RefreshClicked(object sender, EventArgs e)
@@ -74,11 +77,11 @@ namespace tctianchi.Civ6Trainer.Frontend.Trainer
                     $"部队{rand.Next()}");
             }
             menuPanel.AddItem(
-                TrainerMenuPanel.MenuCategory.Science,
+                TrainerMenuPanel.MenuCategory.Research,
                 new PageTag { Tag = "science 0 tag" },
                 "自然科学");
             menuPanel.AddItem(
-                TrainerMenuPanel.MenuCategory.Science,
+                TrainerMenuPanel.MenuCategory.Research,
                 new PageTag { Tag = "science 1 tag" },
                 "社会科学");
             menuPanel.AddItem(
@@ -92,6 +95,14 @@ namespace tctianchi.Civ6Trainer.Frontend.Trainer
             TrainerMenuPageSelector selector = sender as TrainerMenuPageSelector;
             PageTag tag = selector.Tag as PageTag;
             MessageBox.Show(tag.Tag as string);
+        }
+
+        public void ShowMessage(string message)
+        {
+            //Button btn = sender as Button;
+            //contentFrame.Navigate(new Uri("Frontend/Trainer/" + btn.Tag.ToString() + ".xaml", UriKind.Relative));
+            contentFrame.Navigate(new Uri("Frontend/Trainer/HelloPage.xaml", UriKind.Relative));
+            
         }
     }
 }

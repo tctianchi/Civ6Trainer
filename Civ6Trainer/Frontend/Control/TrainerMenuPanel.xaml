@@ -21,7 +21,7 @@
         <StackPanel x:Name="armyList"/>
         <Border Height="2" Background="#323d4f" />
         <trinerControl:TrainerMenuLabel IconText="&#xF0C3;" ContentText="研究" IconFontSize="10.3"/>
-        <StackPanel x:Name="scienceList"/>
+        <StackPanel x:Name="researchList"/>
         <Border Height="2" Background="#323d4f" />
         <trinerControl:TrainerMenuLabel IconText="&#xF188;" ContentText="Debug" IconFontSize="11"/>
         <StackPanel x:Name="debugList"/>

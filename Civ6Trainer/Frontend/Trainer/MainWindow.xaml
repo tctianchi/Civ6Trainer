@@ -27,6 +27,6 @@
         <Frame Grid.Column="1" Grid.Row="0"
                Name="contentFrame"
                Padding="14"
-               NavigationUIVisibility="Hidden" Source="HelloPage.xaml" />
+               NavigationUIVisibility="Hidden" />
     </Grid>
 </Window>

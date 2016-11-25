@@ -41,7 +41,7 @@ namespace tctianchi.Civ6Trainer.Frontend.Control
             Player,
             City,
             Army,
-            Science,
+            Research,
             Debug,
         }
 
@@ -50,7 +50,7 @@ namespace tctianchi.Civ6Trainer.Frontend.Control
             playerList.Children.Clear();
             cityList.Children.Clear();
             armyList.Children.Clear();
-            scienceList.Children.Clear();
+            researchList.Children.Clear();
             debugList.Children.Clear();
         }
 
@@ -73,8 +73,8 @@ namespace tctianchi.Civ6Trainer.Frontend.Control
                 case MenuCategory.Army:
                     armyList.Children.Add(item);
                     break;
-                case MenuCategory.Science:
-                    scienceList.Children.Add(item);
+                case MenuCategory.Research:
+                    researchList.Children.Add(item);
                     break;
                 case MenuCategory.Debug:
                     debugList.Children.Add(item);
@@ -108,7 +108,7 @@ namespace tctianchi.Civ6Trainer.Frontend.Control
             {
                 clearMark(i as TrainerMenuPageSelector);
             }
-            foreach (var i in scienceList.Children)
+            foreach (var i in researchList.Children)
             {
                 clearMark(i as TrainerMenuPageSelector);
             }

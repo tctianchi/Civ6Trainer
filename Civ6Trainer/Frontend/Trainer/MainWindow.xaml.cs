@@ -97,6 +97,7 @@ namespace tctianchi.Civ6Trainer.Frontend.Trainer
             //    TrainerMenuPanel.MenuCategory.Debug,
             //    new PageTag { Tag = "debug 0 tag" },
             //    "测试1");
+            ShowMessage(Properties.Resources.UITextPleaseSelectAMenuItem);
         }
 
         private void menuPanel_PageSelected(object sender, EventArgs e)

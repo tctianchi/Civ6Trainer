@@ -120,4 +120,7 @@
   <data name="UITextPleasePressRefresh" xml:space="preserve">
     <value>请在左侧点击刷新按钮。</value>
   </data>
+  <data name="UITextPleaseSelectAMenuItem" xml:space="preserve">
+    <value>请在左侧点击一个修改项。</value>
+  </data>
 </root>

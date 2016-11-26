@@ -68,5 +68,14 @@ namespace tctianchi.Civ6Trainer.Properties {
                 return ResourceManager.GetString("UITextPleasePressRefresh", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   查找类似 请在左侧点击一个修改项。 的本地化字符串。
+        /// </summary>
+        internal static string UITextPleaseSelectAMenuItem {
+            get {
+                return ResourceManager.GetString("UITextPleaseSelectAMenuItem", resourceCulture);
+            }
+        }
     }
 }

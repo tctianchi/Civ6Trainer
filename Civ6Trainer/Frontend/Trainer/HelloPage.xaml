@@ -14,9 +14,9 @@
                      FontSize="12" Foreground="#FF737779" Background="{x:Null}" BorderThickness="0"
                      VerticalScrollBarVisibility="Auto" IsReadOnly="True" DockPanel.Dock="Bottom" />
         </DockPanel>
-        <Border Height="31" VerticalAlignment="Bottom" Background="#FF1F8DD6" BorderThickness="0" CornerRadius="4">
-            <TextBlock Foreground="White" Padding="10,0" OverridesDefaultStyle="True" VerticalAlignment="Center"
-                       Text="{Binding Path=PromptText}"/>
+        <Border VerticalAlignment="Bottom" Background="#FF1F8DD6" BorderThickness="0" CornerRadius="4">
+            <TextBlock Foreground="White" Padding="10,8" OverridesDefaultStyle="True" VerticalAlignment="Center"
+                       Text="{Binding Path=PromptText}" TextWrapping="Wrap"/>
         </Border>
     </Grid>
 </UserControl>

@@ -18,20 +18,20 @@
         <Rectangle Grid.Column="0" Grid.Row="0" Fill="#1f8dd6" x:Name="marker" />
         <TextBlock Grid.Column="1" Grid.Row="0"
             x:Name="contentBox" VerticalAlignment="Center" Margin="14,0,0,0"
-                    FontSize="12" Text="标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题"
+                    FontSize="12" Text="{Binding Path=ContentText}"
                     FontFamily="Microsoft YaHei" TextTrimming="CharacterEllipsis">
             <TextBlock.Foreground>
                 <SolidColorBrush x:Name="contentForegroundBrush" Color="#919cae"/>
             </TextBlock.Foreground>
         </TextBlock>
-
         <Border Grid.Column="2" Grid.Row="0" x:Name="bubbleBox"
                 BorderThickness="0" CornerRadius="7"
                 Width="23" Height="14" Background="#919cae"
                 HorizontalAlignment="Right" VerticalAlignment="Center" Margin="12.5,0,3,0">
             <TextBlock x:Name="bubbleText"
                        Background="{x:Null}" Foreground="#354052"
-                       FontSize="10" Text="12" Padding="0" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                       FontSize="10" Padding="0" HorizontalAlignment="Center" VerticalAlignment="Center"
+                       Text="{Binding Path=ForwaredBubbleText, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:TrainerMenuPageSelector}}}"/>
         </Border>
 
         <VisualStateManager.VisualStateGroups>

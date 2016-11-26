@@ -146,6 +146,7 @@
     <Compile Include="Frontend\Trainer\ResourcePage.xaml.cs">
       <DependentUpon>ResourcePage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ViewModel\MenuModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>

@@ -4,26 +4,82 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:tctianchi.Civ6Trainer.Frontend.Control"
-             xmlns:trinerControl="clr-namespace:tctianchi.Civ6Trainer.Frontend.Control"
+             xmlns:trainerControl="clr-namespace:tctianchi.Civ6Trainer.Frontend.Control"
+             xmlns:trainerModel="clr-namespace:tctianchi.Civ6Trainer.ViewModel"
              mc:Ignorable="d" 
              d:DesignHeight="496" d:DesignWidth="185">
     <StackPanel>
-        <trinerControl:TrainerMenuButton IconText="&#xF021;" ContentText="刷新" IconFontSize="17.85" Height="44"
-                                         MouseLeftButtonUp="TrainerMenuPanel_MouseLeftButtonUp"/>
+        <trainerControl:TrainerMenuButton IconText="&#xF021;" ContentText="刷新" IconFontSize="17.85" Height="44"
+                                          MouseLeftButtonUp="TrainerMenuPanel_MouseLeftButtonUp"/>
         <Border Height="2" Background="#323d4f" />
-        <trinerControl:TrainerMenuLabel IconText="&#xF157;" ContentText="游戏全局" IconFontSize="12"/>
-        <StackPanel x:Name="playerList"/>
+        <trainerControl:TrainerMenuLabel IconText="&#xF157;" ContentText="游戏全局" IconFontSize="12"/>
+        <ItemsControl x:Name="playerList" ItemsSource="{Binding Path=PlayerList, Mode=OneWay}">
+            <ItemsControl.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <StackPanel/>
+                </ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel>
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <trainerControl:TrainerMenuPageSelector MouseLeftButtonUp="item_MouseLeftButtonUp" />
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>
         <Border Height="2" Background="#323d4f" />
-        <trinerControl:TrainerMenuLabel IconText="&#xF19C;" ContentText="城市" IconFontSize="9.5"/>
-        <StackPanel x:Name="cityList"/>
+        <trainerControl:TrainerMenuLabel IconText="&#xF19C;" ContentText="城市" IconFontSize="9.5"/>
+        <ItemsControl x:Name="cityList" ItemsSource="{Binding Path=CityList, Mode=OneWay}">
+            <ItemsControl.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <StackPanel/>
+                </ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel>
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <trainerControl:TrainerMenuPageSelector MouseLeftButtonUp="item_MouseLeftButtonUp" />
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>
         <Border Height="2" Background="#323d4f" />
-        <trinerControl:TrainerMenuLabel IconText="&#xF072;" ContentText="部队" IconFontSize="12"/>
-        <StackPanel x:Name="armyList"/>
+        <trainerControl:TrainerMenuLabel IconText="&#xF072;" ContentText="部队" IconFontSize="12"/>
+        <ItemsControl x:Name="armyList" ItemsSource="{Binding Path=ArmyList, Mode=OneWay}">
+            <ItemsControl.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <StackPanel/>
+                </ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel>
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <trainerControl:TrainerMenuPageSelector MouseLeftButtonUp="item_MouseLeftButtonUp" />
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>
         <Border Height="2" Background="#323d4f" />
-        <trinerControl:TrainerMenuLabel IconText="&#xF0C3;" ContentText="研究" IconFontSize="10.3"/>
-        <StackPanel x:Name="researchList"/>
+        <trainerControl:TrainerMenuLabel IconText="&#xF0C3;" ContentText="研究" IconFontSize="10.3"/>
+        <ItemsControl x:Name="researchList" ItemsSource="{Binding Path=ResearchList, Mode=OneWay}">
+            <ItemsControl.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <StackPanel/>
+                </ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel>
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <trainerControl:TrainerMenuPageSelector MouseLeftButtonUp="item_MouseLeftButtonUp" />
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>
         <Border Height="2" Background="#323d4f" />
-        <trinerControl:TrainerMenuLabel IconText="&#xF188;" ContentText="Debug" IconFontSize="11"/>
-        <StackPanel x:Name="debugList"/>
+        <trainerControl:TrainerMenuLabel IconText="&#xF188;" ContentText="Debug" IconFontSize="11"/>
+        <ItemsControl x:Name="debugList" ItemsSource="{Binding Path=DebugList, Mode=OneWay}">
+            <ItemsControl.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <StackPanel/>
+                </ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel>
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <trainerControl:TrainerMenuPageSelector MouseLeftButtonUp="item_MouseLeftButtonUp" />
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>
     </StackPanel>
 </UserControl>

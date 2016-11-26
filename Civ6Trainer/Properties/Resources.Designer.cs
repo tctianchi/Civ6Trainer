@@ -59,5 +59,14 @@ namespace tctianchi.Civ6Trainer.Properties {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   查找类似 请在左侧点击刷新按钮。 的本地化字符串。
+        /// </summary>
+        internal static string UITextPleasePressRefresh {
+            get {
+                return ResourceManager.GetString("UITextPleasePressRefresh", resourceCulture);
+            }
+        }
     }
 }

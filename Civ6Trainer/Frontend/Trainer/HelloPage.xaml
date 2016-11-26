@@ -15,7 +15,8 @@
                      VerticalScrollBarVisibility="Auto" IsReadOnly="True" DockPanel.Dock="Bottom" />
         </DockPanel>
         <Border Height="31" VerticalAlignment="Bottom" Background="#FF1F8DD6" BorderThickness="0" CornerRadius="4">
-            <TextBlock Foreground="White" Padding="10,0" OverridesDefaultStyle="True" VerticalAlignment="Center">Hello</TextBlock>
+            <TextBlock Foreground="White" Padding="10,0" OverridesDefaultStyle="True" VerticalAlignment="Center"
+                       Text="{Binding Path=PromptText}"/>
         </Border>
     </Grid>
 </UserControl>

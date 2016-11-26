@@ -22,19 +22,22 @@ namespace tctianchi.Civ6Trainer.Frontend.Trainer
     /// </summary>
     public partial class MainWindow : Window
     {
-        private FrameworkElement helloPage;
-        private FrameworkElement resourcePage;
-        private FrameworkElement cityPage;
-        private FrameworkElement armyPage;
-        private FrameworkElement researchPage;
-        private FrameworkElement debug1Page;
+        private UserControl helloPage = new HelloPage();
+        private UserControl resourcePage = new ResourcePage();
+        private UserControl cityPage = new CityPage();
+        private UserControl armyPage = new ArmyPage();
+        private UserControl researchPage = new ResearchPage();
+        private UserControl debug1Page = new Debug1Page();
 
         public MainWindow()
         {
             InitializeComponent();
-            menuPanel.DataContext = ViewModel.MenuModel.Instance;
-            //helloPage = Activator.CreateInstance(Type.GetType("Frontend/Trainer/HelloPage.xaml")) as FrameworkElement;
 
+            // 左侧菜单绑定
+            menuPanel.DataContext = ViewModel.MenuModel.Instance;
+
+            // 右侧显示默认页面
+            ShowMessage(Properties.Resources.UITextPleasePressRefresh);
         }
 
         private void menuPanel_RefreshClicked(object sender, EventArgs e)
@@ -105,10 +108,9 @@ namespace tctianchi.Civ6Trainer.Frontend.Trainer
 
         public void ShowMessage(string message)
         {
-            //Button btn = sender as Button;
-            //contentFrame.Navigate(new Uri("Frontend/Trainer/" + btn.Tag.ToString() + ".xaml", UriKind.Relative));
-            contentFrame.Navigate(new Uri("Frontend/Trainer/HelloPage.xaml", UriKind.Relative));
-            
+            contentFrame.Navigate(helloPage);
+            helloPage.DataContext = ViewModel.HelloPageModel.Instance;
+            ViewModel.HelloPageModel.Instance.PromptText = message;
         }
     }
 }

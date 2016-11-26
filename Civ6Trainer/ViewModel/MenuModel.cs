@@ -43,7 +43,7 @@ namespace tctianchi.Civ6Trainer.ViewModel
             private object tag;
             public object Tag { get { return tag; } set { tag = value; onChange("Tag"); } }
 
-            #region on change
+            #region 修改字段时触发事件
 
             public event PropertyChangedEventHandler PropertyChanged;
             private void onChange(string propertyName)

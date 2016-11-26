@@ -82,7 +82,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Frontend\Trainer\DebugPage.xaml">
+    <Page Include="Frontend\Trainer\Debug1Page.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -113,8 +113,8 @@
     <Compile Include="Frontend\Trainer\HelloPage.xaml.cs">
       <DependentUpon>HelloPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Frontend\Trainer\DebugPage.xaml.cs">
-      <DependentUpon>DebugPage.xaml</DependentUpon>
+    <Compile Include="Frontend\Trainer\Debug1Page.xaml.cs">
+      <DependentUpon>Debug1Page.xaml</DependentUpon>
     </Compile>
     <Compile Include="Frontend\Trainer\ResearchPage.xaml.cs">
       <DependentUpon>ResearchPage.xaml</DependentUpon>
@@ -146,6 +146,7 @@
     <Compile Include="Frontend\Trainer\ResourcePage.xaml.cs">
       <DependentUpon>ResourcePage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ViewModel\HelloPageModel.cs" />
     <Compile Include="ViewModel\MenuModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>

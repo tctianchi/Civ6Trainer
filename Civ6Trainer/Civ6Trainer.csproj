@@ -98,6 +98,10 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Backend\GameContext.cs" />
+    <Compile Include="Backend\TrainerFacade.cs" />
+    <Compile Include="Backend\AddressList.cs" />
+    <Compile Include="Backend\ProcessMemory.cs" />
     <Compile Include="Frontend\Control\TrainerMenuPageSelector.xaml.cs">
       <DependentUpon>TrainerMenuPageSelector.xaml</DependentUpon>
     </Compile>
@@ -178,9 +182,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Backend\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

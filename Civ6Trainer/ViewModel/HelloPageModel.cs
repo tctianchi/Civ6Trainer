@@ -11,14 +11,14 @@ namespace tctianchi.Civ6Trainer.ViewModel
     public class HelloPageModel : INotifyPropertyChanged
     {
         // singleton instance
-        private static HelloPageModel instance = new HelloPageModel();
+        private static HelloPageModel _instance = new HelloPageModel();
 
         // get singleton instance
         public static HelloPageModel Instance
         {
             get
             {
-                return instance;
+                return _instance;
             }
         }
 
@@ -28,8 +28,8 @@ namespace tctianchi.Civ6Trainer.ViewModel
         }
 
         // 蓝色提示
-        private string promptText;
-        public string PromptText { get { return promptText; } set { promptText = value; onChange("PromptText"); } }
+        private string _promptText;
+        public string PromptText { get { return _promptText; } set { _promptText = value; onChange("PromptText"); } }
 
         #region 修改字段时触发事件
 

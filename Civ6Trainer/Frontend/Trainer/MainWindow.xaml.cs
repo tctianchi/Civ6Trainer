@@ -14,6 +14,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using tctianchi.Civ6Trainer.Frontend.Control;
+using tctianchi.Civ6Trainer.Backend;
+using tctianchi.Civ6Trainer.ViewModel;
 
 namespace tctianchi.Civ6Trainer.Frontend.Trainer
 {
@@ -22,40 +24,45 @@ namespace tctianchi.Civ6Trainer.Frontend.Trainer
     /// </summary>
     public partial class MainWindow : Window
     {
-        private UserControl helloPage = new HelloPage();
-        private UserControl resourcePage = new ResourcePage();
-        private UserControl cityPage = new CityPage();
-        private UserControl armyPage = new ArmyPage();
-        private UserControl researchPage = new ResearchPage();
-        private UserControl debug1Page = new Debug1Page();
+        protected Dictionary<MenuModel.MenuCategory, UserControl> _pages =
+            new Dictionary<MenuModel.MenuCategory, UserControl>()
+            {
+                { MenuModel.MenuCategory.Hello, new HelloPage() },
+                { MenuModel.MenuCategory.Resource, new ResourcePage() },
+                { MenuModel.MenuCategory.City, new CityPage() },
+                { MenuModel.MenuCategory.Army, new ArmyPage() },
+                { MenuModel.MenuCategory.Research, new ResearchPage() },
+                { MenuModel.MenuCategory.Debug1, new Debug1Page() },
+            };
 
         public MainWindow()
         {
             InitializeComponent();
 
-            // 左侧菜单绑定
-            menuPanel.DataContext = ViewModel.MenuModel.Instance;
+            // 绑定
+            menuPanel.DataContext = MenuModel.Instance;
+            MenuModel.Instance.SwitchPageRequired += MenuModel_SwitchPageRequired;
 
             // 右侧显示默认页面
-            ShowMessage(Properties.Resources.UITextPleasePressRefresh);
+            MenuModel.Instance.ShowMessage(Properties.Resources.UITextPleasePressRefresh);
         }
 
         private void menuPanel_RefreshClicked(object sender, EventArgs e)
         {
             Random rand = new Random();
 
-            if (ViewModel.MenuModel.Instance.PlayerList.Count > 5)
+            if (MenuModel.Instance.PlayerList.Count > 5)
             {
-                ViewModel.MenuModel.Instance.ClearAll();
+                MenuModel.Instance.ClearAll();
             }
-            if (ViewModel.MenuModel.Instance.PlayerList.Count > 0)
+            if (MenuModel.Instance.PlayerList.Count > 0)
             {
-                ViewModel.MenuModel.Instance.PlayerList[0].ContentText += "y";
-                ViewModel.MenuModel.Instance.PlayerList[0].BubbleText += "x";
+                MenuModel.Instance.PlayerList[0].ContentText += "y";
+                MenuModel.Instance.PlayerList[0].BubbleText += "x";
             }
-            ViewModel.MenuModel.Instance.PlayerList.Add(new ViewModel.MenuModel.MenuItemModel()
+            MenuModel.Instance.PlayerList.Add(new MenuModel.MenuItemModel()
             {
-                Category = ViewModel.MenuModel.MenuCategory.Player,
+                Category = MenuModel.MenuCategory.Resource,
                 ContentText = "玩家12",
                 BubbleText = "12",
             });
@@ -97,21 +104,21 @@ namespace tctianchi.Civ6Trainer.Frontend.Trainer
             //    TrainerMenuPanel.MenuCategory.Debug,
             //    new PageTag { Tag = "debug 0 tag" },
             //    "测试1");
-            ShowMessage(Properties.Resources.UITextPleaseSelectAMenuItem);
+            MenuModel.Instance.ShowMessage(Properties.Resources.UITextPleaseSelectAMenuItem);
         }
 
         private void menuPanel_PageSelected(object sender, EventArgs e)
         {
             TrainerMenuPageSelector selector = sender as TrainerMenuPageSelector;
-            ViewModel.MenuModel.MenuItemModel model = selector.DataContext as ViewModel.MenuModel.MenuItemModel;
-            ViewModel.MenuModel.Instance.OnMenuSelected(model);
+            MenuModel.MenuItemModel model = selector.DataContext as MenuModel.MenuItemModel;
+            MenuModel.Instance.OnMenuSelected(model);
         }
 
-        public void ShowMessage(string message)
+        private void MenuModel_SwitchPageRequired(object sender, MenuModel.SwitchPageEventArgs e)
         {
-            contentFrame.Navigate(helloPage);
-            helloPage.DataContext = ViewModel.HelloPageModel.Instance;
-            ViewModel.HelloPageModel.Instance.PromptText = message;
+            UserControl page = _pages[e.Category];
+            page.DataContext = e.DataContext;
+            contentFrame.Navigate(page);
         }
     }
 }

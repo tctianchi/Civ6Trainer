@@ -61,6 +61,15 @@ namespace tctianchi.Civ6Trainer.Properties {
         }
         
         /// <summary>
+        ///   查找类似 无效的进程ID，游戏可能已经退出。 的本地化字符串。
+        /// </summary>
+        internal static string UITextInvalidProcessID {
+            get {
+                return ResourceManager.GetString("UITextInvalidProcessID", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 请在左侧点击刷新按钮。 的本地化字符串。
         /// </summary>
         internal static string UITextPleasePressRefresh {
@@ -75,6 +84,15 @@ namespace tctianchi.Civ6Trainer.Properties {
         internal static string UITextPleaseSelectAMenuItem {
             get {
                 return ResourceManager.GetString("UITextPleaseSelectAMenuItem", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 未知的游戏版本：{0} 的本地化字符串。
+        /// </summary>
+        internal static string UITextUnkonwnGameVersion {
+            get {
+                return ResourceManager.GetString("UITextUnkonwnGameVersion", resourceCulture);
             }
         }
     }

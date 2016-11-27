@@ -10,40 +10,41 @@ namespace tctianchi.Civ6Trainer.ViewModel
 {
     public class MenuModel
     {
-        #region menu item
+        #region Menu item
 
         public enum MenuCategory
         {
-            Player,
+            Hello,
+            Resource,
             City,
             Army,
             Research,
-            Debug,
+            Debug1,
         }
 
         public class MenuItemModel : INotifyPropertyChanged
         {
             // 大分类
-            private MenuCategory category;
-            public MenuCategory Category { get { return category; } set { category = value; onChange("Category"); } }
+            private MenuCategory _category;
+            public MenuCategory Category { get { return _category; } set { _category = value; onChange("Category"); } }
 
             // 是否选中
-            private bool isMarked;
-            public bool IsMarked { get { return isMarked; } set { isMarked = value; onChange("IsMarked"); } }
+            private bool _isMarked;
+            public bool IsMarked { get { return _isMarked; } set { _isMarked = value; onChange("IsMarked"); } }
 
             // 左侧的标题文字
-            private string contentText;
-            public string ContentText { get { return contentText; } set { contentText = value; onChange("ContentText"); } }
+            private string _contentText;
+            public string ContentText { get { return _contentText; } set { _contentText = value; onChange("ContentText"); } }
 
             // 右侧的气泡文字
-            private string bubbleText;
-            public string BubbleText { get { return bubbleText; } set { bubbleText = value; onChange("BubbleText"); } }
+            private string _bubbleText;
+            public string BubbleText { get { return _bubbleText; } set { _bubbleText = value; onChange("BubbleText"); } }
 
-            // 任意的附加信息
-            private object tag;
-            public object Tag { get { return tag; } set { tag = value; onChange("Tag"); } }
+            // 实际页面的model
+            private object _pageModel;
+            public object PageModel { get { return _pageModel; } set { _pageModel = value; onChange("PageModel"); } }
 
-            #region 修改字段时触发事件
+            #region On change event
 
             public event PropertyChangedEventHandler PropertyChanged;
             private void onChange(string propertyName)
@@ -59,17 +60,23 @@ namespace tctianchi.Civ6Trainer.ViewModel
 
         #endregion
 
+        #region Singleton
+
         // singleton instance
-        private static MenuModel instance = new MenuModel();
+        private static MenuModel _instance = new MenuModel();
 
         // get singleton instance
         public static MenuModel Instance
         {
             get
             {
-                return instance;
+                return _instance;
             }
         }
+
+        #endregion
+
+        #region Menu list
 
         private MenuModel()
         {
@@ -123,6 +130,9 @@ namespace tctianchi.Civ6Trainer.ViewModel
             {
                 clearMark(i);
             }
+
+            // 切换页面
+            SwitchPage(selected.Category, selected.PageModel);
         }
 
         // 以下是各个菜单列表的内容
@@ -131,5 +141,36 @@ namespace tctianchi.Civ6Trainer.ViewModel
         public ObservableCollection<MenuItemModel> ArmyList { get; private set; }
         public ObservableCollection<MenuItemModel> ResearchList { get; private set; }
         public ObservableCollection<MenuItemModel> DebugList { get; private set; }
+
+        #endregion
+
+        #region Switch page
+
+        public class SwitchPageEventArgs : EventArgs
+        {
+            public MenuCategory Category;
+            public object DataContext;
+        }
+
+        public event EventHandler<SwitchPageEventArgs> SwitchPageRequired;
+
+        public void SwitchPage(MenuCategory category, object dataContext)
+        {
+            if (SwitchPageRequired != null)
+            {
+                SwitchPageRequired.Invoke(this, new SwitchPageEventArgs() {
+                    Category = category,
+                    DataContext = dataContext,
+                });
+            }
+        }
+
+        public void ShowMessage(string message)
+        {
+            HelloPageModel.Instance.PromptText = message;
+            SwitchPage(MenuCategory.Hello, HelloPageModel.Instance);
+        }
+
+        #endregion
     }
 }

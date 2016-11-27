@@ -104,7 +104,7 @@ namespace tctianchi.Civ6Trainer.Frontend.Control
 
         #endregion
 
-        #region backboard color
+        #region Background color
 
         private void wholePanel_MouseEvent(object sender, MouseEventArgs e)
         {

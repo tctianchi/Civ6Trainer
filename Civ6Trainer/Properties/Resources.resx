@@ -117,10 +117,16 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="UITextInvalidProcessID" xml:space="preserve">
+    <value>无效的进程ID，游戏可能已经退出。</value>
+  </data>
   <data name="UITextPleasePressRefresh" xml:space="preserve">
     <value>请在左侧点击刷新按钮。</value>
   </data>
   <data name="UITextPleaseSelectAMenuItem" xml:space="preserve">
     <value>请在左侧点击一个修改项。</value>
+  </data>
+  <data name="UITextUnkonwnGameVersion" xml:space="preserve">
+    <value>未知的游戏版本：{0}</value>
   </data>
 </root>

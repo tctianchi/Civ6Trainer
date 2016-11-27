@@ -24,7 +24,7 @@ namespace tctianchi.Civ6Trainer.Frontend.Trainer
     /// </summary>
     public partial class MainWindow : Window
     {
-        protected Dictionary<MenuModel.MenuCategory, UserControl> _pages =
+        private Dictionary<MenuModel.MenuCategory, UserControl> _pages =
             new Dictionary<MenuModel.MenuCategory, UserControl>()
             {
                 { MenuModel.MenuCategory.Hello, new HelloPage() },
@@ -44,28 +44,18 @@ namespace tctianchi.Civ6Trainer.Frontend.Trainer
             MenuModel.Instance.SwitchPageRequired += MenuModel_SwitchPageRequired;
 
             // 右侧显示默认页面
+            if (!TrainerFacade.Instance.Init())
+            {
+                menuPanel.IsEnabled = false;
+                return;
+            }
             MenuModel.Instance.ShowMessage(Properties.Resources.UITextPleasePressRefresh);
         }
 
         private void menuPanel_RefreshClicked(object sender, EventArgs e)
         {
-            Random rand = new Random();
-
-            if (MenuModel.Instance.PlayerList.Count > 5)
-            {
-                MenuModel.Instance.ClearAll();
-            }
-            if (MenuModel.Instance.PlayerList.Count > 0)
-            {
-                MenuModel.Instance.PlayerList[0].ContentText += "y";
-                MenuModel.Instance.PlayerList[0].BubbleText += "x";
-            }
-            MenuModel.Instance.PlayerList.Add(new MenuModel.MenuItemModel()
-            {
-                Category = MenuModel.MenuCategory.Resource,
-                ContentText = "玩家12",
-                BubbleText = "12",
-            });
+            TrainerFacade.Instance.Refresh();
+                                                                                                                                         
             //menuPanel.AddItem(
             //    TrainerMenuPanel.MenuCategory.City,
             //    new PageTag { Tag = "city 0 tag" },
@@ -104,7 +94,7 @@ namespace tctianchi.Civ6Trainer.Frontend.Trainer
             //    TrainerMenuPanel.MenuCategory.Debug,
             //    new PageTag { Tag = "debug 0 tag" },
             //    "测试1");
-            MenuModel.Instance.ShowMessage(Properties.Resources.UITextPleaseSelectAMenuItem);
+            //MenuModel.Instance.ShowMessage(Properties.Resources.UITextPleaseSelectAMenuItem);
         }
 
         private void menuPanel_PageSelected(object sender, EventArgs e)

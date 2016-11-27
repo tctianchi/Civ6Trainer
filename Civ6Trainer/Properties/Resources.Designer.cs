@@ -61,11 +61,38 @@ namespace tctianchi.Civ6Trainer.Properties {
         }
         
         /// <summary>
+        ///   查找类似 请以管理员身份运行 的本地化字符串。
+        /// </summary>
+        internal static string UITextEnterDebugFailed {
+            get {
+                return ResourceManager.GetString("UITextEnterDebugFailed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 游戏未运行，运行游戏后单击刷新按钮。 的本地化字符串。
+        /// </summary>
+        internal static string UITextGameIsNotRunning {
+            get {
+                return ResourceManager.GetString("UITextGameIsNotRunning", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 获取莫怪信息时失败。（或许是bug？） 的本地化字符串。
+        /// </summary>
+        internal static string UITextGetModuleInfoFailed {
+            get {
+                return ResourceManager.GetString("UITextGetModuleInfoFailed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 无效的进程ID，游戏可能已经退出。 的本地化字符串。
         /// </summary>
-        internal static string UITextInvalidProcessID {
+        internal static string UITextInvalidProcessId {
             get {
-                return ResourceManager.GetString("UITextInvalidProcessID", resourceCulture);
+                return ResourceManager.GetString("UITextInvalidProcessId", resourceCulture);
             }
         }
         

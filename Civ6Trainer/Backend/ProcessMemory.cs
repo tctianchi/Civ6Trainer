@@ -175,7 +175,7 @@ namespace tctianchi.Civ6Trainer.Backend.WindowsApi
                 _processId);
             if (_processHandle.IsInvalid)
             {
-                throw new BadProcessIdException();
+                throw new Exception(Properties.Resources.UITextInvalidProcessId);
             }
         }
 
@@ -401,7 +401,7 @@ namespace tctianchi.Civ6Trainer.Backend.WindowsApi
             {
                 if (processHandle.IsInvalid)
                 {
-                    throw new BadProcessIdException();
+                    throw new Exception(Properties.Resources.UITextInvalidProcessId);
                 }
 
                 // Get all modules
@@ -415,18 +415,18 @@ namespace tctianchi.Civ6Trainer.Backend.WindowsApi
                     if (moduleName.ToLower() == moduleNamePattern.ToLower())
                     {
                         // Bingo!
-                        this.ModuleHandle = moduleHandle;
+                        ModuleHandle = moduleHandle;
 
                         // Get other info
-                        this.BaseAddress = GetModuleBaseAddress(processHandle, moduleHandle);
-                        this.FileName = GetModuleFileName(processHandle, moduleHandle);
+                        BaseAddress = GetModuleBaseAddress(processHandle, moduleHandle);
+                        FileName = GetModuleFileName(processHandle, moduleHandle);
 
                         return;
                     }
                 }
             }
 
-            throw new InvalidOperationException("Module not found");
+            throw new Exception(Properties.Resources.UITextGetModuleInfoFailed);
         }
 
         internal static IntPtr[] GetProcessModulesHandle(SafeProcessHandle processHandle)
@@ -531,22 +531,10 @@ namespace tctianchi.Civ6Trainer.Backend.WindowsApi
                 ntModuleInfo,
                 Marshal.SizeOf(ntModuleInfo)))
             {
-                throw new InvalidOperationException("Error when getting base address of module");
+                throw new Exception(Properties.Resources.UITextGetModuleInfoFailed);
             }
             return ntModuleInfo.BaseOfDll;
         }
-    }
-
-    #endregion
-
-    #region Exception
-
-    public class BadProcessIdException
-        : Exception
-    {
-        public BadProcessIdException()
-            : base(Properties.Resources.UITextInvalidProcessID)
-        { }
     }
 
     #endregion

@@ -279,6 +279,57 @@ namespace tctianchi.Civ6Trainer.Backend.WindowsApi
         }
 
         [SecurityPermission(SecurityAction.LinkDemand, UnmanagedCode = true)]
+        public UInt64 ReadUInt64(IntPtr baseAddress)
+        {
+            int bytesRead;
+            byte[] buffer = ReadBytes(baseAddress, sizeof(UInt64), out bytesRead);
+            return BitConverter.ToUInt64(buffer, 0);
+        }
+
+        [SecurityPermission(SecurityAction.LinkDemand, UnmanagedCode = true)]
+        public void WriteUInt64(IntPtr baseAddress, UInt64 value)
+        {
+            int bytesWriten;
+            WriteBytes(
+                BitConverter.GetBytes(value),
+                baseAddress, sizeof(UInt64), out bytesWriten);
+        }
+
+        [SecurityPermission(SecurityAction.LinkDemand, UnmanagedCode = true)]
+        public Int64 ReadInt64(IntPtr baseAddress)
+        {
+            int bytesRead;
+            byte[] buffer = ReadBytes(baseAddress, sizeof(Int64), out bytesRead);
+            return BitConverter.ToInt64(buffer, 0);
+        }
+
+        [SecurityPermission(SecurityAction.LinkDemand, UnmanagedCode = true)]
+        public void WriteInt64(IntPtr baseAddress, Int64 value)
+        {
+            int bytesWriten;
+            WriteBytes(
+                BitConverter.GetBytes(value),
+                baseAddress, sizeof(Int64), out bytesWriten);
+        }
+
+        [SecurityPermission(SecurityAction.LinkDemand, UnmanagedCode = true)]
+        public UInt32 ReadUInt32(IntPtr baseAddress)
+        {
+            int bytesRead;
+            byte[] buffer = ReadBytes(baseAddress, sizeof(UInt32), out bytesRead);
+            return BitConverter.ToUInt32(buffer, 0);
+        }
+
+        [SecurityPermission(SecurityAction.LinkDemand, UnmanagedCode = true)]
+        public void WriteUInt32(IntPtr baseAddress, UInt32 value)
+        {
+            int bytesWriten;
+            WriteBytes(
+                BitConverter.GetBytes(value),
+                baseAddress, sizeof(UInt32), out bytesWriten);
+        }
+
+        [SecurityPermission(SecurityAction.LinkDemand, UnmanagedCode = true)]
         public Int32 ReadInt32(IntPtr baseAddress)
         {
             int bytesRead;
@@ -294,29 +345,12 @@ namespace tctianchi.Civ6Trainer.Backend.WindowsApi
                 BitConverter.GetBytes(value),
                 baseAddress, sizeof(Int32), out bytesWriten);
         }
-
-        [SecurityPermission(SecurityAction.LinkDemand, UnmanagedCode = true)]
-        public UInt32 ReadUInt32(IntPtr baseAddress)
-        {
-            int bytesRead;
-            byte[] buffer = ReadBytes(baseAddress, sizeof(Int32), out bytesRead);
-            return BitConverter.ToUInt32(buffer, 0);
-        }
-
-        [SecurityPermission(SecurityAction.LinkDemand, UnmanagedCode = true)]
-        public void WriteUInt32(IntPtr baseAddress, UInt32 value)
-        {
-            int bytesWriten;
-            WriteBytes(
-                BitConverter.GetBytes(value),
-                baseAddress, sizeof(UInt32), out bytesWriten);
-        }
-
+        
         [SecurityPermission(SecurityAction.LinkDemand, UnmanagedCode = true)]
         public UInt16 ReadUInt16(IntPtr baseAddress)
         {
             int bytesRead;
-            byte[] buffer = ReadBytes(baseAddress, sizeof(Int16), out bytesRead);
+            byte[] buffer = ReadBytes(baseAddress, sizeof(UInt16), out bytesRead);
             return BitConverter.ToUInt16(buffer, 0);
         }
 

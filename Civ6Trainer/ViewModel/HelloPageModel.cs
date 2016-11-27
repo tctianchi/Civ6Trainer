@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -29,17 +30,24 @@ namespace tctianchi.Civ6Trainer.ViewModel
 
         // 蓝色提示
         private string _promptText;
-        public string PromptText { get { return _promptText; } set { _promptText = value; onChange("PromptText"); } }
+        public string PromptText { get { return _promptText; } set { onChange(ref _promptText, value); } }
 
         #region 修改字段时触发事件
 
         public event PropertyChangedEventHandler PropertyChanged;
-        private void onChange(string propertyName)
+
+        private bool onChange<T>(ref T storage, T value, [CallerMemberName] string propertyName = null)
         {
+            if (object.Equals(storage, value))
+            {
+                return false;
+            }
+            storage = value;
             if (PropertyChanged != null)
             {
                 PropertyChanged.Invoke(this, new PropertyChangedEventArgs(propertyName));
             }
+            return true;
         }
 
         #endregion

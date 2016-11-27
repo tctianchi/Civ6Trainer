@@ -25,6 +25,8 @@ namespace tctianchi.Civ6Trainer.Backend
 
         private GameContext _gameContext;
         public GameContext GameContext { get { return _gameContext; } }
+        private WindowsApi.ProcessMemory _gameMem;
+        public WindowsApi.ProcessMemory GameMem { get { return _gameMem; } }
 
         // 返回false如果失败的话
         public bool Init()
@@ -45,12 +47,12 @@ namespace tctianchi.Civ6Trainer.Backend
         // 刷新逻辑
         public void Refresh()
         {
-            // 抛弃现有环境
-            MenuModel.Instance.ClearAll();
-
-            // 找到游戏
             try
             {
+                // 抛弃现有环境
+                MenuModel.Instance.ClearAll();
+
+                // 找到游戏
                 _gameContext = GameContext.FindGameRunning("CivilizationVI", "GameCore_Base_FinalRelease.dll");
                 if (_gameContext == null)
                 {
@@ -58,14 +60,22 @@ namespace tctianchi.Civ6Trainer.Backend
                     MenuModel.Instance.ShowMessage(Properties.Resources.UITextGameIsNotRunning);
                     return;
                 }
+
+                // 打开句柄
+                if (_gameMem != null)
+                {
+                    _gameMem.Dispose();
+                }
+                _gameMem = new WindowsApi.ProcessMemory(_gameContext.ProcessId);
+
+                // 生成修改列表
+                AddressList.All();
             }
             catch (Exception ex)
             {
                 MenuModel.Instance.ShowMessage(ex.Message);
                 return;
             }
-
-            // 生成修改列表
         }
     }
 }

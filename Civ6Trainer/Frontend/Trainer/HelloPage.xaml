@@ -10,9 +10,9 @@
         <DockPanel>
             <Label Foreground="#737779" FontSize="15" FontWeight="Bold" DockPanel.Dock="Top">修改器自述</Label>
             <Border Height="2" Background="#e3e5e6" Margin="0,10" DockPanel.Dock="Top" />
-            <TextBox Text="目前是个简陋的版本。"
+            <TextBox Text="目前是个简陋的版本，只在Windows 10 64bits上测试过，其他任何平台组合的兼容性都是令人绝望的。"
                      FontSize="12" Foreground="#FF737779" Background="{x:Null}" BorderThickness="0"
-                     VerticalScrollBarVisibility="Auto" IsReadOnly="True" DockPanel.Dock="Bottom" />
+                     VerticalScrollBarVisibility="Auto" IsReadOnly="True" DockPanel.Dock="Bottom" TextWrapping="Wrap" />
         </DockPanel>
         <Border VerticalAlignment="Bottom" Background="#FF1F8DD6" BorderThickness="0" CornerRadius="4">
             <TextBlock Foreground="White" Padding="10,8" OverridesDefaultStyle="True" VerticalAlignment="Center"

@@ -7,7 +7,7 @@ namespace tctianchi.Civ6Trainer.Backend
         public int ProcessId { get; private set; }
         public string ProcessVersion { get; private set; }
         public UInt32 ModuleAddress { get; private set; }
-        //public UInt32 PlayerAddress { get; private set; }
+        public UInt32 PlayerAddress { get; private set; }
         //public UInt32 PlayerInterval { get; private set; }
         //public UInt32 PlayerExt2Address { get; private set; }
         //public UInt32 PlayerExt2Interval { get; private set; }
@@ -73,7 +73,7 @@ namespace tctianchi.Civ6Trainer.Backend
             switch (ProcessVersion)
             {
                 case "1.0.0.26.(221715) (10/07/2016)":
-                    //PlayerAddress = ModuleAddress + 0x3D48B4;
+                    PlayerAddress = ModuleAddress + 0x717928;
                     //PlayerInterval = 0xF5B4;
                     //PlayerExt2Address = ModuleAddress + 0x3D5E5C;
                     //PlayerExt2Interval = 0xBA4;

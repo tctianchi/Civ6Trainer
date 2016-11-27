@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -26,33 +27,40 @@ namespace tctianchi.Civ6Trainer.ViewModel
         {
             // 大分类
             private MenuCategory _category;
-            public MenuCategory Category { get { return _category; } set { _category = value; onChange("Category"); } }
+            public MenuCategory Category { get { return _category; } set { onChange(ref _category, value); } }
 
             // 是否选中
             private bool _isMarked;
-            public bool IsMarked { get { return _isMarked; } set { _isMarked = value; onChange("IsMarked"); } }
+            public bool IsMarked { get { return _isMarked; } set { onChange(ref _isMarked, value); } }
 
             // 左侧的标题文字
             private string _contentText;
-            public string ContentText { get { return _contentText; } set { _contentText = value; onChange("ContentText"); } }
+            public string ContentText { get { return _contentText; } set { onChange(ref _contentText, value); } }
 
             // 右侧的气泡文字
             private string _bubbleText;
-            public string BubbleText { get { return _bubbleText; } set { _bubbleText = value; onChange("BubbleText"); } }
+            public string BubbleText { get { return _bubbleText; } set { onChange(ref _bubbleText, value); } }
 
             // 实际页面的model
             private object _pageModel;
-            public object PageModel { get { return _pageModel; } set { _pageModel = value; onChange("PageModel"); } }
+            public object PageModel { get { return _pageModel; } set { onChange(ref _pageModel, value); } }
 
             #region On change event
 
             public event PropertyChangedEventHandler PropertyChanged;
-            private void onChange(string propertyName)
+
+            private bool onChange<T>(ref T storage, T value, [CallerMemberName] string propertyName = null)
             {
+                if (object.Equals(storage, value))
+                {
+                    return false;
+                }
+                storage = value;
                 if (PropertyChanged != null)
                 {
                     PropertyChanged.Invoke(this, new PropertyChangedEventArgs(propertyName));
                 }
+                return true;
             }
 
             #endregion

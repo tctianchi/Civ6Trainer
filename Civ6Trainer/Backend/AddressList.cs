@@ -53,7 +53,7 @@ namespace tctianchi.Civ6Trainer.Backend
             uint playerIndex = 0;
             ResourcePageModel player0Model = new ResourcePageModel();
             UInt64 playerBase = mem.ReadUInt64(unchecked((IntPtr)(playerList + 8 * playerIndex + 0x210)));
-            UInt64 playerResource = mem.ReadUInt64(unchecked((IntPtr)(playerBase + 0x7D60)));
+            UInt64 playerResource = unchecked(playerBase + 0x7D60);
             player0Model.AddressDict.Add("Gold", new Int64Scale256AddressInfo()
             {
                 Address = unchecked((IntPtr)(playerResource + 0xA0)),

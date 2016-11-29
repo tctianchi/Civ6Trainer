@@ -15,6 +15,10 @@ namespace tctianchi.Civ6Trainer.ViewModel
         // 修改列表
         internal readonly Dictionary<string, IAddressInfo> AddressDict = new Dictionary<string, IAddressInfo>();
 
+        // 页面标题
+        private string _caption;
+        public string Caption { get { return onRead(ref _caption); } set { onChange(ref _caption, value); } }
+
         // 金币
         private string _gold;
         public string Gold { get { return onRead(ref _gold); } set { onChange(ref _gold, value); } }
@@ -25,9 +29,12 @@ namespace tctianchi.Civ6Trainer.ViewModel
 
         private string onRead(ref string storage, [CallerMemberName] string propertyName = null)
         {
-            string result = AddressDict[propertyName].GetValue();
-            storage = result;
-            return result;
+            if (AddressDict.ContainsKey(propertyName))
+            {
+                string result = AddressDict[propertyName].GetValue();
+                storage = result;
+            }
+            return storage;
         }
 
         private bool onChange(ref string storage, string value, [CallerMemberName] string propertyName=null)
@@ -37,7 +44,10 @@ namespace tctianchi.Civ6Trainer.ViewModel
                 return false;
             }
             storage = value;
-            AddressDict[propertyName].SetValue(value);
+            if (AddressDict.ContainsKey(propertyName))
+            {
+                AddressDict[propertyName].SetValue(value);
+            }
             if (PropertyChanged != null)
             {
                 PropertyChanged.Invoke(this, new PropertyChangedEventArgs(propertyName));

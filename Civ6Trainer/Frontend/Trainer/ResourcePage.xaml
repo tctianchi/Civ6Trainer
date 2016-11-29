@@ -4,6 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:tctianchi.Civ6Trainer.Frontend.Trainer"
+             xmlns:core="clr-namespace:System;assembly=mscorlib"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="444">
     <UserControl.Resources>
@@ -11,18 +12,22 @@
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="../Control/TextBoxStyle.xaml"/>
             </ResourceDictionary.MergedDictionaries>
+            <core:Double x:Key="ColumnWidth1">134</core:Double>
+            <core:Double x:Key="ColumnWidth2">200</core:Double>
         </ResourceDictionary>
     </UserControl.Resources>
     <StackPanel>
-        <Label Foreground="#737779" FontSize="15" FontWeight="Bold" DockPanel.Dock="Top">玩家0的属性</Label>
+        <TextBlock Foreground="#737779" FontSize="15" FontWeight="Bold" DockPanel.Dock="Top">
+            <Run Text="{Binding Path=Caption}"/>的属性
+        </TextBlock>
         <Border Height="2" Background="#e3e5e6" Margin="0,10" DockPanel.Dock="Top" />
         <StackPanel Orientation="Horizontal">
-            <Label Width="134" VerticalAlignment="Center">金币</Label>
-            <TextBox Width="200" Text="{Binding Path=Gold}" Style="{StaticResource TrainerTextBoxStyle}" />
+            <Label Width="{StaticResource ColumnWidth1}" VerticalAlignment="Center">金币</Label>
+            <TextBox Width="{StaticResource ColumnWidth2}" Text="{Binding Path=Gold}" Style="{StaticResource TrainerTextBoxStyle}" />
         </StackPanel>
         <StackPanel Orientation="Horizontal">
-            <Label Width="134" VerticalAlignment="Center">金币</Label>
-            <TextBox Width="200" Text="{Binding Path=Gold}" Style="{StaticResource TrainerTextBoxStyle}" />
+            <Label Width="{StaticResource ColumnWidth1}" VerticalAlignment="Center">金币</Label>
+            <TextBox Width="{StaticResource ColumnWidth2}" Text="{Binding Path=Gold}" Style="{StaticResource TrainerTextBoxStyle}" />
         </StackPanel>
     </StackPanel>
 </UserControl>

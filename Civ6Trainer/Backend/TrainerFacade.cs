@@ -70,6 +70,9 @@ namespace tctianchi.Civ6Trainer.Backend
 
                 // 生成修改列表
                 AddressList.All();
+
+                // 回到开始页
+                MenuModel.Instance.ShowMessage(Properties.Resources.UITextPleaseSelectAMenuItem);
             }
             catch (Exception ex)
             {

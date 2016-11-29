@@ -51,7 +51,10 @@ namespace tctianchi.Civ6Trainer.Backend
 
             // 玩家0
             uint playerIndex = 0;
-            ResourcePageModel player0Model = new ResourcePageModel();
+            ResourcePageModel player0Model = new ResourcePageModel()
+            {
+                Caption = "玩家0",
+            };
             UInt64 playerBase = mem.ReadUInt64(unchecked((IntPtr)(playerList + 8 * playerIndex + 0x210)));
             UInt64 playerResource = unchecked(playerBase + 0x7D60);
             player0Model.AddressDict.Add("Gold", new Int64Scale256AddressInfo()
@@ -62,7 +65,7 @@ namespace tctianchi.Civ6Trainer.Backend
             {
                 Category = MenuModel.MenuCategory.Resource,
                 IsMarked = false,
-                ContentText = "玩家0",
+                ContentText = player0Model.Caption,
                 BubbleText = "",
                 PageModel = player0Model,
             });

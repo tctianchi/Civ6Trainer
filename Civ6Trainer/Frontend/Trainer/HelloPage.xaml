@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:tctianchi.Civ6Trainer.Frontend.Trainer"
              mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="300">
+             d:DesignHeight="300" d:DesignWidth="444">
     <Grid>
         <DockPanel>
             <Label Foreground="#737779" FontSize="15" FontWeight="Bold" DockPanel.Dock="Top">修改器自述</Label>

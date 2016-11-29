@@ -61,6 +61,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="Frontend\Control\TextBoxStyle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Frontend\Control\TrainerMenuPageSelector.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

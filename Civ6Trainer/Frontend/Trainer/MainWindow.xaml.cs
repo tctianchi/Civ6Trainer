@@ -70,5 +70,11 @@ namespace tctianchi.Civ6Trainer.Frontend.Trainer
             contentFrame.Navigate(page);
             page.DataContext = e.DataContext;
         }
+
+        private void Window_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            // 当点击窗口空白处时，使所有TextBox失去焦点
+            gridSplitter.Focus();
+        }
     }
 }

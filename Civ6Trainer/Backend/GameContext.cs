@@ -8,10 +8,6 @@ namespace tctianchi.Civ6Trainer.Backend
         public string ProcessVersion { get; private set; }
         public UInt32 ModuleAddress { get; private set; }
         public UInt32 PlayerAddress { get; private set; }
-        //public UInt32 PlayerInterval { get; private set; }
-        //public UInt32 PlayerExt2Address { get; private set; }
-        //public UInt32 PlayerExt2Interval { get; private set; }
-        //public UInt32 CityConstAddress { get; private set; }
 
         // Get a context if the game is running and recognized.
         // Returns null if not running.
@@ -73,11 +69,7 @@ namespace tctianchi.Civ6Trainer.Backend
             switch (ProcessVersion)
             {
                 case "1.0.0.26.(221715) (10/07/2016)":
-                    PlayerAddress = ModuleAddress + 0x717928;
-                    //PlayerInterval = 0xF5B4;
-                    //PlayerExt2Address = ModuleAddress + 0x3D5E5C;
-                    //PlayerExt2Interval = 0xBA4;
-                    //CityConstAddress = ModuleAddress + 0x3B319C;
+                    PlayerAddress = ModuleAddress + 0x7185D8;
                     break;
                 default:
                     throw new Exception(string.Format(Properties.Resources.UITextUnkonwnGameVersion, ProcessVersion));

@@ -46,9 +46,8 @@ namespace tctianchi.Civ6Trainer.Backend
 
             #region 玩家资源
 
-            UInt64 playersBase = mem.ReadUInt64(unchecked((IntPtr)(TrainerFacade.Instance.GameContext.PlayerAddress)));
-            UInt64 playerList = mem.ReadUInt64(unchecked((IntPtr)(playersBase + 0x3A8)));
-
+            UInt64 playerList = mem.ReadUInt64(unchecked((IntPtr)(TrainerFacade.Instance.GameContext.PlayerAddress)));
+            
             // 玩家0
             uint playerIndex = 0;
             ResourcePageModel player0Model = new ResourcePageModel()
@@ -56,11 +55,25 @@ namespace tctianchi.Civ6Trainer.Backend
                 Caption = "玩家0",
             };
             UInt64 playerBase = mem.ReadUInt64(unchecked((IntPtr)(playerList + 8 * playerIndex + 0x210)));
-            UInt64 playerResource = unchecked(playerBase + 0x7D60);
+            UInt64 playerTreasury = unchecked(playerBase + 0x7D60);
             player0Model.AddressDict.Add("Gold", new Int64Scale256AddressInfo()
             {
-                Address = unchecked((IntPtr)(playerResource + 0xA0)),
+                Address = unchecked((IntPtr)(playerTreasury + 0xA0)),
             });
+            UInt64 playerReligion = unchecked(playerBase + 0x6A88);
+            player0Model.AddressDict.Add("Faith", new Int64Scale256AddressInfo()
+            {
+                Address = unchecked((IntPtr)(playerReligion + 0xA8)),
+            });
+
+            UInt64 x1 = mem.ReadUInt64(unchecked((IntPtr)(TrainerFacade.Instance.GameContext.ModuleAddress + 0x7185D8)));
+            UInt64 x2 = mem.ReadUInt64(unchecked((IntPtr)(x1 + 8 * playerIndex + 0x210)));
+            UInt64 x3 = unchecked(x2 + 0x6A88);
+            player0Model.AddressDict.Add("XX1", new Int64Scale256AddressInfo()
+            {
+                Address = unchecked((IntPtr)(x3 + 0xA8)),
+            });
+
             MenuModel.Instance.PlayerList.Add(new MenuModel.MenuItemModel()
             {
                 Category = MenuModel.MenuCategory.Resource,

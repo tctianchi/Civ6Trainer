@@ -5,7 +5,7 @@
         <Setter Property="KeyboardNavigation.TabNavigation" Value="None" />
         <Setter Property="FocusVisualStyle" Value="{x:Null}" />
         <Setter Property="AllowDrop" Value="true" />
-        <Setter Property="Background" Value="#f7f9fa"/>
+        <Setter Property="Background" Value="#fafcfc"/>
         <Setter Property="HorizontalContentAlignment" Value="Stretch" />
         <Setter Property="VerticalContentAlignment" Value="Stretch" />
         <Setter Property="FontFamily" Value="Microsoft YaHei" />
@@ -71,7 +71,6 @@
                             <Trigger.EnterActions>
                                 <BeginStoryboard Storyboard="{StaticResource FocusedOn}" x:Name="FocusedOn_BeginStoryboard" />
                             </Trigger.EnterActions>
-                            <Setter Property="Background" Value="White" />
                         </Trigger>
                         <Trigger Property="IsEnabled" Value="False">
                             <Trigger.EnterActions>

@@ -22,12 +22,16 @@
         </TextBlock>
         <Border Height="2" Background="#e3e5e6" Margin="0,10" DockPanel.Dock="Top" />
         <StackPanel Orientation="Horizontal">
-            <Label Width="{StaticResource ColumnWidth1}" VerticalAlignment="Center">金币</Label>
+            <Label Foreground="#737779" Width="{StaticResource ColumnWidth1}" VerticalAlignment="Center">金币</Label>
             <TextBox Width="{StaticResource ColumnWidth2}" Text="{Binding Path=Gold}" Style="{StaticResource TrainerTextBoxStyle}" />
         </StackPanel>
         <StackPanel Orientation="Horizontal">
-            <Label Width="{StaticResource ColumnWidth1}" VerticalAlignment="Center">金币</Label>
-            <TextBox Width="{StaticResource ColumnWidth2}" Text="{Binding Path=Gold}" Style="{StaticResource TrainerTextBoxStyle}" />
+            <Label Foreground="#737779" Width="{StaticResource ColumnWidth1}" VerticalAlignment="Center">信仰值</Label>
+            <TextBox Width="{StaticResource ColumnWidth2}" Text="{Binding Path=Faith}" Style="{StaticResource TrainerTextBoxStyle}" />
+        </StackPanel>
+        <StackPanel Orientation="Horizontal">
+            <Label Foreground="#737779" Width="{StaticResource ColumnWidth1}" VerticalAlignment="Center">XX1</Label>
+            <TextBox Width="{StaticResource ColumnWidth2}" Text="{Binding Path=XX1}" Style="{StaticResource TrainerTextBoxStyle}" />
         </StackPanel>
     </StackPanel>
 </UserControl>

@@ -23,6 +23,14 @@ namespace tctianchi.Civ6Trainer.ViewModel
         private string _gold;
         public string Gold { get { return onRead(ref _gold); } set { onChange(ref _gold, value); } }
 
+        // 信仰值
+        private string _faith;
+        public string Faith { get { return onRead(ref _faith); } set { onChange(ref _faith, value); } }
+
+        // 测试
+        private string _xx1;
+        public string XX1 { get { return onRead(ref _xx1); } set { onChange(ref _xx1, value); } }
+
         #region 修改字段时触发事件
 
         public event PropertyChangedEventHandler PropertyChanged;

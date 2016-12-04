@@ -12,8 +12,6 @@ namespace tctianchi.Civ6Trainer.ViewModel
 {
     public class AddressListModel : INotifyPropertyChanged
     {
-        public ObservableDictionary<string, AddressListModelItem> AddressList { get; private set; }
-        
         #region 表项
 
         public class AddressListModelItem : INotifyPropertyChanged
@@ -27,7 +25,7 @@ namespace tctianchi.Civ6Trainer.ViewModel
             #region 修改字段时触发事件
 
             public event PropertyChangedEventHandler PropertyChanged;
-            private string onRead(ref string storage, [CallerMemberName] string propertyName = null)
+            private string onRead(ref string storage)
             {
                 string result = Value.GetValue();
                 _valueText = result;
@@ -56,6 +54,8 @@ namespace tctianchi.Civ6Trainer.ViewModel
 
         #region 修改列表
 
+        public ObservableDictionary<string, AddressListModelItem> AddressList { get; private set; }
+        
         public AddressListModel()
         {
             AddressList = new ObservableDictionary<string, AddressListModelItem>();
@@ -75,6 +75,12 @@ namespace tctianchi.Civ6Trainer.ViewModel
                 PropertyChanged.Invoke(this, new PropertyChangedEventArgs("AddressList"));
             }
         }
+
+        #endregion
+
+        #region 一些页面参数
+
+        public string Caption { get; set; }
 
         #endregion
     }

@@ -233,8 +233,14 @@ namespace tctianchi.Civ6Trainer.Backend.WindowsApi
                 buffer,
                 apiSize,
                 out apiBytesRead);
-
-            bytesRead = (int)apiBytesRead;
+            if ((ulong)apiBytesRead <= (ulong)int.MaxValue)
+            {
+                bytesRead = (int)apiBytesRead;
+            }
+            else
+            {
+                bytesRead = 0;
+            }
             return buffer;
         }
 
@@ -250,8 +256,14 @@ namespace tctianchi.Civ6Trainer.Backend.WindowsApi
                 buffer,
                 apiSize,
                 out apiBytesWriten);
-
-            bytesWriten = (int)apiBytesWriten;
+            if ((ulong)apiBytesWriten <= (ulong)int.MaxValue)
+            {
+                bytesWriten = (int)apiBytesWriten;
+            }
+            else
+            {
+                bytesWriten = 0;
+            }
         }
 
         #endregion

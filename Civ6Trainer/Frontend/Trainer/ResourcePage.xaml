@@ -30,6 +30,10 @@
             <TextBox Width="{StaticResource ColumnWidth2}" Text="{Binding Path=Faith}" Style="{StaticResource TrainerTextBoxStyle}" />
         </StackPanel>
         <StackPanel Orientation="Horizontal">
+            <Label Foreground="#737779" Width="{StaticResource ColumnWidth1}" VerticalAlignment="Center">影响力</Label>
+            <TextBox Width="{StaticResource ColumnWidth2}" Text="{Binding Path=Influence}" Style="{StaticResource TrainerTextBoxStyle}" />
+        </StackPanel>
+        <StackPanel Orientation="Horizontal">
             <Label Foreground="#737779" Width="{StaticResource ColumnWidth1}" VerticalAlignment="Center">XX1</Label>
             <TextBox Width="{StaticResource ColumnWidth2}" Text="{Binding Path=XX1}" Style="{StaticResource TrainerTextBoxStyle}" />
         </StackPanel>

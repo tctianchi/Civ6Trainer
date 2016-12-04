@@ -157,6 +157,8 @@
     <Compile Include="Frontend\Trainer\ResourcePage.xaml.cs">
       <DependentUpon>ResourcePage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ViewModel\AddressListModel.cs" />
+    <Compile Include="ViewModel\ObservableDictionary.cs" />
     <Compile Include="ViewModel\ResourcePageModel.cs" />
     <Compile Include="ViewModel\HelloPageModel.cs" />
     <Compile Include="ViewModel\MenuModel.cs" />

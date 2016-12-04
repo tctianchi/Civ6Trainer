@@ -27,6 +27,10 @@ namespace tctianchi.Civ6Trainer.ViewModel
         private string _faith;
         public string Faith { get { return onRead(ref _faith); } set { onChange(ref _faith, value); } }
 
+        // 影响力
+        private string _influence;
+        public string Influence { get { return onRead(ref _influence); } set { onChange(ref _influence, value); } }
+        
         // 测试
         private string _xx1;
         public string XX1 { get { return onRead(ref _xx1); } set { onChange(ref _xx1, value); } }

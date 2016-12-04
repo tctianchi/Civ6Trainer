@@ -21,7 +21,7 @@
             DEBUG 1
         </TextBlock>
         <Border Height="2" Background="#e3e5e6" Margin="0,10" DockPanel.Dock="Top" />
-        <ScrollViewer DockPanel.Dock="Bottom">
+        <ScrollViewer DockPanel.Dock="Bottom" Margin="0,0,-13,0">
             <ItemsControl ItemsSource="{Binding Path=AddressList.Values, Mode=OneWay}">
                 <ItemsControl.ItemsPanel>
                     <ItemsPanelTemplate>

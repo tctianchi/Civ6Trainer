@@ -34,27 +34,7 @@ namespace tctianchi.Civ6Trainer.Backend
             }
         }
     }
-
-    public class Int64AddressInfo : IAddressInfo
-    {
-        public IntPtr Address { get; set; }
-
-        public string GetValue()
-        {
-            Int64 result = TrainerFacade.Instance.GameMem.ReadInt64(Address);
-            return result.ToString();
-        }
-
-        public void SetValue(string newValue)
-        {
-            Int64 result;
-            if (Int64.TryParse(newValue, out result))
-            {
-                TrainerFacade.Instance.GameMem.WriteInt64(Address, result);
-            }
-        }
-    }
-
+    
     public class Int32AddressInfo : IAddressInfo
     {
         public IntPtr Address { get; set; }
@@ -71,6 +51,35 @@ namespace tctianchi.Civ6Trainer.Backend
             if (Int32.TryParse(newValue, out result))
             {
                 TrainerFacade.Instance.GameMem.WriteInt32(Address, result);
+            }
+        }
+    }
+
+    public class ByteAddressInfo : IAddressInfo
+    {
+        public IntPtr Address { get; set; }
+
+        public string GetValue()
+        {
+            int bytesRead;
+            byte[] buffer = TrainerFacade.Instance.GameMem.ReadBytes(Address, sizeof(byte), out bytesRead);
+            if (buffer.Length == 1)
+            {
+                return buffer[0].ToString();
+            }
+            return "";
+        }
+
+        public void SetValue(string newValue)
+        {
+            byte result;
+            if (byte.TryParse(newValue, out result))
+            {
+                byte[] buffer = new byte[1] { result };
+                int bytesWriten;
+                TrainerFacade.Instance.GameMem.WriteBytes(
+                    buffer,
+                    Address, sizeof(byte), out bytesWriten);
             }
         }
     }
@@ -128,8 +137,11 @@ namespace tctianchi.Civ6Trainer.Backend
                     Address = unchecked((IntPtr)(resourceItem + 0x4 * 0)),
                 });
             }
-            
-
+            UInt64 playerEras = unchecked(playerBase + 0x71D8);
+            player0Model.Add("Era", new Int64Scale256AddressInfo()
+            {
+                Address = unchecked((IntPtr)(playerEras + 0xA0)),
+            });
 
 
 
@@ -143,20 +155,48 @@ namespace tctianchi.Civ6Trainer.Backend
             #endregion
 
             #region 研究
+
+            AddressListModel techModel = new AddressListModel()
+            {
+                Caption = "自然科学",
+            };
+            MenuModel.Instance.ResearchList.Add(new MenuModel.MenuItemModel()
+            {
+                Category = MenuModel.MenuCategory.Tech,
+                IsMarked = false,
+                ContentText = techModel.Caption,
+                BubbleText = "",
+                PageModel = techModel,
+            });
+            UInt64 playerTechs = unchecked(playerBase + 0x66E8);
+            UInt64 techList = mem.ReadUInt64(unchecked((IntPtr)(playerTechs + 0x1E0)));
+            for (UInt64 i = 0; i <= 0x43; i++)
+            {
+                techModel.Add($"Tech{i:X02}", new ByteAddressInfo()
+                {
+                    Address = unchecked((IntPtr)(techList + i)),
+                });
+            }
+
             #endregion
 
             #region 测试
 
-            AddressListModel debug1Model = new AddressListModel();
+            AddressListModel debug1Model = new AddressListModel()
+            {
+                Caption = "Debug1",
+            };
             MenuModel.Instance.DebugList.Add(new MenuModel.MenuItemModel()
             {
                 Category = MenuModel.MenuCategory.Debug1,
                 IsMarked = false,
-                ContentText = "Debug1",
+                ContentText = debug1Model.Caption,
                 BubbleText = "",
                 PageModel = debug1Model,
             });
-            
+
+
+
             #endregion
         }
     }

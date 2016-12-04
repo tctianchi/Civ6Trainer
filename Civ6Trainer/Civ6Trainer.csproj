@@ -93,10 +93,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Frontend\Trainer\ResearchPage.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
     <Page Include="Frontend\Trainer\MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -127,9 +123,6 @@
     <Compile Include="Frontend\Trainer\Debug1Page.xaml.cs">
       <DependentUpon>Debug1Page.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Frontend\Trainer\ResearchPage.xaml.cs">
-      <DependentUpon>ResearchPage.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Frontend\Trainer\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -139,6 +132,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Frontend\Trainer\ArmyPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Frontend\Trainer\TechPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -153,6 +150,9 @@
     </Compile>
     <Compile Include="Frontend\Trainer\ArmyPage.xaml.cs">
       <DependentUpon>ArmyPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Frontend\Trainer\TechPage.xaml.cs">
+      <DependentUpon>TechPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Frontend\Trainer\ResourcePage.xaml.cs">
       <DependentUpon>ResourcePage.xaml</DependentUpon>

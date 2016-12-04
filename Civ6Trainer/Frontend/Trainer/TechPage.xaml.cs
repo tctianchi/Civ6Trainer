@@ -18,9 +18,9 @@ namespace tctianchi.Civ6Trainer.Frontend.Trainer
     /// <summary>
     /// ResourcePage.xaml 的交互逻辑
     /// </summary>
-    public partial class ResearchPage : UserControl
+    public partial class TechPage : UserControl
     {
-        public ResearchPage()
+        public TechPage()
         {
             InitializeComponent();
         }

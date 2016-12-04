@@ -1,0 +1,330 @@
+﻿<UserControl x:Class="tctianchi.Civ6Trainer.Frontend.Trainer.TechPage"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:tctianchi.Civ6Trainer.Frontend.Trainer"
+             xmlns:core="clr-namespace:System;assembly=mscorlib"
+             mc:Ignorable="d" 
+             d:DesignHeight="1222" d:DesignWidth="444">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="../Control/TextBoxStyle.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+            <core:Double x:Key="ColumnWidth1">134</core:Double>
+            <core:Double x:Key="ColumnWidth2">200</core:Double>
+        </ResourceDictionary>
+    </UserControl.Resources>
+    <DockPanel>
+        <TextBlock Foreground="#737779" FontSize="15" FontWeight="Bold" DockPanel.Dock="Top">自然科学</TextBlock>
+        <Border Height="2" Background="#e3e5e6" Margin="0,10" DockPanel.Dock="Top" />
+        <ScrollViewer DockPanel.Dock="Bottom" Margin="0,0,-13,0">
+            <StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="0,15,0,0">
+                    <Label Foreground="#737779" Width="{StaticResource ColumnWidth1}" FontWeight="Bold">远古时代</Label>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label Foreground="#737779" Width="{StaticResource ColumnWidth1}" VerticalAlignment="Center">制陶术</Label>
+                    <TextBox Width="{StaticResource ColumnWidth2}" Text="{Binding Path=AddressList[Tech00].ValueText}" Style="{StaticResource TrainerTextBoxStyle}" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label Foreground="#737779" Width="{StaticResource ColumnWidth1}" VerticalAlignment="Center">畜牧业</Label>
+                    <TextBox Width="{StaticResource ColumnWidth2}" Text="{Binding Path=AddressList[Tech01].ValueText}" Style="{StaticResource TrainerTextBoxStyle}" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label Foreground="#737779" Width="{StaticResource ColumnWidth1}" VerticalAlignment="Center">采矿业</Label>
+                    <TextBox Width="{StaticResource ColumnWidth2}" Text="{Binding Path=AddressList[Tech02].ValueText}" Style="{StaticResource TrainerTextBoxStyle}" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label Foreground="#737779" Width="{StaticResource ColumnWidth1}" VerticalAlignment="Center">航海术</Label>
+                    <TextBox Width="{StaticResource ColumnWidth2}" Text="{Binding Path=AddressList[Tech03].ValueText}" Style="{StaticResource TrainerTextBoxStyle}" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label Foreground="#737779" Width="{StaticResource ColumnWidth1}" VerticalAlignment="Center">占星术</Label>
+                    <TextBox Width="{StaticResource ColumnWidth2}" Text="{Binding Path=AddressList[Tech04].ValueText}" Style="{StaticResource TrainerTextBoxStyle}" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label Foreground="#737779" Width="{StaticResource ColumnWidth1}" VerticalAlignment="Center">灌溉</Label>
+                    <TextBox Width="{StaticResource ColumnWidth2}" Text="{Binding Path=AddressList[Tech05].ValueText}" Style="{StaticResource TrainerTextBoxStyle}" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label Foreground="#737779" Width="{StaticResource ColumnWidth1}" VerticalAlignment="Center">著作</Label>
+                    <TextBox Width="{StaticResource ColumnWidth2}" Text="{Binding Path=AddressList[Tech06].ValueText}" Style="{StaticResource TrainerTextBoxStyle}" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label Foreground="#737779" Width="{StaticResource ColumnWidth1}" VerticalAlignment="Center">箭术</Label>
+                    <TextBox Width="{StaticResource ColumnWidth2}" Text="{Binding Path=AddressList[Tech07].ValueText}" Style="{StaticResource TrainerTextBoxStyle}" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label Foreground="#737779" Width="{StaticResource ColumnWidth1}" VerticalAlignment="Center">砌砖</Label>
+                    <TextBox Width="{StaticResource ColumnWidth2}" Text="{Binding Path=AddressList[Tech08].ValueText}" Style="{StaticResource TrainerTextBoxStyle}" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label Foreground="#737779" Width="{StaticResource ColumnWidth1}" VerticalAlignment="Center">铸铜术</Label>
+                    <TextBox Width="{StaticResource ColumnWidth2}" Text="{Binding Path=AddressList[Tech09].ValueText}" Style="{StaticResource TrainerTextBoxStyle}" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label Foreground="#737779" Width="{StaticResource ColumnWidth1}" VerticalAlignment="Center">轮子</Label>
+                    <TextBox Width="{StaticResource ColumnWidth2}" Text="{Binding Path=AddressList[Tech0A].ValueText}" Style="{StaticResource TrainerTextBoxStyle}" />
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal" Margin="0,15,0,0">
+                    <Label Foreground="#737779" Width="{StaticResource ColumnWidth1}" FontWeight="Bold">古典时期</Label>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label Foreground="#737779" Width="{StaticResource ColumnWidth1}" VerticalAlignment="Center">天文导航</Label>
+                    <TextBox Width="{StaticResource ColumnWidth2}" Text="{Binding Path=AddressList[Tech0B].ValueText}" Style="{StaticResource TrainerTextBoxStyle}" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label Foreground="#737779" Width="{StaticResource ColumnWidth1}" VerticalAlignment="Center">货币</Label>
+                    <TextBox Width="{StaticResource ColumnWidth2}" Text="{Binding Path=AddressList[Tech0C].ValueText}" Style="{StaticResource TrainerTextBoxStyle}" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label Foreground="#737779" Width="{StaticResource ColumnWidth1}" VerticalAlignment="Center">骑马</Label>
+                    <TextBox Width="{StaticResource ColumnWidth2}" Text="{Binding Path=AddressList[Tech0D].ValueText}" Style="{StaticResource TrainerTextBoxStyle}" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label Foreground="#737779" Width="{StaticResource ColumnWidth1}" VerticalAlignment="Center">炼铁术</Label>
+                    <TextBox Width="{StaticResource ColumnWidth2}" Text="{Binding Path=AddressList[Tech0E].ValueText}" Style="{StaticResource TrainerTextBoxStyle}" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label Foreground="#737779" Width="{StaticResource ColumnWidth1}" VerticalAlignment="Center">造船术</Label>
+                    <TextBox Width="{StaticResource ColumnWidth2}" Text="{Binding Path=AddressList[Tech0F].ValueText}" Style="{StaticResource TrainerTextBoxStyle}" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label Foreground="#737779" Width="{StaticResource ColumnWidth1}" VerticalAlignment="Center">数学</Label>
+                    <TextBox Width="{StaticResource ColumnWidth2}" Text="{Binding Path=AddressList[Tech10].ValueText}" Style="{StaticResource TrainerTextBoxStyle}" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label Foreground="#737779" Width="{StaticResource ColumnWidth1}" VerticalAlignment="Center">建设</Label>
+                    <TextBox Width="{StaticResource ColumnWidth2}" Text="{Binding Path=AddressList[Tech11].ValueText}" Style="{StaticResource TrainerTextBoxStyle}" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label Foreground="#737779" Width="{StaticResource ColumnWidth1}" VerticalAlignment="Center">工程</Label>
+                    <TextBox Width="{StaticResource ColumnWidth2}" Text="{Binding Path=AddressList[Tech12].ValueText}" Style="{StaticResource TrainerTextBoxStyle}" />
+                </StackPanel>
+                
+                <StackPanel Orientation="Horizontal" Margin="0,15,0,0">
+                    <Label Foreground="#737779" Width="{StaticResource ColumnWidth1}" FontWeight="Bold">中世纪</Label>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label Foreground="#737779" Width="{StaticResource ColumnWidth1}" VerticalAlignment="Center">战术</Label>
+                    <TextBox Width="{StaticResource ColumnWidth2}" Text="{Binding Path=AddressList[Tech13].ValueText}" Style="{StaticResource TrainerTextBoxStyle}" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label Foreground="#737779" Width="{StaticResource ColumnWidth1}" VerticalAlignment="Center">学徒</Label>
+                    <TextBox Width="{StaticResource ColumnWidth2}" Text="{Binding Path=AddressList[Tech14].ValueText}" Style="{StaticResource TrainerTextBoxStyle}" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label Foreground="#737779" Width="{StaticResource ColumnWidth1}" VerticalAlignment="Center">马镫</Label>
+                    <TextBox Width="{StaticResource ColumnWidth2}" Text="{Binding Path=AddressList[Tech15].ValueText}" Style="{StaticResource TrainerTextBoxStyle}" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label Foreground="#737779" Width="{StaticResource ColumnWidth1}" VerticalAlignment="Center">机械</Label>
+                    <TextBox Width="{StaticResource ColumnWidth2}" Text="{Binding Path=AddressList[Tech16].ValueText}" Style="{StaticResource TrainerTextBoxStyle}" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label Foreground="#737779" Width="{StaticResource ColumnWidth1}" VerticalAlignment="Center">教育</Label>
+                    <TextBox Width="{StaticResource ColumnWidth2}" Text="{Binding Path=AddressList[Tech17].ValueText}" Style="{StaticResource TrainerTextBoxStyle}" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label Foreground="#737779" Width="{StaticResource ColumnWidth1}" VerticalAlignment="Center">军事工程学</Label>
+                    <TextBox Width="{StaticResource ColumnWidth2}" Text="{Binding Path=AddressList[Tech18].ValueText}" Style="{StaticResource TrainerTextBoxStyle}" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label Foreground="#737779" Width="{StaticResource ColumnWidth1}" VerticalAlignment="Center">城堡</Label>
+                    <TextBox Width="{StaticResource ColumnWidth2}" Text="{Binding Path=AddressList[Tech19].ValueText}" Style="{StaticResource TrainerTextBoxStyle}" />
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal" Margin="0,15,0,0">
+                    <Label Foreground="#737779" Width="{StaticResource ColumnWidth1}" FontWeight="Bold">文艺复兴时期</Label>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label Foreground="#737779" Width="{StaticResource ColumnWidth1}" VerticalAlignment="Center">制图学</Label>
+                    <TextBox Width="{StaticResource ColumnWidth2}" Text="{Binding Path=AddressList[Tech1A].ValueText}" Style="{StaticResource TrainerTextBoxStyle}" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label Foreground="#737779" Width="{StaticResource ColumnWidth1}" VerticalAlignment="Center">大量生产</Label>
+                    <TextBox Width="{StaticResource ColumnWidth2}" Text="{Binding Path=AddressList[Tech1B].ValueText}" Style="{StaticResource TrainerTextBoxStyle}" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label Foreground="#737779" Width="{StaticResource ColumnWidth1}" VerticalAlignment="Center">银行业</Label>
+                    <TextBox Width="{StaticResource ColumnWidth2}" Text="{Binding Path=AddressList[Tech1C].ValueText}" Style="{StaticResource TrainerTextBoxStyle}" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label Foreground="#737779" Width="{StaticResource ColumnWidth1}" VerticalAlignment="Center">火药</Label>
+                    <TextBox Width="{StaticResource ColumnWidth2}" Text="{Binding Path=AddressList[Tech1D].ValueText}" Style="{StaticResource TrainerTextBoxStyle}" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label Foreground="#737779" Width="{StaticResource ColumnWidth1}" VerticalAlignment="Center">印刷术</Label>
+                    <TextBox Width="{StaticResource ColumnWidth2}" Text="{Binding Path=AddressList[Tech1E].ValueText}" Style="{StaticResource TrainerTextBoxStyle}" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label Foreground="#737779" Width="{StaticResource ColumnWidth1}" VerticalAlignment="Center">横帆装置</Label>
+                    <TextBox Width="{StaticResource ColumnWidth2}" Text="{Binding Path=AddressList[Tech1F].ValueText}" Style="{StaticResource TrainerTextBoxStyle}" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label Foreground="#737779" Width="{StaticResource ColumnWidth1}" VerticalAlignment="Center">天文学</Label>
+                    <TextBox Width="{StaticResource ColumnWidth2}" Text="{Binding Path=AddressList[Tech20].ValueText}" Style="{StaticResource TrainerTextBoxStyle}" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label Foreground="#737779" Width="{StaticResource ColumnWidth1}" VerticalAlignment="Center">金属铸造</Label>
+                    <TextBox Width="{StaticResource ColumnWidth2}" Text="{Binding Path=AddressList[Tech21].ValueText}" Style="{StaticResource TrainerTextBoxStyle}" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label Foreground="#737779" Width="{StaticResource ColumnWidth1}" VerticalAlignment="Center">攻城术</Label>
+                    <TextBox Width="{StaticResource ColumnWidth2}" Text="{Binding Path=AddressList[Tech22].ValueText}" Style="{StaticResource TrainerTextBoxStyle}" />
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal" Margin="0,15,0,0">
+                    <Label Foreground="#737779" Width="{StaticResource ColumnWidth1}" FontWeight="Bold">工业时代</Label>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label Foreground="#737779" Width="{StaticResource ColumnWidth1}" VerticalAlignment="Center">工业化</Label>
+                    <TextBox Width="{StaticResource ColumnWidth2}" Text="{Binding Path=AddressList[Tech23].ValueText}" Style="{StaticResource TrainerTextBoxStyle}" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label Foreground="#737779" Width="{StaticResource ColumnWidth1}" VerticalAlignment="Center">科学理论</Label>
+                    <TextBox Width="{StaticResource ColumnWidth2}" Text="{Binding Path=AddressList[Tech24].ValueText}" Style="{StaticResource TrainerTextBoxStyle}" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label Foreground="#737779" Width="{StaticResource ColumnWidth1}" VerticalAlignment="Center">弹道学</Label>
+                    <TextBox Width="{StaticResource ColumnWidth2}" Text="{Binding Path=AddressList[Tech25].ValueText}" Style="{StaticResource TrainerTextBoxStyle}" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label Foreground="#737779" Width="{StaticResource ColumnWidth1}" VerticalAlignment="Center">军事学</Label>
+                    <TextBox Width="{StaticResource ColumnWidth2}" Text="{Binding Path=AddressList[Tech26].ValueText}" Style="{StaticResource TrainerTextBoxStyle}" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label Foreground="#737779" Width="{StaticResource ColumnWidth1}" VerticalAlignment="Center">蒸汽动力</Label>
+                    <TextBox Width="{StaticResource ColumnWidth2}" Text="{Binding Path=AddressList[Tech27].ValueText}" Style="{StaticResource TrainerTextBoxStyle}" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label Foreground="#737779" Width="{StaticResource ColumnWidth1}" VerticalAlignment="Center">卫生设备</Label>
+                    <TextBox Width="{StaticResource ColumnWidth2}" Text="{Binding Path=AddressList[Tech28].ValueText}" Style="{StaticResource TrainerTextBoxStyle}" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label Foreground="#737779" Width="{StaticResource ColumnWidth1}" VerticalAlignment="Center">经济</Label>
+                    <TextBox Width="{StaticResource ColumnWidth2}" Text="{Binding Path=AddressList[Tech29].ValueText}" Style="{StaticResource TrainerTextBoxStyle}" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label Foreground="#737779" Width="{StaticResource ColumnWidth1}" VerticalAlignment="Center">膛线</Label>
+                    <TextBox Width="{StaticResource ColumnWidth2}" Text="{Binding Path=AddressList[Tech2A].ValueText}" Style="{StaticResource TrainerTextBoxStyle}" />
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal" Margin="0,15,0,0">
+                    <Label Foreground="#737779" Width="{StaticResource ColumnWidth1}" FontWeight="Bold">现代</Label>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label Foreground="#737779" Width="{StaticResource ColumnWidth1}" VerticalAlignment="Center">飞行</Label>
+                    <TextBox Width="{StaticResource ColumnWidth2}" Text="{Binding Path=AddressList[Tech2B].ValueText}" Style="{StaticResource TrainerTextBoxStyle}" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label Foreground="#737779" Width="{StaticResource ColumnWidth1}" VerticalAlignment="Center">可更换部件</Label>
+                    <TextBox Width="{StaticResource ColumnWidth2}" Text="{Binding Path=AddressList[Tech2C].ValueText}" Style="{StaticResource TrainerTextBoxStyle}" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label Foreground="#737779" Width="{StaticResource ColumnWidth1}" VerticalAlignment="Center">钢铁</Label>
+                    <TextBox Width="{StaticResource ColumnWidth2}" Text="{Binding Path=AddressList[Tech2D].ValueText}" Style="{StaticResource TrainerTextBoxStyle}" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label Foreground="#737779" Width="{StaticResource ColumnWidth1}" VerticalAlignment="Center">电力</Label>
+                    <TextBox Width="{StaticResource ColumnWidth2}" Text="{Binding Path=AddressList[Tech2E].ValueText}" Style="{StaticResource TrainerTextBoxStyle}" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label Foreground="#737779" Width="{StaticResource ColumnWidth1}" VerticalAlignment="Center">无线电</Label>
+                    <TextBox Width="{StaticResource ColumnWidth2}" Text="{Binding Path=AddressList[Tech2F].ValueText}" Style="{StaticResource TrainerTextBoxStyle}" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label Foreground="#737779" Width="{StaticResource ColumnWidth1}" VerticalAlignment="Center">化学</Label>
+                    <TextBox Width="{StaticResource ColumnWidth2}" Text="{Binding Path=AddressList[Tech30].ValueText}" Style="{StaticResource TrainerTextBoxStyle}" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label Foreground="#737779" Width="{StaticResource ColumnWidth1}" VerticalAlignment="Center">燃烧</Label>
+                    <TextBox Width="{StaticResource ColumnWidth2}" Text="{Binding Path=AddressList[Tech31].ValueText}" Style="{StaticResource TrainerTextBoxStyle}" />
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal" Margin="0,15,0,0">
+                    <Label Foreground="#737779" Width="{StaticResource ColumnWidth1}" FontWeight="Bold">原子能时代</Label>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label Foreground="#737779" Width="{StaticResource ColumnWidth1}" VerticalAlignment="Center">现代航空</Label>
+                    <TextBox Width="{StaticResource ColumnWidth2}" Text="{Binding Path=AddressList[Tech32].ValueText}" Style="{StaticResource TrainerTextBoxStyle}" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label Foreground="#737779" Width="{StaticResource ColumnWidth1}" VerticalAlignment="Center">火箭技术</Label>
+                    <TextBox Width="{StaticResource ColumnWidth2}" Text="{Binding Path=AddressList[Tech33].ValueText}" Style="{StaticResource TrainerTextBoxStyle}" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label Foreground="#737779" Width="{StaticResource ColumnWidth1}" VerticalAlignment="Center">高级弹道学</Label>
+                    <TextBox Width="{StaticResource ColumnWidth2}" Text="{Binding Path=AddressList[Tech34].ValueText}" Style="{StaticResource TrainerTextBoxStyle}" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label Foreground="#737779" Width="{StaticResource ColumnWidth1}" VerticalAlignment="Center">联合作战</Label>
+                    <TextBox Width="{StaticResource ColumnWidth2}" Text="{Binding Path=AddressList[Tech35].ValueText}" Style="{StaticResource TrainerTextBoxStyle}" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label Foreground="#737779" Width="{StaticResource ColumnWidth1}" VerticalAlignment="Center">塑料</Label>
+                    <TextBox Width="{StaticResource ColumnWidth2}" Text="{Binding Path=AddressList[Tech36].ValueText}" Style="{StaticResource TrainerTextBoxStyle}" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label Foreground="#737779" Width="{StaticResource ColumnWidth1}" VerticalAlignment="Center">电脑</Label>
+                    <TextBox Width="{StaticResource ColumnWidth2}" Text="{Binding Path=AddressList[Tech37].ValueText}" Style="{StaticResource TrainerTextBoxStyle}" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label Foreground="#737779" Width="{StaticResource ColumnWidth1}" VerticalAlignment="Center">核裂变</Label>
+                    <TextBox Width="{StaticResource ColumnWidth2}" Text="{Binding Path=AddressList[Tech38].ValueText}" Style="{StaticResource TrainerTextBoxStyle}" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label Foreground="#737779" Width="{StaticResource ColumnWidth1}" VerticalAlignment="Center">合成材料</Label>
+                    <TextBox Width="{StaticResource ColumnWidth2}" Text="{Binding Path=AddressList[Tech39].ValueText}" Style="{StaticResource TrainerTextBoxStyle}" />
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal" Margin="0,15,0,0">
+                    <Label Foreground="#737779" Width="{StaticResource ColumnWidth1}" FontWeight="Bold">信息时代</Label>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label Foreground="#737779" Width="{StaticResource ColumnWidth1}" VerticalAlignment="Center">通讯</Label>
+                    <TextBox Width="{StaticResource ColumnWidth2}" Text="{Binding Path=AddressList[Tech3A].ValueText}" Style="{StaticResource TrainerTextBoxStyle}" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label Foreground="#737779" Width="{StaticResource ColumnWidth1}" VerticalAlignment="Center">卫星</Label>
+                    <TextBox Width="{StaticResource ColumnWidth2}" Text="{Binding Path=AddressList[Tech3B].ValueText}" Style="{StaticResource TrainerTextBoxStyle}" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label Foreground="#737779" Width="{StaticResource ColumnWidth1}" VerticalAlignment="Center">制导系统</Label>
+                    <TextBox Width="{StaticResource ColumnWidth2}" Text="{Binding Path=AddressList[Tech3C].ValueText}" Style="{StaticResource TrainerTextBoxStyle}" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label Foreground="#737779" Width="{StaticResource ColumnWidth1}" VerticalAlignment="Center">激光</Label>
+                    <TextBox Width="{StaticResource ColumnWidth2}" Text="{Binding Path=AddressList[Tech3D].ValueText}" Style="{StaticResource TrainerTextBoxStyle}" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label Foreground="#737779" Width="{StaticResource ColumnWidth1}" VerticalAlignment="Center">复合材料</Label>
+                    <TextBox Width="{StaticResource ColumnWidth2}" Text="{Binding Path=AddressList[Tech3E].ValueText}" Style="{StaticResource TrainerTextBoxStyle}" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label Foreground="#737779" Width="{StaticResource ColumnWidth1}" VerticalAlignment="Center">隐身术</Label>
+                    <TextBox Width="{StaticResource ColumnWidth2}" Text="{Binding Path=AddressList[Tech3F].ValueText}" Style="{StaticResource TrainerTextBoxStyle}" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label Foreground="#737779" Width="{StaticResource ColumnWidth1}" VerticalAlignment="Center">机器人技术</Label>
+                    <TextBox Width="{StaticResource ColumnWidth2}" Text="{Binding Path=AddressList[Tech40].ValueText}" Style="{StaticResource TrainerTextBoxStyle}" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label Foreground="#737779" Width="{StaticResource ColumnWidth1}" VerticalAlignment="Center">纳米技术</Label>
+                    <TextBox Width="{StaticResource ColumnWidth2}" Text="{Binding Path=AddressList[Tech41].ValueText}" Style="{StaticResource TrainerTextBoxStyle}" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label Foreground="#737779" Width="{StaticResource ColumnWidth1}" VerticalAlignment="Center">核融合</Label>
+                    <TextBox Width="{StaticResource ColumnWidth2}" Text="{Binding Path=AddressList[Tech42].ValueText}" Style="{StaticResource TrainerTextBoxStyle}" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label Foreground="#737779" Width="{StaticResource ColumnWidth1}" VerticalAlignment="Center">未来科技</Label>
+                    <TextBox Width="{StaticResource ColumnWidth2}" Text="{Binding Path=AddressList[Tech43].ValueText}" Style="{StaticResource TrainerTextBoxStyle}" />
+                </StackPanel>
+            </StackPanel>
+        </ScrollViewer>
+    </DockPanel>
+</UserControl>

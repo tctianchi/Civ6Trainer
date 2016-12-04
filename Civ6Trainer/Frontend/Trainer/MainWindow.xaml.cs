@@ -31,7 +31,7 @@ namespace tctianchi.Civ6Trainer.Frontend.Trainer
                 { MenuModel.MenuCategory.Resource, new ResourcePage() },
                 { MenuModel.MenuCategory.City, new CityPage() },
                 { MenuModel.MenuCategory.Army, new ArmyPage() },
-                { MenuModel.MenuCategory.Research, new ResearchPage() },
+                { MenuModel.MenuCategory.Tech, new TechPage() },
                 { MenuModel.MenuCategory.Debug1, new Debug1Page() },
             };
 

@@ -19,7 +19,7 @@ namespace tctianchi.Civ6Trainer.ViewModel
             Resource,
             City,
             Army,
-            Research,
+            Tech,
             Debug1,
         }
 

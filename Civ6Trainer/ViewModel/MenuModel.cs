@@ -20,6 +20,7 @@ namespace tctianchi.Civ6Trainer.ViewModel
             City,
             Army,
             Tech,
+            Civic,
             Debug1,
         }
 

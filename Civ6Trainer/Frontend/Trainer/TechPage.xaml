@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:tctianchi.Civ6Trainer.Frontend.Trainer"
              xmlns:core="clr-namespace:System;assembly=mscorlib"
              mc:Ignorable="d" 
-             d:DesignHeight="1222" d:DesignWidth="444">
+             d:DesignHeight="2455.733" d:DesignWidth="444">
     <UserControl.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>

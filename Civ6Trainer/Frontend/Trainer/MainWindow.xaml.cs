@@ -32,6 +32,7 @@ namespace tctianchi.Civ6Trainer.Frontend.Trainer
                 { MenuModel.MenuCategory.City, new CityPage() },
                 { MenuModel.MenuCategory.Army, new ArmyPage() },
                 { MenuModel.MenuCategory.Tech, new TechPage() },
+                { MenuModel.MenuCategory.Civic, new CivicPage() },
                 { MenuModel.MenuCategory.Debug1, new Debug1Page() },
             };
 

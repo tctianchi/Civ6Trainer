@@ -43,6 +43,10 @@
                     <Label Foreground="#737779" Width="{StaticResource ColumnWidth1}" VerticalAlignment="Top">时代</Label>
                     <TextBox Width="{StaticResource ColumnWidth2}" Text="{Binding Path=AddressList[Era].ValueText}" Style="{StaticResource TrainerTextBoxStyle}" />
                 </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label Foreground="#737779" Width="{StaticResource ColumnWidth1}" VerticalAlignment="Top">最大贸易路线</Label>
+                    <TextBox Width="{StaticResource ColumnWidth2}" Text="{Binding Path=AddressList[RouteCapacity].ValueText}" Style="{StaticResource TrainerTextBoxStyle}" />
+                </StackPanel>
 
                 <StackPanel Orientation="Horizontal" Margin="0,15,0,0">
                     <Label Foreground="#737779" Width="{StaticResource ColumnWidth1}" FontWeight="Bold">战略资源</Label>

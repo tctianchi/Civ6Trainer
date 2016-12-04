@@ -135,6 +135,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="Frontend\Trainer\CivicPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Frontend\Trainer\TechPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -150,6 +154,9 @@
     </Compile>
     <Compile Include="Frontend\Trainer\ArmyPage.xaml.cs">
       <DependentUpon>ArmyPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Frontend\Trainer\CivicPage.xaml.cs">
+      <DependentUpon>CivicPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Frontend\Trainer\TechPage.xaml.cs">
       <DependentUpon>TechPage.xaml</DependentUpon>

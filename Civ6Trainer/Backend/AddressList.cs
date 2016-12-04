@@ -138,9 +138,14 @@ namespace tctianchi.Civ6Trainer.Backend
                 });
             }
             UInt64 playerEras = unchecked(playerBase + 0x71D8);
-            player0Model.Add("Era", new Int64Scale256AddressInfo()
+            player0Model.Add("Era", new Int32AddressInfo()
             {
                 Address = unchecked((IntPtr)(playerEras + 0xA0)),
+            });
+            UInt64 playerTrade = unchecked(playerBase + 0xA28);
+            player0Model.Add("RouteCapacity", new Int32AddressInfo()
+            {
+                Address = unchecked((IntPtr)(playerTrade + 0x98)),
             });
 
 
@@ -178,6 +183,28 @@ namespace tctianchi.Civ6Trainer.Backend
                 });
             }
 
+            AddressListModel civicModel = new AddressListModel()
+            {
+                Caption = "社会科学",
+            };
+            MenuModel.Instance.ResearchList.Add(new MenuModel.MenuItemModel()
+            {
+                Category = MenuModel.MenuCategory.Civic,
+                IsMarked = false,
+                ContentText = civicModel.Caption,
+                BubbleText = "",
+                PageModel = civicModel,
+            });
+            UInt64 playerCulture = unchecked(playerBase + 0x4338);
+            UInt64 civicList = mem.ReadUInt64(unchecked((IntPtr)(playerCulture + 0x4D8)));
+            for (UInt64 i = 0; i <= 0x31; i++)
+            {
+                civicModel.Add($"Civic{i:X02}", new ByteAddressInfo()
+                {
+                    Address = unchecked((IntPtr)(civicList + i)),
+                });
+            }
+
             #endregion
 
             #region 测试
@@ -194,8 +221,7 @@ namespace tctianchi.Civ6Trainer.Backend
                 BubbleText = "",
                 PageModel = debug1Model,
             });
-
-
+            
 
             #endregion
         }

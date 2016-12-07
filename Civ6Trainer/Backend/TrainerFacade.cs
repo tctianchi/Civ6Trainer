@@ -41,6 +41,8 @@ namespace tctianchi.Civ6Trainer.Backend
                 return false;
             }
 
+            GameTranslation.Instance.Init();
+
             return true;
         }
 
@@ -69,7 +71,7 @@ namespace tctianchi.Civ6Trainer.Backend
                 _gameMem = new WindowsApi.ProcessMemory(_gameContext.ProcessId);
 
                 // 生成修改列表
-                AddressList.All();
+                AddressList.Instance.All();
 
                 // 回到开始页
                 MenuModel.Instance.ShowMessage(Properties.Resources.UITextPleaseSelectAMenuItem);

@@ -375,48 +375,31 @@ namespace tctianchi.Civ6Trainer.Backend.WindowsApi
                 baseAddress, sizeof(UInt16), out bytesWriten);
         }
 
-        // Return null if failed or size is larger than 1024
+        // Return null if failed
         [SecurityPermission(SecurityAction.LinkDemand, UnmanagedCode = true)]
-        public byte[] ReadStdString(UInt32 baseAddress)
+        public string ReadCString(IntPtr baseAddress)
         {
-            UInt32 length = ReadUInt32((IntPtr)unchecked(baseAddress + 0x14));
-            if (length > 1024)
-            {
-                return null;
-            }
-
-            UInt32 bufferPointer = unchecked(baseAddress + 4);
-            if (length >= 16)
-            {
-                bufferPointer = ReadUInt32((IntPtr)bufferPointer);
-                if (bufferPointer == 0)
-                {
-                    return null;
-                }
-            }
-
             int bytesRead;
-            byte[] buffer = ReadBytes((IntPtr)bufferPointer, (int)length, out bytesRead);
-            if (bytesRead != length)
+            byte[] buffer = ReadBytes(baseAddress, 1024, out bytesRead);
+            if (bytesRead != 1024)
             {
                 return null;
             }
-
-            return buffer;
-        }
-
-        // Return null if failed or size is larger than 1024
-        [SecurityPermission(SecurityAction.LinkDemand, UnmanagedCode = true)]
-        public string ReadStdStringAsUtf8(UInt32 baseAddress)
-        {
-            byte[] buffer = ReadStdString(baseAddress);
-            if (buffer == null)
+            int length = 0;
+            for (int i = 0; i < 1024; i++)
             {
-                return null;
+                if (buffer[i] != 0)
+                {
+                    length += 1;
+                }
+                else
+                {
+                    break;
+                }
             }
             try
             {
-                return Encoding.UTF8.GetString(buffer);
+                return Encoding.UTF8.GetString(buffer, 0, length);
             }
             catch (System.Text.DecoderFallbackException)
             {

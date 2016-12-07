@@ -87,18 +87,33 @@ namespace tctianchi.Civ6Trainer.Backend
     #endregion
 
     // 所有可以修改的项目
-    public static class AddressList
+    public class AddressList
     {
-        public static void All()
+        #region Singleton
+
+        // singleton instance
+        private static AddressList _instance = new AddressList();
+
+        // get singleton instance
+        public static AddressList Instance
+        {
+            get
+            {
+                return _instance;
+            }
+        }
+
+        #endregion
+
+        public void All()
         {
             var mem = TrainerFacade.Instance.GameMem;
+            UInt64 playerList = mem.ReadUInt64(unchecked((IntPtr)(TrainerFacade.Instance.GameContext.PlayerAddress)));
+            uint playerIndex = 0;
+            UInt64 playerBase = mem.ReadUInt64(unchecked((IntPtr)(playerList + 8 * playerIndex + 0x210)));
 
             #region 玩家资源
 
-            UInt64 playerList = mem.ReadUInt64(unchecked((IntPtr)(TrainerFacade.Instance.GameContext.PlayerAddress)));
-            
-            // 玩家0
-            uint playerIndex = 0;
             AddressListModel player0Model = new AddressListModel()
             {
                 Caption = "玩家0",
@@ -111,7 +126,6 @@ namespace tctianchi.Civ6Trainer.Backend
                 BubbleText = "",
                 PageModel = player0Model,
             });
-            UInt64 playerBase = mem.ReadUInt64(unchecked((IntPtr)(playerList + 8 * playerIndex + 0x210)));
             UInt64 playerTreasury = unchecked(playerBase + 0x7D60);
             player0Model.Add("Gold", new Int64Scale256AddressInfo()
             {
@@ -147,13 +161,40 @@ namespace tctianchi.Civ6Trainer.Backend
             {
                 Address = unchecked((IntPtr)(playerTrade + 0x98)),
             });
-
-
-
-
+            
             #endregion
 
             #region 城市
+
+            UInt64 playerCities = unchecked(playerBase + 0x1738);
+            UInt64 nextCity = mem.ReadUInt64(unchecked((IntPtr)(playerCities + 0xB8)));
+            while (nextCity != 0)
+            {
+                // 先获得名称再说
+                UInt64 city = mem.ReadUInt64(unchecked((IntPtr)(nextCity + 0)));
+                UInt64 cityNamePointer = mem.ReadUInt64(unchecked((IntPtr)(city + 0x718)));
+                string cityName = mem.ReadCString(unchecked((IntPtr)(cityNamePointer + 0)));
+                cityName = GameTranslation.Instance.GetNameFromKey(cityName);
+                AddressListModel cityModel = new AddressListModel()
+                {
+                    Caption = cityName,
+                };
+                MenuModel.Instance.CityList.Add(new MenuModel.MenuItemModel()
+                {
+                    Category = MenuModel.MenuCategory.City,
+                    IsMarked = false,
+                    ContentText = cityModel.Caption,
+                    BubbleText = "",
+                    PageModel = cityModel,
+                });
+
+                // 其他
+
+                // next
+                nextCity = mem.ReadUInt64(unchecked((IntPtr)(nextCity + 0x10)));
+            }
+            
+
             #endregion
 
             #region 部队
@@ -222,7 +263,6 @@ namespace tctianchi.Civ6Trainer.Backend
                 PageModel = debug1Model,
             });
             
-
             #endregion
         }
     }

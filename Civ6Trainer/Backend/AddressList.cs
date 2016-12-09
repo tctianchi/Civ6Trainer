@@ -108,6 +108,7 @@ namespace tctianchi.Civ6Trainer.Backend
         public void All()
         {
             var mem = TrainerFacade.Instance.GameMem;
+            UInt64 constTextList = mem.ReadUInt64(unchecked((IntPtr)(TrainerFacade.Instance.GameContext.ConstTextAddress)));
             UInt64 playerList = mem.ReadUInt64(unchecked((IntPtr)(TrainerFacade.Instance.GameContext.PlayerAddress)));
             uint playerIndex = 0;
             UInt64 playerBase = mem.ReadUInt64(unchecked((IntPtr)(playerList + 8 * playerIndex + 0x210)));
@@ -161,20 +162,29 @@ namespace tctianchi.Civ6Trainer.Backend
             {
                 Address = unchecked((IntPtr)(playerTrade + 0x98)),
             });
-            
+
             #endregion
 
             #region 城市
 
+            // 先遍历
+            List<UInt64> cityList = new List<UInt64>();
             UInt64 playerCities = unchecked(playerBase + 0x1738);
             UInt64 nextCity = mem.ReadUInt64(unchecked((IntPtr)(playerCities + 0xB8)));
             while (nextCity != 0)
             {
-                // 先获得名称再说
                 UInt64 city = mem.ReadUInt64(unchecked((IntPtr)(nextCity + 0)));
+                cityList.Add(city);
+                nextCity = mem.ReadUInt64(unchecked((IntPtr)(nextCity + 0x10)));
+            }
+            foreach (var city in cityList)
+            {
+                // 名称
                 UInt64 cityNamePointer = mem.ReadUInt64(unchecked((IntPtr)(city + 0x718)));
                 string cityName = mem.ReadCString(unchecked((IntPtr)(cityNamePointer + 0)));
                 cityName = GameTranslation.Instance.GetNameFromKey(cityName);
+
+                // 模型
                 AddressListModel cityModel = new AddressListModel()
                 {
                     Caption = cityName,
@@ -190,14 +200,57 @@ namespace tctianchi.Civ6Trainer.Backend
 
                 // 其他
 
-                // next
-                nextCity = mem.ReadUInt64(unchecked((IntPtr)(nextCity + 0x10)));
             }
-            
 
             #endregion
 
             #region 部队
+
+            // 遍历
+            List<UInt64> unitList = new List<UInt64>();
+            UInt64 playerUnits = unchecked(playerBase + 0x10A0);
+            UInt64 nextUnit = mem.ReadUInt64(unchecked((IntPtr)(playerUnits + 0xB8)));
+            while (nextUnit != 0)
+            {
+                UInt64 unit = mem.ReadUInt64(unchecked((IntPtr)(nextUnit + 0)));
+                unitList.Add(unit);
+                nextUnit = mem.ReadUInt64(unchecked((IntPtr)(nextUnit + 0x10)));
+            }
+            
+            UInt64 unitNameConstText1 = mem.ReadUInt64(unchecked((IntPtr)(constTextList + 0x20)));
+            UInt64 unitNameConstText2 = mem.ReadUInt64(unchecked((IntPtr)(unitNameConstText1 + 0xDE0)));
+            foreach (var unit in unitList)
+            {
+                // 名称
+                UInt64 unitNamePointer = mem.ReadUInt64(unchecked((IntPtr)(unit + 0xE90)));
+                string unitName = mem.ReadCString(unchecked((IntPtr)(unitNamePointer + 0)));
+                if (String.IsNullOrEmpty(unitName))
+                {
+                    // 没有名字就用unit type对应的名字代替
+                    UInt32 unitType = mem.ReadUInt32(unchecked((IntPtr)(unit + 0xD0)));
+                    UInt64 unitNameConstText3 = mem.ReadUInt64(unchecked((IntPtr)(unitNameConstText2 + unitType * 2 * 8)));
+                    unitNamePointer = mem.ReadUInt64(unchecked((IntPtr)(unitNameConstText3 + 0x88)));
+                    unitName = mem.ReadCString(unchecked((IntPtr)(unitNamePointer)));
+                    unitName = GameTranslation.Instance.GetNameFromKey(unitName);
+                }
+                
+                // 模型
+                AddressListModel unitModel = new AddressListModel()
+                {
+                    Caption = unitName,
+                };
+                MenuModel.Instance.ArmyList.Add(new MenuModel.MenuItemModel()
+                {
+                    Category = MenuModel.MenuCategory.Army,
+                    IsMarked = false,
+                    ContentText = unitModel.Caption,
+                    BubbleText = "",
+                    PageModel = unitModel,
+                });
+
+                // 其他
+            }
+
             #endregion
 
             #region 研究

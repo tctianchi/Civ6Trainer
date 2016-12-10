@@ -35,22 +35,42 @@ namespace tctianchi.Civ6Trainer.Backend
         }
     }
     
-    public class Int32AddressInfo : IAddressInfo
+    public class UInt32AddressInfo : IAddressInfo
     {
         public IntPtr Address { get; set; }
 
         public string GetValue()
         {
-            Int32 result = TrainerFacade.Instance.GameMem.ReadInt32(Address);
+            UInt32 result = TrainerFacade.Instance.GameMem.ReadUInt32(Address);
             return result.ToString();
         }
 
         public void SetValue(string newValue)
         {
-            Int32 result;
-            if (Int32.TryParse(newValue, out result))
+            UInt32 result;
+            if (UInt32.TryParse(newValue, out result))
             {
-                TrainerFacade.Instance.GameMem.WriteInt32(Address, result);
+                TrainerFacade.Instance.GameMem.WriteUInt32(Address, result);
+            }
+        }
+    }
+
+    public class UInt16AddressInfo : IAddressInfo
+    {
+        public IntPtr Address { get; set; }
+
+        public string GetValue()
+        {
+            UInt16 result = TrainerFacade.Instance.GameMem.ReadUInt16(Address);
+            return result.ToString();
+        }
+
+        public void SetValue(string newValue)
+        {
+            UInt16 result;
+            if (UInt16.TryParse(newValue, out result))
+            {
+                TrainerFacade.Instance.GameMem.WriteUInt16(Address, result);
             }
         }
     }
@@ -147,18 +167,18 @@ namespace tctianchi.Civ6Trainer.Backend
             for (UInt64 resourceIndex = 0; resourceIndex <= 0x30; resourceIndex++)
             {
                 UInt64 resourceItem = mem.ReadUInt64(unchecked((IntPtr)(playerResourceList + 0x18 * resourceIndex)));
-                player0Model.Add($"Resource{resourceIndex:X02}", new Int32AddressInfo()
+                player0Model.Add($"Resource{resourceIndex:X02}", new UInt32AddressInfo()
                 {
                     Address = unchecked((IntPtr)(resourceItem + 0x4 * 0)),
                 });
             }
             UInt64 playerEras = unchecked(playerBase + 0x71D8);
-            player0Model.Add("Era", new Int32AddressInfo()
+            player0Model.Add("Era", new UInt32AddressInfo()
             {
                 Address = unchecked((IntPtr)(playerEras + 0xA0)),
             });
             UInt64 playerTrade = unchecked(playerBase + 0xA28);
-            player0Model.Add("RouteCapacity", new Int32AddressInfo()
+            player0Model.Add("RouteCapacity", new UInt32AddressInfo()
             {
                 Address = unchecked((IntPtr)(playerTrade + 0x98)),
             });
@@ -198,8 +218,11 @@ namespace tctianchi.Civ6Trainer.Backend
                     PageModel = cityModel,
                 });
 
-                // 其他
-
+                // 属性
+                cityModel.Add("Population", new UInt32AddressInfo()
+                {
+                    Address = unchecked((IntPtr)(city + 0x1E8)),
+                });
             }
 
             #endregion
@@ -216,24 +239,18 @@ namespace tctianchi.Civ6Trainer.Backend
                 unitList.Add(unit);
                 nextUnit = mem.ReadUInt64(unchecked((IntPtr)(nextUnit + 0x10)));
             }
-            
             UInt64 unitNameConstText1 = mem.ReadUInt64(unchecked((IntPtr)(constTextList + 0x20)));
             UInt64 unitNameConstText2 = mem.ReadUInt64(unchecked((IntPtr)(unitNameConstText1 + 0xDE0)));
             foreach (var unit in unitList)
             {
                 // 名称
-                UInt64 unitNamePointer = mem.ReadUInt64(unchecked((IntPtr)(unit + 0xE90)));
-                string unitName = mem.ReadCString(unchecked((IntPtr)(unitNamePointer + 0)));
-                if (String.IsNullOrEmpty(unitName))
-                {
-                    // 没有名字就用unit type对应的名字代替
-                    UInt32 unitType = mem.ReadUInt32(unchecked((IntPtr)(unit + 0xD0)));
-                    UInt64 unitNameConstText3 = mem.ReadUInt64(unchecked((IntPtr)(unitNameConstText2 + unitType * 2 * 8)));
-                    unitNamePointer = mem.ReadUInt64(unchecked((IntPtr)(unitNameConstText3 + 0x88)));
-                    unitName = mem.ReadCString(unchecked((IntPtr)(unitNamePointer)));
-                    unitName = GameTranslation.Instance.GetNameFromKey(unitName);
-                }
-                
+                // 应该先读伟人的名字，但我懒所以跳过。这里一律显示unit type的名字
+                UInt32 unitType = mem.ReadUInt32(unchecked((IntPtr)(unit + 0xD0)));
+                UInt64 unitTypeInfo = mem.ReadUInt64(unchecked((IntPtr)(unitNameConstText2 + unitType * 2 * 8)));
+                UInt64 unitNamePointer = mem.ReadUInt64(unchecked((IntPtr)(unitTypeInfo + 0x88)));
+                string unitName = mem.ReadCString(unchecked((IntPtr)(unitNamePointer)));
+                unitName = GameTranslation.Instance.GetNameFromKey(unitName);
+
                 // 模型
                 AddressListModel unitModel = new AddressListModel()
                 {
@@ -315,7 +332,25 @@ namespace tctianchi.Civ6Trainer.Backend
                 BubbleText = "",
                 PageModel = debug1Model,
             });
-            
+
+            foreach (var city in cityList)
+            {
+                UInt64 cityGrowth1 = mem.ReadUInt64(unchecked((IntPtr)(city + 0x970 + 0xA0)));
+                //UInt64 cityGrowth2 = unchecked(cityGrowth1 + 0x20);
+                UInt64 cityGrowth2 = mem.ReadUInt64(unchecked((IntPtr)(cityGrowth1 + 0x20)));
+                debug1Model.Add($"city_{city:X}_30", new UInt32AddressInfo()
+                {
+                    Address = unchecked((IntPtr)(cityGrowth2 + 0x30)),
+                });
+                debug1Model.Add($"city_{city:X}_34", new UInt32AddressInfo()
+                {
+                    Address = unchecked((IntPtr)(cityGrowth2 + 0x34)),
+                });
+                debug1Model.Add($"city_{city:X}_38", new UInt32AddressInfo()
+                {
+                    Address = unchecked((IntPtr)(cityGrowth2 + 0x38)),
+                });
+            }
             #endregion
         }
     }

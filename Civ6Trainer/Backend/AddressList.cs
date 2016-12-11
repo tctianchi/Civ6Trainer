@@ -245,6 +245,94 @@ namespace tctianchi.Civ6Trainer.Backend
                 {
                     Address = unchecked((IntPtr)(city + 0x1E8)),
                 });
+
+                // 增长
+                UInt64 growth = unchecked(city + 0x970 + 0x20);
+                cityModel.Add("HousingFromCivics", new UInt32AddressInfo()
+                {
+                    Address = unchecked((IntPtr)(growth + 0x30)),
+                });
+                cityModel.Add("HousingFromGreatPeople", new UInt32AddressInfo()
+                {
+                    Address = unchecked((IntPtr)(growth + 0x34)),
+                });
+                cityModel.Add("HousingFromStartingEra", new UInt32AddressInfo()
+                {
+                    Address = unchecked((IntPtr)(growth + 0x38)),
+                });
+                cityModel.Add("AmenitiesFromEntertainment", new UInt32AddressInfo()
+                {
+                    Address = unchecked((IntPtr)(growth + 0x3C)),
+                });
+                cityModel.Add("AmenitiesFromCivics", new UInt32AddressInfo()
+                {
+                    Address = unchecked((IntPtr)(growth + 0x40)),
+                });
+                cityModel.Add("AmenitiesFromGreatPeople", new UInt32AddressInfo()
+                {
+                    Address = unchecked((IntPtr)(growth + 0x44)),
+                });
+                cityModel.Add("AmenitiesFromReligion", new UInt32AddressInfo()
+                {
+                    Address = unchecked((IntPtr)(growth + 0x48)),
+                });
+                cityModel.Add("AmenitiesFromStartingEra", new UInt32AddressInfo()
+                {
+                    Address = unchecked((IntPtr)(growth + 0x50)),
+                });
+                UInt64 production = mem.ReadUInt64(unchecked((IntPtr)(growth + 0)));
+                cityModel.Add("YIELD_FROM_GAMEEFFECTS_0", new UInt32AddressInfo()
+                {
+                    Address = unchecked((IntPtr)(production + 4 * 0 + 0x500)),
+                });
+                cityModel.Add("YIELD_FROM_GAMEEFFECTS_1", new UInt32AddressInfo()
+                {
+                    Address = unchecked((IntPtr)(production + 4 * 1 + 0x500)),
+                });
+                cityModel.Add("YIELD_FROM_GAMEEFFECTS_2", new UInt32AddressInfo()
+                {
+                    Address = unchecked((IntPtr)(production + 4 * 2 + 0x500)),
+                });
+                cityModel.Add("YIELD_FROM_GAMEEFFECTS_3", new UInt32AddressInfo()
+                {
+                    Address = unchecked((IntPtr)(production + 4 * 3 + 0x500)),
+                });
+                cityModel.Add("YIELD_FROM_GAMEEFFECTS_4", new UInt32AddressInfo()
+                {
+                    Address = unchecked((IntPtr)(production + 4 * 4 + 0x500)),
+                });
+                cityModel.Add("YIELD_FROM_GAMEEFFECTS_5", new UInt32AddressInfo()
+                {
+                    Address = unchecked((IntPtr)(production + 4 * 5 + 0x500)),
+                });
+                cityModel.Add("YIELD_FROM_MODIFIER_GAMEEFFECTS_0", new UInt32AddressInfo()
+                {
+                    Address = unchecked((IntPtr)(production + 4 * 0 + 0x450)),
+                });
+                cityModel.Add("YIELD_FROM_MODIFIER_GAMEEFFECTS_1", new UInt32AddressInfo()
+                {
+                    Address = unchecked((IntPtr)(production + 4 * 1 + 0x450)),
+                });
+                cityModel.Add("YIELD_FROM_MODIFIER_GAMEEFFECTS_2", new UInt32AddressInfo()
+                {
+                    Address = unchecked((IntPtr)(production + 4 * 2 + 0x450)),
+                });
+                cityModel.Add("YIELD_FROM_MODIFIER_GAMEEFFECTS_3", new UInt32AddressInfo()
+                {
+                    Address = unchecked((IntPtr)(production + 4 * 3 + 0x450)),
+                });
+                cityModel.Add("YIELD_FROM_MODIFIER_GAMEEFFECTS_4", new UInt32AddressInfo()
+                {
+                    Address = unchecked((IntPtr)(production + 4 * 4 + 0x450)),
+                });
+                cityModel.Add("YIELD_FROM_MODIFIER_GAMEEFFECTS_5", new UInt32AddressInfo()
+                {
+                    Address = unchecked((IntPtr)(production + 4 * 5 + 0x450)),
+                });
+                cityModel.Add("YIELD_FROM_BUILDING_PRODUCTION_BONUS", new UInt32AddressInfo()
+                {
+                    Address = unchecked((IntPtr)(production + 0x3E0)),
+                });
             }
 
             #endregion
@@ -367,8 +455,11 @@ namespace tctianchi.Civ6Trainer.Backend
                 PageModel = debug1Model,
             });
 
-            //UInt64 scienceYield = mem.ReadUInt64(unchecked((IntPtr)(playerTechs + 0x78)));
-            
+            foreach (var city in cityList)
+            {
+
+            }
+
             #endregion
         }
     }

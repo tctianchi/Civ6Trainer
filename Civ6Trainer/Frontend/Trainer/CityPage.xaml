@@ -23,9 +23,105 @@
         <Border Height="2" Background="#e3e5e6" Margin="0,10" DockPanel.Dock="Top" />
         <ScrollViewer DockPanel.Dock="Bottom" Margin="0,0,-13,0">
             <StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="0,0,0,0">
+                    <Label Foreground="#737779" Width="{StaticResource ColumnWidth1}" FontWeight="Bold">人口增长</Label>
+                    <Label Foreground="#737779">* 下一回合生效</Label>
+                </StackPanel>
                 <StackPanel Orientation="Horizontal">
                     <Label Foreground="#737779" Width="{StaticResource ColumnWidth1}" VerticalAlignment="Center">人口</Label>
                     <TextBox Width="{StaticResource ColumnWidth2}" Text="{Binding Path=AddressList[Population].ValueText}" Style="{StaticResource TrainerTextBoxStyle}" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label Foreground="#737779" Width="{StaticResource ColumnWidth1}" VerticalAlignment="Center">产出食物 - 改造者</Label>
+                    <TextBox Width="{StaticResource ColumnWidth2}" Text="{Binding Path=AddressList[YIELD_FROM_GAMEEFFECTS_0].ValueText}" Style="{StaticResource TrainerTextBoxStyle}" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label Foreground="#737779" Width="{StaticResource ColumnWidth1}" VerticalAlignment="Center">产出食物 - 修正值%</Label>
+                    <TextBox Width="{StaticResource ColumnWidth2}" Text="{Binding Path=AddressList[YIELD_FROM_MODIFIER_GAMEEFFECTS_0].ValueText}" Style="{StaticResource TrainerTextBoxStyle}" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label Foreground="#737779" Width="{StaticResource ColumnWidth1}" VerticalAlignment="Center">产出生产力 - 改造者</Label>
+                    <TextBox Width="{StaticResource ColumnWidth2}" Text="{Binding Path=AddressList[YIELD_FROM_GAMEEFFECTS_1].ValueText}" Style="{StaticResource TrainerTextBoxStyle}" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label Foreground="#737779" Width="{StaticResource ColumnWidth1}" VerticalAlignment="Center">产出生产力 - 建筑</Label>
+                    <TextBox Width="{StaticResource ColumnWidth2}" Text="{Binding Path=AddressList[YIELD_FROM_BUILDING_PRODUCTION_BONUS].ValueText}" Style="{StaticResource TrainerTextBoxStyle}" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label Foreground="#737779" Width="{StaticResource ColumnWidth1}" VerticalAlignment="Center">产出生产力 - 修正值%</Label>
+                    <TextBox Width="{StaticResource ColumnWidth2}" Text="{Binding Path=AddressList[YIELD_FROM_MODIFIER_GAMEEFFECTS_1].ValueText}" Style="{StaticResource TrainerTextBoxStyle}" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label Foreground="#737779" Width="{StaticResource ColumnWidth1}" VerticalAlignment="Center">产出金币 - 改造者</Label>
+                    <TextBox Width="{StaticResource ColumnWidth2}" Text="{Binding Path=AddressList[YIELD_FROM_GAMEEFFECTS_2].ValueText}" Style="{StaticResource TrainerTextBoxStyle}" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label Foreground="#737779" Width="{StaticResource ColumnWidth1}" VerticalAlignment="Center">产出金币 - 修正值%</Label>
+                    <TextBox Width="{StaticResource ColumnWidth2}" Text="{Binding Path=AddressList[YIELD_FROM_MODIFIER_GAMEEFFECTS_2].ValueText}" Style="{StaticResource TrainerTextBoxStyle}" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label Foreground="#737779" Width="{StaticResource ColumnWidth1}" VerticalAlignment="Center">产出科技 - 改造者</Label>
+                    <TextBox Width="{StaticResource ColumnWidth2}" Text="{Binding Path=AddressList[YIELD_FROM_GAMEEFFECTS_3].ValueText}" Style="{StaticResource TrainerTextBoxStyle}" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label Foreground="#737779" Width="{StaticResource ColumnWidth1}" VerticalAlignment="Center">产出科技 - 修正值%</Label>
+                    <TextBox Width="{StaticResource ColumnWidth2}" Text="{Binding Path=AddressList[YIELD_FROM_MODIFIER_GAMEEFFECTS_3].ValueText}" Style="{StaticResource TrainerTextBoxStyle}" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label Foreground="#737779" Width="{StaticResource ColumnWidth1}" VerticalAlignment="Center">产出文化 - 改造者</Label>
+                    <TextBox Width="{StaticResource ColumnWidth2}" Text="{Binding Path=AddressList[YIELD_FROM_GAMEEFFECTS_4].ValueText}" Style="{StaticResource TrainerTextBoxStyle}" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label Foreground="#737779" Width="{StaticResource ColumnWidth1}" VerticalAlignment="Center">产出文化 - 修正值%</Label>
+                    <TextBox Width="{StaticResource ColumnWidth2}" Text="{Binding Path=AddressList[YIELD_FROM_MODIFIER_GAMEEFFECTS_4].ValueText}" Style="{StaticResource TrainerTextBoxStyle}" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label Foreground="#737779" Width="{StaticResource ColumnWidth1}" VerticalAlignment="Center">产出信仰 - 改造者</Label>
+                    <TextBox Width="{StaticResource ColumnWidth2}" Text="{Binding Path=AddressList[YIELD_FROM_GAMEEFFECTS_5].ValueText}" Style="{StaticResource TrainerTextBoxStyle}" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label Foreground="#737779" Width="{StaticResource ColumnWidth1}" VerticalAlignment="Center">产出信仰 - 修正值%</Label>
+                    <TextBox Width="{StaticResource ColumnWidth2}" Text="{Binding Path=AddressList[YIELD_FROM_MODIFIER_GAMEEFFECTS_5].ValueText}" Style="{StaticResource TrainerTextBoxStyle}" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="0,0,0,0">
+                    <Label Foreground="#737779" Width="{StaticResource ColumnWidth1}" FontWeight="Bold">宜居度</Label>
+                    <Label Foreground="#737779">* 下一回合生效</Label>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label Foreground="#737779" Width="{StaticResource ColumnWidth1}" VerticalAlignment="Center">来自娱乐设施</Label>
+                    <TextBox Width="{StaticResource ColumnWidth2}" Text="{Binding Path=AddressList[AmenitiesFromEntertainment].ValueText}" Style="{StaticResource TrainerTextBoxStyle}" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label Foreground="#737779" Width="{StaticResource ColumnWidth1}" VerticalAlignment="Center">来自市政</Label>
+                    <TextBox Width="{StaticResource ColumnWidth2}" Text="{Binding Path=AddressList[AmenitiesFromCivics].ValueText}" Style="{StaticResource TrainerTextBoxStyle}" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label Foreground="#737779" Width="{StaticResource ColumnWidth1}" VerticalAlignment="Center">来自伟人</Label>
+                    <TextBox Width="{StaticResource ColumnWidth2}" Text="{Binding Path=AddressList[AmenitiesFromGreatPeople].ValueText}" Style="{StaticResource TrainerTextBoxStyle}" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label Foreground="#737779" Width="{StaticResource ColumnWidth1}" VerticalAlignment="Center">来自宗教</Label>
+                    <TextBox Width="{StaticResource ColumnWidth2}" Text="{Binding Path=AddressList[AmenitiesFromReligion].ValueText}" Style="{StaticResource TrainerTextBoxStyle}" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label Foreground="#737779" Width="{StaticResource ColumnWidth1}" VerticalAlignment="Center">来自开启时代</Label>
+                    <TextBox Width="{StaticResource ColumnWidth2}" Text="{Binding Path=AddressList[AmenitiesFromStartingEra].ValueText}" Style="{StaticResource TrainerTextBoxStyle}" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="0,0,0,0">
+                    <Label Foreground="#737779" Width="{StaticResource ColumnWidth1}" FontWeight="Bold">住房</Label>
+                    <Label Foreground="#737779">* 下一回合生效</Label>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label Foreground="#737779" Width="{StaticResource ColumnWidth1}" VerticalAlignment="Center">来自市政</Label>
+                    <TextBox Width="{StaticResource ColumnWidth2}" Text="{Binding Path=AddressList[HousingFromCivics].ValueText}" Style="{StaticResource TrainerTextBoxStyle}" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label Foreground="#737779" Width="{StaticResource ColumnWidth1}" VerticalAlignment="Center">来自伟人</Label>
+                    <TextBox Width="{StaticResource ColumnWidth2}" Text="{Binding Path=AddressList[HousingFromGreatPeople].ValueText}" Style="{StaticResource TrainerTextBoxStyle}" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label Foreground="#737779" Width="{StaticResource ColumnWidth1}" VerticalAlignment="Center">来自开启时代</Label>
+                    <TextBox Width="{StaticResource ColumnWidth2}" Text="{Binding Path=AddressList[HousingFromStartingEra].ValueText}" Style="{StaticResource TrainerTextBoxStyle}" />
                 </StackPanel>
             </StackPanel>
         </ScrollViewer>

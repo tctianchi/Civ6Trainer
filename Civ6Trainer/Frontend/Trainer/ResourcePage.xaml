@@ -36,16 +36,24 @@
                     <TextBox Width="{StaticResource ColumnWidth2}" Text="{Binding Path=AddressList[Influence].ValueText}" Style="{StaticResource TrainerTextBoxStyle}" />
                 </StackPanel>
                 <StackPanel Orientation="Horizontal">
-                    <Label Foreground="#737779" Width="{StaticResource ColumnWidth1}" VerticalAlignment="Top">影响力</Label>
-                    <TextBox Width="{StaticResource ColumnWidth2}" Text="{Binding Path=AddressList[Influence].ValueText}" Style="{StaticResource TrainerTextBoxStyle}" />
-                </StackPanel>
-                <StackPanel Orientation="Horizontal">
                     <Label Foreground="#737779" Width="{StaticResource ColumnWidth1}" VerticalAlignment="Top">时代</Label>
                     <TextBox Width="{StaticResource ColumnWidth2}" Text="{Binding Path=AddressList[Era].ValueText}" Style="{StaticResource TrainerTextBoxStyle}" />
                 </StackPanel>
                 <StackPanel Orientation="Horizontal">
                     <Label Foreground="#737779" Width="{StaticResource ColumnWidth1}" VerticalAlignment="Top">最大贸易路线</Label>
                     <TextBox Width="{StaticResource ColumnWidth2}" Text="{Binding Path=AddressList[RouteCapacity].ValueText}" Style="{StaticResource TrainerTextBoxStyle}" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label Foreground="#737779" Width="{StaticResource ColumnWidth1}" VerticalAlignment="Center">科研 - 来自其他</Label>
+                    <TextBox Width="{StaticResource ColumnWidth2}" Text="{Binding Path=AddressList[SCIENCE_FROM_OTHER].ValueText}" Style="{StaticResource TrainerTextBoxStyle}" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label Foreground="#737779" Width="{StaticResource ColumnWidth1}" VerticalAlignment="Center">文化 - 来自其他</Label>
+                    <TextBox Width="{StaticResource ColumnWidth2}" Text="{Binding Path=AddressList[CULTURE_FROM_OTHER].ValueText}" Style="{StaticResource TrainerTextBoxStyle}" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label Foreground="#737779" Width="{StaticResource ColumnWidth1}" VerticalAlignment="Center"></Label>
+                    <Label Foreground="#737779" Width="{StaticResource ColumnWidth2}" VerticalAlignment="Center">* 以上两个都是下一回合生效</Label>
                 </StackPanel>
 
                 <StackPanel Orientation="Horizontal" Margin="0,15,0,0">

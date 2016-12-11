@@ -34,7 +34,29 @@ namespace tctianchi.Civ6Trainer.Backend
             }
         }
     }
-    
+
+    public class UInt32Scale256AddressInfo : IAddressInfo
+    {
+        public IntPtr Address { get; set; }
+
+        public string GetValue()
+        {
+            double result = TrainerFacade.Instance.GameMem.ReadUInt32(Address);
+            result /= 256.0;
+            return result.ToString();
+        }
+
+        public void SetValue(string newValue)
+        {
+            double result;
+            if (double.TryParse(newValue, out result))
+            {
+                result *= 256.0;
+                TrainerFacade.Instance.GameMem.WriteUInt32(Address, (UInt32)result);
+            }
+        }
+    }
+
     public class UInt32AddressInfo : IAddressInfo
     {
         public IntPtr Address { get; set; }
@@ -294,6 +316,12 @@ namespace tctianchi.Civ6Trainer.Backend
                 });
             }
 
+            // 每回合科研虽说是在自然科学分类，但为了修改器的易用性所以移动到资源页
+            player0Model.Add("SCIENCE_FROM_OTHER", new UInt32Scale256AddressInfo()
+            {
+                Address = unchecked((IntPtr)(playerTechs + 0x1A8)),
+            });
+
             AddressListModel civicModel = new AddressListModel()
             {
                 Caption = "社会科学",
@@ -316,6 +344,12 @@ namespace tctianchi.Civ6Trainer.Backend
                 });
             }
 
+            // 每回合文化虽说是在社会科学分类，但为了修改器的易用性所以移动到资源页
+            player0Model.Add("CULTURE_FROM_OTHER", new UInt32Scale256AddressInfo()
+            {
+                Address = unchecked((IntPtr)(playerCulture + 0x6E8)),
+            });
+
             #endregion
 
             #region 测试
@@ -333,24 +367,8 @@ namespace tctianchi.Civ6Trainer.Backend
                 PageModel = debug1Model,
             });
 
-            foreach (var city in cityList)
-            {
-                UInt64 cityGrowth1 = mem.ReadUInt64(unchecked((IntPtr)(city + 0x970 + 0xA0)));
-                //UInt64 cityGrowth2 = unchecked(cityGrowth1 + 0x20);
-                UInt64 cityGrowth2 = mem.ReadUInt64(unchecked((IntPtr)(cityGrowth1 + 0x20)));
-                debug1Model.Add($"city_{city:X}_30", new UInt32AddressInfo()
-                {
-                    Address = unchecked((IntPtr)(cityGrowth2 + 0x30)),
-                });
-                debug1Model.Add($"city_{city:X}_34", new UInt32AddressInfo()
-                {
-                    Address = unchecked((IntPtr)(cityGrowth2 + 0x34)),
-                });
-                debug1Model.Add($"city_{city:X}_38", new UInt32AddressInfo()
-                {
-                    Address = unchecked((IntPtr)(cityGrowth2 + 0x38)),
-                });
-            }
+            //UInt64 scienceYield = mem.ReadUInt64(unchecked((IntPtr)(playerTechs + 0x78)));
+            
             #endregion
         }
     }

@@ -12,8 +12,8 @@
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="../Control/TextBoxStyle.xaml"/>
             </ResourceDictionary.MergedDictionaries>
-            <core:Double x:Key="ColumnWidth1">134</core:Double>
-            <core:Double x:Key="ColumnWidth2">200</core:Double>
+            <core:Double x:Key="ColumnWidth1">234</core:Double>
+            <core:Double x:Key="ColumnWidth2">100</core:Double>
         </ResourceDictionary>
     </UserControl.Resources>
     <DockPanel>

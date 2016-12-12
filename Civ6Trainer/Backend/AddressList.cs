@@ -354,7 +354,7 @@ namespace tctianchi.Civ6Trainer.Backend
             foreach (var unit in unitList)
             {
                 // 名称
-                // 应该先读伟人的名字，但我懒所以跳过。这里一律显示unit type的名字
+                // 应该先读自定义名字和伟人的名字，但我懒所以跳过。这里一律显示unit type的名字
                 UInt32 unitType = mem.ReadUInt32(unchecked((IntPtr)(unit + 0xD0)));
                 UInt64 unitTypeInfo = mem.ReadUInt64(unchecked((IntPtr)(unitNameConstText2 + unitType * 2 * 8)));
                 UInt64 unitNamePointer = mem.ReadUInt64(unchecked((IntPtr)(unitTypeInfo + 0x88)));
@@ -376,6 +376,47 @@ namespace tctianchi.Civ6Trainer.Backend
                 });
 
                 // 其他
+                unitModel.Add("Damage", new UInt32AddressInfo()
+                {
+                    Address = unchecked((IntPtr)(unit + 0x528)),
+                });
+                UInt64 unitExperience = unchecked(unit + 0xE58 + 0x20);
+                unitModel.Add("ExperiencePoints", new UInt32AddressInfo()
+                {
+                    Address = unchecked((IntPtr)(unitExperience + 0xC)),
+                });
+                unitModel.Add("m_xMovesRemaining", new UInt32Scale256AddressInfo()
+                {
+                    Address = unchecked((IntPtr)(unit + 0x608)),
+                });
+                unitModel.Add("m_iAttacksRemaining", new UInt32AddressInfo()
+                {
+                    Address = unchecked((IntPtr)(unit + 0x640)),
+                });
+                unitModel.Add("m_iBuildCharges", new UInt32AddressInfo()
+                {
+                    Address = unchecked((IntPtr)(unit + 0x6B0)),
+                });
+                unitModel.Add("m_iAirSlotsModifier", new UInt32AddressInfo()
+                {
+                    Address = unchecked((IntPtr)(unit + 0x6E8)),
+                });
+                unitModel.Add("m_bAttackAfterMoving", new ByteAddressInfo()
+                {
+                    Address = unchecked((IntPtr)(unit + 0x800)),
+                });
+                unitModel.Add("m_bMoveAfterAttacking", new ByteAddressInfo()
+                {
+                    Address = unchecked((IntPtr)(unit + 0x838)),
+                });
+                unitModel.Add("m_kSightModifiers", new UInt32AddressInfo()
+                {
+                    Address = unchecked((IntPtr)(unit + 0xC58)),
+                });
+                unitModel.Add("m_kAttackRangeModifiers", new UInt32AddressInfo()
+                {
+                    Address = unchecked((IntPtr)(unit + 0xC90)),
+                });
             }
 
             #endregion
@@ -456,6 +497,11 @@ namespace tctianchi.Civ6Trainer.Backend
             });
 
             foreach (var city in cityList)
+            {
+
+            }
+
+            foreach (var unit in unitList)
             {
 
             }

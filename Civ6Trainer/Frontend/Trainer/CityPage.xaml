@@ -83,7 +83,7 @@
                     <Label Foreground="#737779" Width="{StaticResource ColumnWidth1}" VerticalAlignment="Center">产出信仰 - 修正值%</Label>
                     <TextBox Width="{StaticResource ColumnWidth2}" Text="{Binding Path=AddressList[YIELD_FROM_MODIFIER_GAMEEFFECTS_5].ValueText}" Style="{StaticResource TrainerTextBoxStyle}" />
                 </StackPanel>
-                <StackPanel Orientation="Horizontal" Margin="0,0,0,0">
+                <StackPanel Orientation="Horizontal" Margin="0,15,0,0">
                     <Label Foreground="#737779" Width="{StaticResource ColumnWidth1}" FontWeight="Bold">宜居度</Label>
                     <Label Foreground="#737779">* 下一回合生效</Label>
                 </StackPanel>
@@ -107,7 +107,7 @@
                     <Label Foreground="#737779" Width="{StaticResource ColumnWidth1}" VerticalAlignment="Center">来自开启时代</Label>
                     <TextBox Width="{StaticResource ColumnWidth2}" Text="{Binding Path=AddressList[AmenitiesFromStartingEra].ValueText}" Style="{StaticResource TrainerTextBoxStyle}" />
                 </StackPanel>
-                <StackPanel Orientation="Horizontal" Margin="0,0,0,0">
+                <StackPanel Orientation="Horizontal" Margin="0,15,0,0">
                     <Label Foreground="#737779" Width="{StaticResource ColumnWidth1}" FontWeight="Bold">住房</Label>
                     <Label Foreground="#737779">* 下一回合生效</Label>
                 </StackPanel>

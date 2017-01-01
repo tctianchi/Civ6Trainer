@@ -81,6 +81,10 @@
                     <TextBox Width="{StaticResource ColumnWidth2}" Text="{Binding Path=AddressList[Resource2C].ValueText}" Style="{StaticResource TrainerTextBoxStyle}" />
                 </StackPanel>
                 <StackPanel Orientation="Horizontal">
+                    <Label Foreground="#737779" Width="{StaticResource ColumnWidth1}" VerticalAlignment="Top">石油</Label>
+                    <TextBox Width="{StaticResource ColumnWidth2}" Text="{Binding Path=AddressList[Resource2D].ValueText}" Style="{StaticResource TrainerTextBoxStyle}" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
                     <Label Foreground="#737779" Width="{StaticResource ColumnWidth1}" VerticalAlignment="Top">铀</Label>
                     <TextBox Width="{StaticResource ColumnWidth2}" Text="{Binding Path=AddressList[Resource2E].ValueText}" Style="{StaticResource TrainerTextBoxStyle}" />
                 </StackPanel>

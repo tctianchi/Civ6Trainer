@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:tctianchi.Civ6Trainer"
         xmlns:trinerControl="clr-namespace:tctianchi.Civ6Trainer.Frontend.Control"
         mc:Ignorable="d"
-        Title="文明6内存修改器" Height="530" Width="660"
+        Title="文明6内存修改器 v3" Height="530" Width="660"
         MouseDown="Window_MouseDown">
     <Grid Name="grid1" Width="auto" Height="auto" Background="#f7f9fa">
         <Grid.ColumnDefinitions>

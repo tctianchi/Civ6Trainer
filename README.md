@@ -1,5 +1,6 @@
-# Civ6Trainer
-这是我blog文章《[文明6内存修改器](http://tctianchi.duapp.com/archives/%E6%96%87%E6%98%8E6%E5%86%85%E5%AD%98%E4%BF%AE%E6%94%B9%E5%99%A8)》对应的代码。
+# Civ6Trainer(Sid Meier's Civilization VI Trainer)
+
+这是我blog文章《[文明6内存修改器](http://tctianchi.duapp.com/archives/%E6%96%87%E6%98%8E6%E5%86%85%E5%AD%98%E4%BF%AE%E6%94%B9%E5%99%A8)》对应的代码。编译好的二进制也请到那里下载。
 
 ![Screenshot1](https://raw.githubusercontent.com/wiki/tctianchi/Civ6Trainer/Screenshot1.png)
 

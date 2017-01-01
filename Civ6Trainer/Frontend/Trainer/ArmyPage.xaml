@@ -33,10 +33,6 @@
                     <TextBox Width="{StaticResource ColumnWidth2}" Text="{Binding Path=AddressList[ExperiencePoints].ValueText}" Style="{StaticResource TrainerTextBoxStyle}" />
                 </StackPanel>
                 <StackPanel Orientation="Horizontal">
-                    <Label Foreground="#737779" Width="{StaticResource ColumnWidth1}" VerticalAlignment="Center">建造者剩余劳动力</Label>
-                    <TextBox Width="{StaticResource ColumnWidth2}" Text="{Binding Path=AddressList[m_iBuildCharges].ValueText}" Style="{StaticResource TrainerTextBoxStyle}" />
-                </StackPanel>
-                <StackPanel Orientation="Horizontal">
                     <Label Foreground="#737779" Width="{StaticResource ColumnWidth1}" VerticalAlignment="Center">剩余移动</Label>
                     <TextBox Width="{StaticResource ColumnWidth2}" Text="{Binding Path=AddressList[m_xMovesRemaining].ValueText}" Style="{StaticResource TrainerTextBoxStyle}" />
                 </StackPanel>
@@ -63,6 +59,24 @@
                 <StackPanel Orientation="Horizontal">
                     <Label Foreground="#737779" Width="{StaticResource ColumnWidth1}" VerticalAlignment="Center">攻击范围</Label>
                     <TextBox Width="{StaticResource ColumnWidth2}" Text="{Binding Path=AddressList[m_kAttackRangeModifiers].ValueText}" Style="{StaticResource TrainerTextBoxStyle}" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="0,15,0,0">
+                    <Label Foreground="#737779" Width="{StaticResource ColumnWidth1}" FontWeight="Bold">建造者专用</Label>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label Foreground="#737779" Width="{StaticResource ColumnWidth1}" VerticalAlignment="Center">剩余劳动力</Label>
+                    <TextBox Width="{StaticResource ColumnWidth2}" Text="{Binding Path=AddressList[m_iBuildCharges].ValueText}" Style="{StaticResource TrainerTextBoxStyle}" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="0,15,0,0">
+                    <Label Foreground="#737779" Width="{StaticResource ColumnWidth1}" FontWeight="Bold">传教士/使徒专用</Label>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label Foreground="#737779" Width="{StaticResource ColumnWidth1}" VerticalAlignment="Center">宗教力量</Label>
+                    <TextBox Width="{StaticResource ColumnWidth2}" Text="{Binding Path=AddressList[ReligiousStrength].ValueText}" Style="{StaticResource TrainerTextBoxStyle}" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label Foreground="#737779" Width="{StaticResource ColumnWidth1}" VerticalAlignment="Center">剩余传播次数</Label>
+                    <TextBox Width="{StaticResource ColumnWidth2}" Text="{Binding Path=AddressList[SpreadCharges].ValueText}" Style="{StaticResource TrainerTextBoxStyle}" />
                 </StackPanel>
             </StackPanel>
         </ScrollViewer>

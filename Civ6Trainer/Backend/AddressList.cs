@@ -429,6 +429,17 @@ namespace tctianchi.Civ6Trainer.Backend
                 {
                     Address = unchecked((IntPtr)(unit + 0xC90)),
                 });
+
+                // 宗教
+                UInt64 unitReligion = unchecked(unit + 0xF68 + 0x20);
+                unitModel.Add("ReligiousStrength", new UInt32AddressInfo()
+                {
+                    Address = unchecked((IntPtr)(unitReligion + 0x8)),
+                });
+                unitModel.Add("SpreadCharges", new UInt32AddressInfo()
+                {
+                    Address = unchecked((IntPtr)(unitReligion + 0x10)),
+                });
             }
 
             #endregion

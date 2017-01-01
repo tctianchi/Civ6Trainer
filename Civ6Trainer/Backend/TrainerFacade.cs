@@ -5,7 +5,7 @@ using tctianchi.Civ6Trainer.ViewModel;
 namespace tctianchi.Civ6Trainer.Backend
 {
     // 修改器backend逻辑总入口
-    class TrainerFacade
+    class TrainerFacade : IDisposable
     {
         #region Singleton
 
@@ -82,5 +82,40 @@ namespace tctianchi.Civ6Trainer.Backend
                 return;
             }
         }
+
+        private bool _isDisposed;
+
+        #region IDisposable
+
+        ~TrainerFacade()
+        {
+            Dispose(false);
+        }
+
+        public void Dispose()
+        {
+            Dispose(true);
+            GC.SuppressFinalize(this);
+        }
+        
+        protected virtual void Dispose(bool isDisposing)
+        {
+            if (!_isDisposed)
+            {
+                _isDisposed = true;
+                if (isDisposing)
+                {
+                    // Free managed resources here
+                    if (_gameMem != null)
+                    {
+                        _gameMem.Dispose();
+                    }
+                }
+
+                // Free unmanaged resources here
+            }
+        }
+
+        #endregion
     }
 }

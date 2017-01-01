@@ -36,7 +36,9 @@ namespace tctianchi.Civ6Trainer.ViewModel
             _keyedEntryCollection = new KeyedDictionaryEntryCollection<TKey>();
 
             foreach (KeyValuePair<TKey, TValue> entry in dictionary)
+            {
                 DoAddEntry((TKey)entry.Key, (TValue)entry.Value);
+            }
         }
 
         public ObservableDictionary(IEqualityComparer<TKey> comparer)
@@ -49,7 +51,9 @@ namespace tctianchi.Civ6Trainer.ViewModel
             _keyedEntryCollection = new KeyedDictionaryEntryCollection<TKey>(comparer);
 
             foreach (KeyValuePair<TKey, TValue> entry in dictionary)
+            {
                 DoAddEntry((TKey)entry.Key, (TValue)entry.Value);
+            }
         }
 
         #endregion public
@@ -107,7 +111,9 @@ namespace tctianchi.Civ6Trainer.ViewModel
                 {
                     _dictionaryCache.Clear();
                     foreach (DictionaryEntry entry in _keyedEntryCollection)
+                    {
                         _dictionaryCache.Add((TKey)entry.Key, (TValue)entry.Value);
+                    }
                     _dictionaryCacheVersion = _version;
                 }
                 return _dictionaryCache;
@@ -196,13 +202,17 @@ namespace tctianchi.Civ6Trainer.ViewModel
         protected virtual void OnCollectionChanged(NotifyCollectionChangedEventArgs args)
         {
             if (CollectionChanged != null)
+            {
                 CollectionChanged(this, args);
+            }
         }
 
         protected virtual void OnPropertyChanged(string name)
         {
             if (PropertyChanged != null)
+            {
                 PropertyChanged(this, new PropertyChangedEventArgs(name));
+            }
         }
 
         protected virtual bool RemoveEntry(TKey key)
@@ -217,11 +227,15 @@ namespace tctianchi.Civ6Trainer.ViewModel
 
             // if identical key/value pair already exists, nothing to do
             if (keyExists && value.Equals((TValue)_keyedEntryCollection[key].Value))
+            {
                 return false;
+            }
 
             // otherwise, remove the existing entry
             if (keyExists)
+            {
                 _keyedEntryCollection.Remove(key);
+            }
 
             // add the new entry
             _keyedEntryCollection.Add(new DictionaryEntry(key, value));
@@ -264,7 +278,9 @@ namespace tctianchi.Civ6Trainer.ViewModel
             {
                 _version++;
                 if (index > -1)
+                {
                     FireEntryRemovedNotifications(entry, index);
+                }
             }
 
             return result;
@@ -301,9 +317,13 @@ namespace tctianchi.Civ6Trainer.ViewModel
 
             // fire CollectionChanged notification
             if (index > -1)
+            {
                 OnCollectionChanged(new NotifyCollectionChangedEventArgs(NotifyCollectionChangedAction.Add, new KeyValuePair<TKey, TValue>((TKey)entry.Key, (TValue)entry.Value), index));
+            }
             else
+            {
                 OnCollectionChanged(new NotifyCollectionChangedEventArgs(NotifyCollectionChangedAction.Reset));
+            }
         }
 
         private void FireEntryRemovedNotifications(DictionaryEntry entry, int index)
@@ -313,9 +333,13 @@ namespace tctianchi.Civ6Trainer.ViewModel
 
             // fire CollectionChanged notification
             if (index > -1)
+            {
                 OnCollectionChanged(new NotifyCollectionChangedEventArgs(NotifyCollectionChangedAction.Remove, new KeyValuePair<TKey, TValue>((TKey)entry.Key, (TValue)entry.Value), index));
+            }
             else
+            {
                 OnCollectionChanged(new NotifyCollectionChangedEventArgs(NotifyCollectionChangedAction.Reset));
+            }
         }
 
         private void FirePropertyChangedNotifications()
@@ -473,7 +497,9 @@ namespace tctianchi.Civ6Trainer.ViewModel
             }
 
             foreach (DictionaryEntry entry in _keyedEntryCollection)
+            {
                 array[index++] = new KeyValuePair<TKey, TValue>((TKey)entry.Key, (TValue)entry.Value);
+            }
         }
 
         int ICollection<KeyValuePair<TKey, TValue>>.Count
@@ -546,7 +572,9 @@ namespace tctianchi.Civ6Trainer.ViewModel
 
             Collection<DictionaryEntry> entries = new Collection<DictionaryEntry>();
             foreach (DictionaryEntry entry in _keyedEntryCollection)
+            {
                 entries.Add(entry);
+            }
             info.AddValue("entries", entries);
         }
 
@@ -561,7 +589,9 @@ namespace tctianchi.Civ6Trainer.ViewModel
                 Collection<DictionaryEntry> entries = (Collection<DictionaryEntry>)
                     _siInfo.GetValue("entries", typeof(Collection<DictionaryEntry>));
                 foreach (DictionaryEntry entry in entries)
+                {
                     AddEntry((TKey)entry.Key, (TValue)entry.Value);
+                }
             }
         }
 
@@ -597,6 +627,7 @@ namespace tctianchi.Civ6Trainer.ViewModel
 
         #region KeyedDictionaryEntryCollection<TKey>
 
+#pragma warning disable CS0693 // 类型参数与外部类型中的类型参数同名
         protected class KeyedDictionaryEntryCollection<TKey> : KeyedCollection<TKey, DictionaryEntry>
         {
             #region constructors

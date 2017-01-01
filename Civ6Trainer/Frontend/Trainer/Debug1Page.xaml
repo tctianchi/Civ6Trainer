@@ -17,7 +17,7 @@
         </ResourceDictionary>
     </UserControl.Resources>
     <DockPanel>
-        <TextBlock Foreground="#737779" FontSize="15" FontWeight="Bold" DockPanel.Dock="Top">
+        <TextBlock Foreground="#737779" FontSize="15" FontWeight="Bold" DockPanel.Dock="Top" Padding="5,0">
             DEBUG 1
         </TextBlock>
         <Border Height="2" Background="#e3e5e6" Margin="0,10" DockPanel.Dock="Top" />

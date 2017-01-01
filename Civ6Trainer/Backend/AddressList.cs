@@ -209,7 +209,7 @@ namespace tctianchi.Civ6Trainer.Backend
 
             #region 城市
 
-            // 先遍历
+            // 先遍历城市列表
             List<UInt64> cityList = new List<UInt64>();
             UInt64 playerCities = unchecked(playerBase + 0x1738);
             UInt64 nextCity = mem.ReadUInt64(unchecked((IntPtr)(playerCities + 0xB8)));
@@ -219,6 +219,8 @@ namespace tctianchi.Civ6Trainer.Backend
                 cityList.Add(city);
                 nextCity = mem.ReadUInt64(unchecked((IntPtr)(nextCity + 0x10)));
             }
+
+            // 遍历缓存好的城市列表
             foreach (var city in cityList)
             {
                 // 名称
@@ -339,7 +341,7 @@ namespace tctianchi.Civ6Trainer.Backend
 
             #region 部队
 
-            // 遍历
+            // 先遍历部队列表
             List<UInt64> unitList = new List<UInt64>();
             UInt64 playerUnits = unchecked(playerBase + 0x10A0);
             UInt64 nextUnit = mem.ReadUInt64(unchecked((IntPtr)(playerUnits + 0xB8)));
@@ -349,17 +351,27 @@ namespace tctianchi.Civ6Trainer.Backend
                 unitList.Add(unit);
                 nextUnit = mem.ReadUInt64(unchecked((IntPtr)(nextUnit + 0x10)));
             }
+
+            // 按名称排序
+            Dictionary<UInt64, string> unitNameMap = new Dictionary<UInt64, string>();
             UInt64 unitNameConstText1 = mem.ReadUInt64(unchecked((IntPtr)(constTextList + 0x20)));
             UInt64 unitNameConstText2 = mem.ReadUInt64(unchecked((IntPtr)(unitNameConstText1 + 0xDE0)));
             foreach (var unit in unitList)
             {
-                // 名称
-                // 应该先读自定义名字和伟人的名字，但我懒所以跳过。这里一律显示unit type的名字
+                // 理论上应该先读自定义名字和伟人的名字，但我懒所以跳过。这里一律显示unit type的名字
                 UInt32 unitType = mem.ReadUInt32(unchecked((IntPtr)(unit + 0xD0)));
                 UInt64 unitTypeInfo = mem.ReadUInt64(unchecked((IntPtr)(unitNameConstText2 + unitType * 2 * 8)));
                 UInt64 unitNamePointer = mem.ReadUInt64(unchecked((IntPtr)(unitTypeInfo + 0x88)));
                 string unitName = mem.ReadCString(unchecked((IntPtr)(unitNamePointer)));
                 unitName = GameTranslation.Instance.GetNameFromKey(unitName);
+                unitNameMap[unit] = unitName;
+            }
+            unitList.Sort((left, right) => unitNameMap[left].CompareTo(unitNameMap[right]));
+
+            // 遍历缓存好的部队列表
+            foreach (var unit in unitList)
+            {
+                string unitName = unitNameMap[unit];
 
                 // 模型
                 AddressListModel unitModel = new AddressListModel()

@@ -70,6 +70,11 @@ namespace tctianchi.Civ6Trainer.Backend
         // return key if failed
         public string GetNameFromKey(string key)
         {
+            if (key == null)
+            {
+                return "null";
+            }
+
             string value;
             if (!localizationMap.TryGetValue(key, out value))
             {

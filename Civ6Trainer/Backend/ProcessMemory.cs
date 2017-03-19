@@ -379,27 +379,24 @@ namespace tctianchi.Civ6Trainer.Backend.WindowsApi
         [SecurityPermission(SecurityAction.LinkDemand, UnmanagedCode = true)]
         public string ReadCString(IntPtr baseAddress)
         {
-            int bytesRead;
-            byte[] buffer = ReadBytes(baseAddress, 1024, out bytesRead);
-            if (bytesRead != 1024)
+            List<byte> buffer = new List<byte>();
+            for (int currentBytes = 0; currentBytes < 1024; currentBytes++)
             {
-                return null;
-            }
-            int length = 0;
-            for (int i = 0; i < 1024; i++)
-            {
-                if (buffer[i] != 0)
-                {
-                    length += 1;
-                }
-                else
+                int bytesRead;
+                byte[] oneByte = ReadBytes(baseAddress + currentBytes, 1, out bytesRead);
+                if (bytesRead != 1)
                 {
                     break;
                 }
+                if (oneByte[0] == 0)
+                {
+                    break;
+                }
+                buffer.Add(oneByte[0]);
             }
             try
             {
-                return Encoding.UTF8.GetString(buffer, 0, length);
+                return Encoding.UTF8.GetString(buffer.ToArray(), 0, buffer.Count);
             }
             catch (System.Text.DecoderFallbackException)
             {

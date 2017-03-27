@@ -69,9 +69,9 @@ namespace tctianchi.Civ6Trainer.Backend
         {
             switch (ProcessVersion)
             {
-                case "1.0.0.26.(221715) (10/07/2016)":
-                    PlayerAddress = ModuleAddress + 0x7185D8;
-                    ConstTextAddress = ModuleAddress + 0x717920;
+                case "1.0.0.110.(253607) (02/21/2017)":
+                    PlayerAddress = ModuleAddress + 0x79E098;
+                    ConstTextAddress = ModuleAddress + 0x79D3A8;
                     break;
                 default:
                     throw new Exception(string.Format(Properties.Resources.UITextUnkonwnGameVersion, ProcessVersion));

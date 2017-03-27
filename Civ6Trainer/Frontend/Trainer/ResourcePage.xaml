@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:tctianchi.Civ6Trainer.Frontend.Trainer"
              xmlns:core="clr-namespace:System;assembly=mscorlib"
              mc:Ignorable="d" 
-             d:DesignHeight="1222" d:DesignWidth="444">
+             d:DesignHeight="1822" d:DesignWidth="444">
     <UserControl.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
@@ -87,14 +87,6 @@
                 <StackPanel Orientation="Horizontal">
                     <Label Foreground="#737779" Width="{StaticResource ColumnWidth1}" VerticalAlignment="Top">铀</Label>
                     <TextBox Width="{StaticResource ColumnWidth2}" Text="{Binding Path=AddressList[Resource2E].ValueText}" Style="{StaticResource TrainerTextBoxStyle}" />
-                </StackPanel>
-                <StackPanel Orientation="Horizontal">
-                    <Label Foreground="#737779" Width="{StaticResource ColumnWidth1}" VerticalAlignment="Top">历史古迹</Label>
-                    <TextBox Width="{StaticResource ColumnWidth2}" Text="{Binding Path=AddressList[Resource2F].ValueText}" Style="{StaticResource TrainerTextBoxStyle}" />
-                </StackPanel>
-                <StackPanel Orientation="Horizontal">
-                    <Label Foreground="#737779" Width="{StaticResource ColumnWidth1}" VerticalAlignment="Top">海滩遗址</Label>
-                    <TextBox Width="{StaticResource ColumnWidth2}" Text="{Binding Path=AddressList[Resource30].ValueText}" Style="{StaticResource TrainerTextBoxStyle}" />
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" Margin="0,15,0,0">
                     <Label Foreground="#737779" Width="{StaticResource ColumnWidth1}" FontWeight="Bold">奢侈资源</Label>
@@ -219,6 +211,58 @@
                 <StackPanel Orientation="Horizontal">
                     <Label Foreground="#737779" Width="{StaticResource ColumnWidth1}" VerticalAlignment="Top">丁香</Label>
                     <TextBox Width="{StaticResource ColumnWidth2}" Text="{Binding Path=AddressList[Resource27].ValueText}" Style="{StaticResource TrainerTextBoxStyle}" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="0,15,0,0">
+                    <Label Foreground="#737779" Width="{StaticResource ColumnWidth1}" FontWeight="Bold">加成资源</Label>
+                    <Label Foreground="#737779">* 下一回合生效</Label>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label Foreground="#737779" Width="{StaticResource ColumnWidth1}" VerticalAlignment="Top">历史古迹</Label>
+                    <TextBox Width="{StaticResource ColumnWidth2}" Text="{Binding Path=AddressList[Resource2F].ValueText}" Style="{StaticResource TrainerTextBoxStyle}" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label Foreground="#737779" Width="{StaticResource ColumnWidth1}" VerticalAlignment="Top">海滩遗址</Label>
+                    <TextBox Width="{StaticResource ColumnWidth2}" Text="{Binding Path=AddressList[Resource30].ValueText}" Style="{StaticResource TrainerTextBoxStyle}" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label Foreground="#737779" Width="{StaticResource ColumnWidth1}" VerticalAlignment="Top">香蕉</Label>
+                    <TextBox Width="{StaticResource ColumnWidth2}" Text="{Binding Path=AddressList[Resource00].ValueText}" Style="{StaticResource TrainerTextBoxStyle}" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label Foreground="#737779" Width="{StaticResource ColumnWidth1}" VerticalAlignment="Top">牛</Label>
+                    <TextBox Width="{StaticResource ColumnWidth2}" Text="{Binding Path=AddressList[Resource01].ValueText}" Style="{StaticResource TrainerTextBoxStyle}" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label Foreground="#737779" Width="{StaticResource ColumnWidth1}" VerticalAlignment="Top">铜</Label>
+                    <TextBox Width="{StaticResource ColumnWidth2}" Text="{Binding Path=AddressList[Resource02].ValueText}" Style="{StaticResource TrainerTextBoxStyle}" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label Foreground="#737779" Width="{StaticResource ColumnWidth1}" VerticalAlignment="Top">螃蟹</Label>
+                    <TextBox Width="{StaticResource ColumnWidth2}" Text="{Binding Path=AddressList[Resource03].ValueText}" Style="{StaticResource TrainerTextBoxStyle}" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label Foreground="#737779" Width="{StaticResource ColumnWidth1}" VerticalAlignment="Top">鹿</Label>
+                    <TextBox Width="{StaticResource ColumnWidth2}" Text="{Binding Path=AddressList[Resource04].ValueText}" Style="{StaticResource TrainerTextBoxStyle}" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label Foreground="#737779" Width="{StaticResource ColumnWidth1}" VerticalAlignment="Top">鱼</Label>
+                    <TextBox Width="{StaticResource ColumnWidth2}" Text="{Binding Path=AddressList[Resource05].ValueText}" Style="{StaticResource TrainerTextBoxStyle}" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label Foreground="#737779" Width="{StaticResource ColumnWidth1}" VerticalAlignment="Top">大米</Label>
+                    <TextBox Width="{StaticResource ColumnWidth2}" Text="{Binding Path=AddressList[Resource06].ValueText}" Style="{StaticResource TrainerTextBoxStyle}" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label Foreground="#737779" Width="{StaticResource ColumnWidth1}" VerticalAlignment="Top">羊</Label>
+                    <TextBox Width="{StaticResource ColumnWidth2}" Text="{Binding Path=AddressList[Resource07].ValueText}" Style="{StaticResource TrainerTextBoxStyle}" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label Foreground="#737779" Width="{StaticResource ColumnWidth1}" VerticalAlignment="Top">石头</Label>
+                    <TextBox Width="{StaticResource ColumnWidth2}" Text="{Binding Path=AddressList[Resource08].ValueText}" Style="{StaticResource TrainerTextBoxStyle}" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label Foreground="#737779" Width="{StaticResource ColumnWidth1}" VerticalAlignment="Top">小麦</Label>
+                    <TextBox Width="{StaticResource ColumnWidth2}" Text="{Binding Path=AddressList[Resource09].ValueText}" Style="{StaticResource TrainerTextBoxStyle}" />
                 </StackPanel>
             </StackPanel>
         </ScrollViewer>

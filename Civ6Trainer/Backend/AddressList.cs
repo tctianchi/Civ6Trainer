@@ -169,22 +169,22 @@ namespace tctianchi.Civ6Trainer.Backend
                 BubbleText = "",
                 PageModel = player0Model,
             });
-            UInt64 playerTreasury = unchecked(playerBase + 0x7D60);
+            UInt64 playerTreasury = unchecked(playerBase + 0x8BD8);
             player0Model.Add("Gold", new Int64Scale256AddressInfo()
             {
                 Address = unchecked((IntPtr)(playerTreasury + 0xA0)),
             });
-            UInt64 playerReligion = unchecked(playerBase + 0x6A88);
+            UInt64 playerReligion = unchecked(playerBase + 0x7840);
             player0Model.Add("Faith", new Int64Scale256AddressInfo()
             {
                 Address = unchecked((IntPtr)(playerReligion + 0xA8)),
             });
-            UInt64 playerInfluence = unchecked(playerBase + 0x7520);
+            UInt64 playerInfluence = unchecked(playerBase + 0x8398);
             player0Model.Add("Influence", new Int64Scale256AddressInfo()
             {
                 Address = unchecked((IntPtr)(playerInfluence + 0xD0)),
             });
-            UInt64 playerResources = unchecked(playerBase + 0x51C8);
+            UInt64 playerResources = unchecked(playerBase + 0x5F48);
             UInt64 playerResourceList = mem.ReadUInt64(unchecked((IntPtr)(playerResources + 0x198)));
             for (UInt64 resourceIndex = 0; resourceIndex <= 0x30; resourceIndex++)
             {
@@ -194,7 +194,7 @@ namespace tctianchi.Civ6Trainer.Backend
                     Address = unchecked((IntPtr)(resourceItem + 0x4 * 0)),
                 });
             }
-            UInt64 playerEras = unchecked(playerBase + 0x71D8);
+            UInt64 playerEras = unchecked(playerBase + 0x7F90);
             player0Model.Add("Era", new UInt32AddressInfo()
             {
                 Address = unchecked((IntPtr)(playerEras + 0xA0)),
@@ -211,7 +211,7 @@ namespace tctianchi.Civ6Trainer.Backend
 
             // 先遍历城市列表
             List<UInt64> cityList = new List<UInt64>();
-            UInt64 playerCities = unchecked(playerBase + 0x1738);
+            UInt64 playerCities = unchecked(playerBase + 0x1770);
             UInt64 nextCity = mem.ReadUInt64(unchecked((IntPtr)(playerCities + 0xB8)));
             while (nextCity != 0)
             {
@@ -224,7 +224,7 @@ namespace tctianchi.Civ6Trainer.Backend
             foreach (var city in cityList)
             {
                 // 名称
-                UInt64 cityNamePointer = mem.ReadUInt64(unchecked((IntPtr)(city + 0x718)));
+                UInt64 cityNamePointer = mem.ReadUInt64(unchecked((IntPtr)(city + 0x7E0)));
                 string cityName = mem.ReadCString(unchecked((IntPtr)(cityNamePointer + 0)));
                 cityName = GameTranslation.Instance.GetNameFromKey(cityName);
 
@@ -249,7 +249,7 @@ namespace tctianchi.Civ6Trainer.Backend
                 });
 
                 // 增长
-                UInt64 growth = unchecked(city + 0x970 + 0x20);
+                UInt64 growth = unchecked(city + 0xA38 + 0x20);
                 cityModel.Add("HousingFromCivics", new UInt32AddressInfo()
                 {
                     Address = unchecked((IntPtr)(growth + 0x30)),
@@ -274,66 +274,66 @@ namespace tctianchi.Civ6Trainer.Backend
                 {
                     Address = unchecked((IntPtr)(growth + 0x44)),
                 });
-                cityModel.Add("AmenitiesFromReligion", new UInt32AddressInfo()
+                cityModel.Add("AmenitiesFromCityStates", new UInt32AddressInfo()
                 {
                     Address = unchecked((IntPtr)(growth + 0x48)),
                 });
-                cityModel.Add("AmenitiesFromStartingEra", new UInt32AddressInfo()
+                cityModel.Add("AmenitiesFromReligion", new UInt32AddressInfo()
                 {
-                    Address = unchecked((IntPtr)(growth + 0x50)),
+                    Address = unchecked((IntPtr)(growth + 0x4C)),
                 });
                 UInt64 production = mem.ReadUInt64(unchecked((IntPtr)(growth + 0)));
                 cityModel.Add("YIELD_FROM_GAMEEFFECTS_0", new UInt32AddressInfo()
                 {
-                    Address = unchecked((IntPtr)(production + 4 * 0 + 0x500)),
+                    Address = unchecked((IntPtr)(production + 4 * 0 + 0x570)),
                 });
                 cityModel.Add("YIELD_FROM_GAMEEFFECTS_1", new UInt32AddressInfo()
                 {
-                    Address = unchecked((IntPtr)(production + 4 * 1 + 0x500)),
+                    Address = unchecked((IntPtr)(production + 4 * 1 + 0x570)),
                 });
                 cityModel.Add("YIELD_FROM_GAMEEFFECTS_2", new UInt32AddressInfo()
                 {
-                    Address = unchecked((IntPtr)(production + 4 * 2 + 0x500)),
+                    Address = unchecked((IntPtr)(production + 4 * 2 + 0x570)),
                 });
                 cityModel.Add("YIELD_FROM_GAMEEFFECTS_3", new UInt32AddressInfo()
                 {
-                    Address = unchecked((IntPtr)(production + 4 * 3 + 0x500)),
+                    Address = unchecked((IntPtr)(production + 4 * 3 + 0x570)),
                 });
                 cityModel.Add("YIELD_FROM_GAMEEFFECTS_4", new UInt32AddressInfo()
                 {
-                    Address = unchecked((IntPtr)(production + 4 * 4 + 0x500)),
+                    Address = unchecked((IntPtr)(production + 4 * 4 + 0x570)),
                 });
                 cityModel.Add("YIELD_FROM_GAMEEFFECTS_5", new UInt32AddressInfo()
                 {
-                    Address = unchecked((IntPtr)(production + 4 * 5 + 0x500)),
+                    Address = unchecked((IntPtr)(production + 4 * 5 + 0x570)),
                 });
                 cityModel.Add("YIELD_FROM_MODIFIER_GAMEEFFECTS_0", new UInt32AddressInfo()
                 {
-                    Address = unchecked((IntPtr)(production + 4 * 0 + 0x450)),
+                    Address = unchecked((IntPtr)(production + 4 * 0 + 0x4C0)),
                 });
                 cityModel.Add("YIELD_FROM_MODIFIER_GAMEEFFECTS_1", new UInt32AddressInfo()
                 {
-                    Address = unchecked((IntPtr)(production + 4 * 1 + 0x450)),
+                    Address = unchecked((IntPtr)(production + 4 * 1 + 0x4C0)),
                 });
                 cityModel.Add("YIELD_FROM_MODIFIER_GAMEEFFECTS_2", new UInt32AddressInfo()
                 {
-                    Address = unchecked((IntPtr)(production + 4 * 2 + 0x450)),
+                    Address = unchecked((IntPtr)(production + 4 * 2 + 0x4C0)),
                 });
                 cityModel.Add("YIELD_FROM_MODIFIER_GAMEEFFECTS_3", new UInt32AddressInfo()
                 {
-                    Address = unchecked((IntPtr)(production + 4 * 3 + 0x450)),
+                    Address = unchecked((IntPtr)(production + 4 * 3 + 0x4C0)),
                 });
                 cityModel.Add("YIELD_FROM_MODIFIER_GAMEEFFECTS_4", new UInt32AddressInfo()
                 {
-                    Address = unchecked((IntPtr)(production + 4 * 4 + 0x450)),
+                    Address = unchecked((IntPtr)(production + 4 * 4 + 0x4C0)),
                 });
                 cityModel.Add("YIELD_FROM_MODIFIER_GAMEEFFECTS_5", new UInt32AddressInfo()
                 {
-                    Address = unchecked((IntPtr)(production + 4 * 5 + 0x450)),
+                    Address = unchecked((IntPtr)(production + 4 * 5 + 0x4C0)),
                 });
                 cityModel.Add("YIELD_FROM_BUILDING_PRODUCTION_BONUS", new UInt32AddressInfo()
                 {
-                    Address = unchecked((IntPtr)(production + 0x3E0)),
+                    Address = unchecked((IntPtr)(production + 0x418)),
                 });
             }
 
@@ -343,7 +343,7 @@ namespace tctianchi.Civ6Trainer.Backend
 
             // 先遍历部队列表
             List<UInt64> unitList = new List<UInt64>();
-            UInt64 playerUnits = unchecked(playerBase + 0x10A0);
+            UInt64 playerUnits = unchecked(playerBase + 0x10D8);
             UInt64 nextUnit = mem.ReadUInt64(unchecked((IntPtr)(playerUnits + 0xB8)));
             while (nextUnit != 0)
             {
@@ -355,7 +355,7 @@ namespace tctianchi.Civ6Trainer.Backend
             // 按名称排序
             Dictionary<UInt64, string> unitNameMap = new Dictionary<UInt64, string>();
             UInt64 unitNameConstText1 = mem.ReadUInt64(unchecked((IntPtr)(constTextList + 0x20)));
-            UInt64 unitNameConstText2 = mem.ReadUInt64(unchecked((IntPtr)(unitNameConstText1 + 0xDE0)));
+            UInt64 unitNameConstText2 = mem.ReadUInt64(unchecked((IntPtr)(unitNameConstText1 + 0xE70)));
             foreach (var unit in unitList)
             {
                 // 理论上应该先读自定义名字和伟人的名字，但我懒所以跳过。这里一律显示unit type的名字
@@ -392,7 +392,7 @@ namespace tctianchi.Civ6Trainer.Backend
                 {
                     Address = unchecked((IntPtr)(unit + 0x528)),
                 });
-                UInt64 unitExperience = unchecked(unit + 0xE58 + 0x20);
+                UInt64 unitExperience = unchecked(unit + 0xE90 + 0x20);
                 unitModel.Add("ExperiencePoints", new UInt32AddressInfo()
                 {
                     Address = unchecked((IntPtr)(unitExperience + 0xC)),
@@ -415,23 +415,23 @@ namespace tctianchi.Civ6Trainer.Backend
                 });
                 unitModel.Add("m_bAttackAfterMoving", new ByteAddressInfo()
                 {
-                    Address = unchecked((IntPtr)(unit + 0x800)),
+                    Address = unchecked((IntPtr)(unit + 0x838)),
                 });
                 unitModel.Add("m_bMoveAfterAttacking", new ByteAddressInfo()
                 {
-                    Address = unchecked((IntPtr)(unit + 0x838)),
+                    Address = unchecked((IntPtr)(unit + 0x870)),
                 });
                 unitModel.Add("m_kSightModifiers", new UInt32AddressInfo()
                 {
-                    Address = unchecked((IntPtr)(unit + 0xC58)),
+                    Address = unchecked((IntPtr)(unit + 0xC90)),
                 });
                 unitModel.Add("m_kAttackRangeModifiers", new UInt32AddressInfo()
                 {
-                    Address = unchecked((IntPtr)(unit + 0xC90)),
+                    Address = unchecked((IntPtr)(unit + 0xCC8)),
                 });
 
                 // 宗教
-                UInt64 unitReligion = unchecked(unit + 0xF68 + 0x20);
+                UInt64 unitReligion = unchecked(unit + 0xFA0 + 0x20);
                 unitModel.Add("ReligiousStrength", new UInt32AddressInfo()
                 {
                     Address = unchecked((IntPtr)(unitReligion + 0x8)),
@@ -458,7 +458,7 @@ namespace tctianchi.Civ6Trainer.Backend
                 BubbleText = "",
                 PageModel = techModel,
             });
-            UInt64 playerTechs = unchecked(playerBase + 0x66E8);
+            UInt64 playerTechs = unchecked(playerBase + 0x74A0);
             UInt64 techList = mem.ReadUInt64(unchecked((IntPtr)(playerTechs + 0x1E0)));
             for (UInt64 i = 0; i <= 0x43; i++)
             {
@@ -486,8 +486,8 @@ namespace tctianchi.Civ6Trainer.Backend
                 BubbleText = "",
                 PageModel = civicModel,
             });
-            UInt64 playerCulture = unchecked(playerBase + 0x4338);
-            UInt64 civicList = mem.ReadUInt64(unchecked((IntPtr)(playerCulture + 0x4D8)));
+            UInt64 playerCulture = unchecked(playerBase + 0x4F38);
+            UInt64 civicList = mem.ReadUInt64(unchecked((IntPtr)(playerCulture + 0x530)));
             for (UInt64 i = 0; i <= 0x31; i++)
             {
                 civicModel.Add($"Civic{i:X02}", new ByteAddressInfo()
@@ -499,7 +499,7 @@ namespace tctianchi.Civ6Trainer.Backend
             // 每回合文化虽说是在社会科学分类，但为了修改器的易用性所以移动到资源页
             player0Model.Add("CULTURE_FROM_OTHER", new UInt32Scale256AddressInfo()
             {
-                Address = unchecked((IntPtr)(playerCulture + 0x6E8)),
+                Address = unchecked((IntPtr)(playerCulture + 0x740)),
             });
 
             #endregion

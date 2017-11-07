@@ -4,6 +4,12 @@
 
 ![Screenshot1](https://raw.githubusercontent.com/wiki/tctianchi/Civ6Trainer/Screenshot1.png)
 
+## 修改器简介
+这款修改器可以读写游戏中的游戏资源、单位攻击力、城市属性等，帮助你在单机游戏中获得更好的娱乐体验。但不能：
+* 修改器不是作弊器，只能在单机上使用
+* 不适用于网络对战，更无法在战网上胡闹
+* 没有向网络发送过任何欺骗信息
+
 ## 使用方法
 1. 当前Windows帐号需要拥有Debug权限，通常只有Administrators组的用户才能运行这个修改器
 1. 启动游戏、进入地图
